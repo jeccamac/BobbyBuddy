@@ -48,7 +48,8 @@ MonoBehaviour:
   _currentScene: MainScreen
   _room1: LivingRoom
   _room2: 
+  _optionalRoom3: 
   _fadeIn: 1
-  _fadeInDelay: 1
+  _fadeInDelay: 1.5
   _fadeOut: 1
-  _fadeOutDelay: 1
+  _fadeOutDelay: 1.5

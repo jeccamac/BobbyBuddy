@@ -7,11 +7,15 @@ using UnityEngine.UI;
 public class TransitionManager : MonoBehaviour
 {
     [SerializeField] private Image _fadeToBlack = null;
+    [SerializeField] private GameObject _raycastBlock = null;
     
     [Header("Scenes")]
     [SerializeField] private string _currentScene;
     [SerializeField] private string _room1;
     [SerializeField] private string _room2;
+    
+    [Tooltip("Extra Room Option")]
+    [SerializeField] private string _optionalRoom3;
 
     [Header("On Scene Load")]
     
@@ -22,13 +26,12 @@ public class TransitionManager : MonoBehaviour
     [SerializeField] private bool _fadeOut = true;
     [SerializeField] private float _fadeOutDelay = 1;
 
-    
-
     private void Start() 
     {
         DataManager.Instance.level = _currentScene;
 
         // Intro Sequence
+        if (_raycastBlock != null) { _raycastBlock.gameObject.SetActive(true); }
         if (_fadeIn)
         {
             FadeFromBlack();
@@ -51,6 +54,14 @@ public class TransitionManager : MonoBehaviour
         } else { NextScene(_room2); }
     }
 
+    public void TransitionRoom3()
+    {
+        if (_fadeOut && _fadeToBlack != null)
+        {
+            StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
+        } else { NextScene(_optionalRoom3); }
+    }
+
     private void FadeFromBlack()
     {
         StartCoroutine(FadeFromBlack(_fadeInDelay));
@@ -67,6 +78,7 @@ public class TransitionManager : MonoBehaviour
         }
 
         _fadeToBlack.gameObject.SetActive(false);
+        if (_raycastBlock != null) { _raycastBlock.gameObject.SetActive(false); }
     }
 
     private IEnumerator FadeToBlack(float time, string roomName) // on scene exit
