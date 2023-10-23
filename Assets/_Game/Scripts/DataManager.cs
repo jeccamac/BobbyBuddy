@@ -44,7 +44,7 @@ public class DataManager : MonoBehaviour
                 case "DentistOffice":
                     return Room.DentistOffice;
                 default:
-                    return Room.None;
+                    return Room.LivingRoom;
             }
     }
 
