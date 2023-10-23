@@ -12,6 +12,9 @@ public class TransitionManager : MonoBehaviour
     [SerializeField] private string _currentScene;
     [SerializeField] private string _room1;
     [SerializeField] private string _room2;
+    
+    [Tooltip("Extra Room Option")]
+    [SerializeField] private string _optionalRoom3;
 
     [Header("On Scene Load")]
     
@@ -49,6 +52,14 @@ public class TransitionManager : MonoBehaviour
         {
             StartCoroutine(FadeToBlack(_fadeOutDelay, _room2));
         } else { NextScene(_room2); }
+    }
+
+    public void TransitionRoom3()
+    {
+        if (_fadeOut && _fadeToBlack != null)
+        {
+            StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
+        } else { NextScene(_optionalRoom3); }
     }
 
     private void FadeFromBlack()
