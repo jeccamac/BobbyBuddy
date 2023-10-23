@@ -776,9 +776,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
         type: 3}
+      propertyPath: _fadeInDelay
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
+        type: 3}
       propertyPath: _fadeToBlack
       value: 
       objectReference: {fileID: 376054058}
+    - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
+        type: 3}
+      propertyPath: _fadeOutDelay
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
         type: 3}
       propertyPath: _raycastBlock

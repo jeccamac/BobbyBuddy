@@ -129,12 +129,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 768246806}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f2c84b0c526b37c45806428bb221b269,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.8462151
+      value: -2.24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f2c84b0c526b37c45806428bb221b269,
         type: 3}
@@ -149,7 +149,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f2c84b0c526b37c45806428bb221b269,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.45891243
+      value: 0.45891246
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f2c84b0c526b37c45806428bb221b269,
         type: 3}
@@ -159,7 +159,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f2c84b0c526b37c45806428bb221b269,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.88848144
+      value: 0.8884815
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f2c84b0c526b37c45806428bb221b269,
         type: 3}
@@ -418,7 +418,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1c77555fce85aa74da16fd6cadfac6b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.761
+      value: -0.66478485
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c77555fce85aa74da16fd6cadfac6b8,
         type: 3}
@@ -1251,6 +1251,8 @@ Transform:
   m_Children:
   - {fileID: 95607438}
   - {fileID: 871149356}
+  - {fileID: 1144926273}
+  - {fileID: 1013488424}
   - {fileID: 389780168}
   - {fileID: 655933276}
   - {fileID: 119782953}
@@ -1317,7 +1319,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 0b04b4ee27b36df4c94e4df3ea384a9f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.366
+      value: 0.46221513
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 0b04b4ee27b36df4c94e4df3ea384a9f,
         type: 3}
@@ -1444,6 +1446,18 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 0b04b4ee27b36df4c94e4df3ea384a9f,
     type: 3}
   m_PrefabInstance: {fileID: 871149355}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1013488424 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b7b20bc931c427e46a8b1918db64e552,
+    type: 3}
+  m_PrefabInstance: {fileID: 1493186662}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1144926273 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f2c84b0c526b37c45806428bb221b269,
+    type: 3}
+  m_PrefabInstance: {fileID: 87027337}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1191545721
 GameObject:
@@ -1613,7 +1627,7 @@ Transform:
   m_GameObject: {fileID: 1380457975}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: -0.5}
-  m_LocalPosition: {x: -0.11, y: 0.752, z: -0.516}
+  m_LocalPosition: {x: -0.05, y: 0.93, z: -0.516}
   m_LocalScale: {x: 0.058021292, y: 0.088105954, z: 0.08252532}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1625,7 +1639,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 768246806}
     m_Modifications:
     - target: {fileID: -8829413960459475363, guid: b7b20bc931c427e46a8b1918db64e552,
         type: 3}
@@ -1635,12 +1649,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: b7b20bc931c427e46a8b1918db64e552,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.073
+      value: 2.1692152
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7b20bc931c427e46a8b1918db64e552,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.00000011920929
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: b7b20bc931c427e46a8b1918db64e552,
         type: 3}
@@ -1976,5 +1990,3 @@ SceneRoots:
   - {fileID: 768246806}
   - {fileID: 1380457979}
   - {fileID: 1686853797}
-  - {fileID: 87027337}
-  - {fileID: 1493186662}
