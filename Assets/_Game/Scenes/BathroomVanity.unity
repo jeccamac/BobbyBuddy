@@ -505,6 +505,11 @@ PrefabInstance:
       propertyPath: _currentScene
       value: BathroomVanity
       objectReference: {fileID: 0}
+    - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
+        type: 3}
+      propertyPath: _raycastBlock
+      value: 
+      objectReference: {fileID: 964319962}
     - target: {fileID: 8542117165949877472, guid: e6095d31049fcdb4a99e21004601fb0e,
         type: 3}
       propertyPath: m_Name
@@ -767,6 +772,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &964319962 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8338312090590600533, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 964319960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1191545721
 GameObject:
   m_ObjectHideFlags: 0
