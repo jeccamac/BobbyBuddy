@@ -859,6 +859,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
         type: 3}
+      propertyPath: _fadeInDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
+        type: 3}
       propertyPath: _fadeToBlack
       value: 
       objectReference: {fileID: 1394866676}
@@ -866,6 +871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _currentScene
       value: DentistOffice
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
+        type: 3}
+      propertyPath: _fadeOutDelay
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
         type: 3}

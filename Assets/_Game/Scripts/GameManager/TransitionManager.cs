@@ -42,7 +42,9 @@ public class TransitionManager : MonoBehaviour
     {
         if (_fadeOut && _fadeToBlack != null)
         {
+            _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, _room1));
+            Debug.Log("fading to black");
         } else { NextScene(_room1); }
     }
 
@@ -50,7 +52,9 @@ public class TransitionManager : MonoBehaviour
     {
         if (_fadeOut && _fadeToBlack != null)
         {
+            _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, _room2));
+            Debug.Log("fading to black");
         } else { NextScene(_room2); }
     }
 
@@ -58,7 +62,9 @@ public class TransitionManager : MonoBehaviour
     {
         if (_fadeOut && _fadeToBlack != null)
         {
+            _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
+            Debug.Log("fading to black");
         } else { NextScene(_optionalRoom3); }
     }
 
@@ -83,6 +89,7 @@ public class TransitionManager : MonoBehaviour
 
     private IEnumerator FadeToBlack(float time, string roomName) // on scene exit
     {
+        if (_raycastBlock != null) { _raycastBlock.gameObject.SetActive(true); }
         for (float t = 0; t < time; t += Time.deltaTime)
         {
             float delta = t / time;
