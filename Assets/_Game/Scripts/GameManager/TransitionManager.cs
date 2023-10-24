@@ -68,6 +68,17 @@ public class TransitionManager : MonoBehaviour
         } else { NextScene(_optionalRoom3); }
     }
 
+    public void QuitToMenu()
+    {
+        // quit to menu
+        if (_fadeOut && _fadeToBlack != null)
+        {
+            _fadeToBlack.gameObject.SetActive(true);
+            StartCoroutine(FadeToBlack(_fadeOutDelay, "MainScreen"));
+            Debug.Log("fading to black");
+        } else { NextScene("MainScreen"); }
+    }
+
     private void FadeFromBlack()
     {
         StartCoroutine(FadeFromBlack(_fadeInDelay));
