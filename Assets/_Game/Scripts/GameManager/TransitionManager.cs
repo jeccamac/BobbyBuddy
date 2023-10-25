@@ -44,7 +44,6 @@ public class TransitionManager : MonoBehaviour
         {
             _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, _room1));
-            Debug.Log("fading to black");
         } else { NextScene(_room1); }
     }
 
@@ -54,7 +53,6 @@ public class TransitionManager : MonoBehaviour
         {
             _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, _room2));
-            Debug.Log("fading to black");
         } else { NextScene(_room2); }
     }
 
@@ -64,7 +62,6 @@ public class TransitionManager : MonoBehaviour
         {
             _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
-            Debug.Log("fading to black");
         } else { NextScene(_optionalRoom3); }
     }
 
@@ -75,7 +72,6 @@ public class TransitionManager : MonoBehaviour
         {
             _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, "MainScreen"));
-            Debug.Log("fading to black");
         } else { NextScene("MainScreen"); }
     }
 
