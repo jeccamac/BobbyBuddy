@@ -1188,8 +1188,8 @@ MonoBehaviour:
   action1: {fileID: 1456943437}
   action2: {fileID: 1065616271}
   action3: {fileID: 1802632585}
-  action4: {fileID: 860463467}
-  xrayObject: {fileID: 0}
+  action4: {fileID: 0}
+  xrayObject: {fileID: 1111997670}
 --- !u!1 &694636810
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,18 +1482,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 148753502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &860463467 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5685391797338629713, guid: 136114721b1348449bb045e6abda9084,
-    type: 3}
-  m_PrefabInstance: {fileID: 1394866675}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &910857987
 GameObject:
   m_ObjectHideFlags: 0
@@ -3481,7 +3469,7 @@ PrefabInstance:
     - target: {fileID: 1474098369935574548, guid: eee6b9cc6967c504eb50a1be4e9a7ce8,
         type: 3}
       propertyPath: sfxSounds.Array.data[1].name
-      value: Click
+      value: XRay Off
       objectReference: {fileID: 0}
     - target: {fileID: 3863704749347946722, guid: eee6b9cc6967c504eb50a1be4e9a7ce8,
         type: 3}
