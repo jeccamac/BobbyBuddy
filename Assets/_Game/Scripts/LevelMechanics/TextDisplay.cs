@@ -9,11 +9,11 @@ public class TextDisplay : MonoBehaviour
     [Tooltip("Text display to inform player")]
     [SerializeField] private Text _textDisplay = null;
     [SerializeField] private Image _objImage = null;
-    private Animator _animator;
+    private Animator _animPanel;
 
     private void Start() 
     {
-        _animator = GetComponent<Animator>();
+        _animPanel = GetComponent<Animator>();
         _textDisplay.enabled = false;
         _objImage.enabled = false;
     }
@@ -23,7 +23,7 @@ public class TextDisplay : MonoBehaviour
     {
         _textDisplay.enabled = true;
         _objImage.enabled = true; //enable background image
-        _animator.Play("FadeIn");
+        _animPanel.Play("FadeIn");
 
         StartCoroutine(TextSequence()); //start timer
 
@@ -32,9 +32,12 @@ public class TextDisplay : MonoBehaviour
             //display text
             if (_textDisplay != null) { _textDisplay.text = textInfo; }
 
-            //wait for seconds before deleting
+            //wait for seconds before fading
             yield return new WaitForSeconds(textDelay);
-            _animator.Play("FadeOut");
+            _animPanel.Play("FadeOut");
+
+            //wait unitl above animation is done before disabling
+            yield return new WaitForSeconds(0.5f);
             _textDisplay.enabled = false;
             _objImage.enabled = false;
         }

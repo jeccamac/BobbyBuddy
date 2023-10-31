@@ -2013,32 +2013,37 @@ PrefabInstance:
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3959304135856423779}
+      objectReference: {fileID: 1059873318727319001}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
+      value: Button1
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Animator, UnityEngine
+      value: LivingRoomActions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Poke
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4056999079392787676, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -2050,6 +2055,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 7582965982586093222}
+    - target: {fileID: 4151329356420552801, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151329356420552801, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151329356420552801, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4151329356420552801, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4266238661230479593, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2344,8 +2369,71 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1007417878903346092, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1059873318727319001}
   m_SourcePrefab: {fileID: 100100000, guid: 136114721b1348449bb045e6abda9084, type: 3}
+--- !u!114 &1059873318727318997 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 1059873318727318996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1059873318727318998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 1059873318727318996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1059873318727318999 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 1059873318727318996}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1059873318727319000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1007417878903346092, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 1059873318727318996}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1059873318727319001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059873318727319000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efba80a571827db46aa9dd4f1a27cb8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionButtons:
+  - {fileID: 1059873318727318999}
+  - {fileID: 1059873318727318998}
+  - {fileID: 1059873318727318997}
+  text: Hey this is Bobby!
 --- !u!4 &1093746292780972089
 Transform:
   m_ObjectHideFlags: 0
