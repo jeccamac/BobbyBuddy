@@ -20,4 +20,10 @@ public class TriggerEvent : MonoBehaviour
         }
     }
 
+    //call an event from anywhere
+    public void TriggerInvoke()
+    {
+        invokeMethod.Invoke();
+    }
+
 }

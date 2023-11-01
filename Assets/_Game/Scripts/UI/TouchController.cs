@@ -13,10 +13,12 @@ public class TouchController : MonoBehaviour
     private float initDist;    
     private bool isDragging = false;
     private Touch touch;
+    private TriggerEvent triggerEvent;
 
     private void Awake() 
     {
         mainCam = Camera.main;
+        triggerEvent = FindObjectOfType<TriggerEvent>();
     }
 
     private void Update() 
@@ -50,6 +52,12 @@ public class TouchController : MonoBehaviour
                     v3 = mainCam.ScreenToWorldPoint(v3); //match to screen
                     offset = objToDrag.position - v3; //move on this offset
                     isDragging = true;                   
+                }
+
+                //if hit trigger box, invoke event
+                if (hit.collider.tag == "Trigger")
+                {
+                    triggerEvent.TriggerInvoke();
                 }
             }
         }
