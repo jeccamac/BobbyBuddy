@@ -1185,10 +1185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876f4772207c1f9498be2623577c16d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionButtons:
-  - {fileID: 1456943437}
-  - {fileID: 1065616271}
-  - {fileID: 1802632585}
   xrayObject: {fileID: 1111997670}
 --- !u!1 &694636810
 GameObject:
@@ -1984,18 +1980,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1034803371}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1065616271 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
-    type: 3}
-  m_PrefabInstance: {fileID: 1394866675}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1111997670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3186,7 +3170,7 @@ PrefabInstance:
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -3197,7 +3181,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1111997670}
+      objectReference: {fileID: 678137878}
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
@@ -3211,7 +3195,7 @@ PrefabInstance:
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
+      value: Button2
       objectReference: {fileID: 0}
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -3221,7 +3205,7 @@ PrefabInstance:
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
+      value: DentistActions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -3398,18 +3382,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1214486209}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1456943437 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
-    type: 3}
-  m_PrefabInstance: {fileID: 1394866675}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1525456569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3668,18 +3640,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 148753502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1802632585 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
-    type: 3}
-  m_PrefabInstance: {fileID: 1394866675}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1865375751
 GameObject:
   m_ObjectHideFlags: 0
