@@ -736,6 +736,7 @@ GameObject:
   - component: {fileID: 8015443172962558914}
   - component: {fileID: 6757758942303771246}
   - component: {fileID: 4184867815132760808}
+  - component: {fileID: 9108933692716299755}
   m_Layer: 5
   m_Name: CountTimer_Panel
   m_TagString: Untagged
@@ -802,6 +803,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &9108933692716299755
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746421937012764683}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5fee892666630c54586ea6c8093c85f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1842520521168335673
 GameObject:
   m_ObjectHideFlags: 0
