@@ -6,9 +6,14 @@ using UnityEngine.SceneManagement;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance = null; // Singleton instance
+    [Header("Scene Settings")]
     [SerializeField] private SceneLoader _sceneLoader = null;
     public static SceneLoader SceneLoader => Instance._sceneLoader;
     public string level {get; set;} // current level room
+
+    [Header("Player Health Settings")]
+    [SerializeField] public float _currentHealth = 100;
+    [SerializeField] private float _maxHealth = 100;
 
     private void Awake() 
     {
@@ -48,4 +53,15 @@ public class DataManager : MonoBehaviour
             }
     }
 
+    public void AddHealth(float healthAmt)
+    {
+        _currentHealth += healthAmt;
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+    }
+
+    public void SubHealth(float healthAmt)
+    {
+        _currentHealth -= healthAmt;
+        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+    }
 }
