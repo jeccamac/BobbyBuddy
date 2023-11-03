@@ -11,10 +11,9 @@ Material:
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
   m_Parent: {fileID: 2100000, guid: 10132043475ff8640ad86ab1e1fcf91c, type: 2}
   m_ModifiedSerializedProperties: 2
-  m_ValidKeywords:
-  - _EMISSION
+  m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 2
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -29,8 +28,8 @@ Material:
     m_Floats:
     - _Smoothness: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 0.8930771, b: 0.4666667, a: 1}
-    - _Color: {r: 1, g: 0.8930771, b: 0.46666664, a: 1}
+    - _BaseColor: {r: 1, g: 0.8941801, b: 0.4669811, a: 1}
+    - _Color: {r: 1, g: 0.8941801, b: 0.46698105, a: 1}
     - _EmissionColor: {r: 1, g: 0.45079502, b: 0.031372547, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &2519264042158418632

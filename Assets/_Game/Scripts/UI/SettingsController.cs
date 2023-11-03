@@ -7,6 +7,12 @@ public class SettingsController : MonoBehaviour
 {
     [SerializeField] public Slider _musicSlider, _sfxSlider;
 
+    private void Start() 
+    {
+        _musicSlider.value = AudioManager.Instance.musicSource.volume;
+        _sfxSlider.value = AudioManager.Instance.sfxSource.volume;
+    }
+
     public void ToggleMusic()
     {
         AudioManager.Instance.ToggleMusic();

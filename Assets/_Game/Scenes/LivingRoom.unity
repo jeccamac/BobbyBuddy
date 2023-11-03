@@ -879,7 +879,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &832575518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1974,6 +1974,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1246116503317138257, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1470158574540881331, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -1992,6 +1997,11 @@ PrefabInstance:
     - target: {fileID: 1470158574540881331, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2295869242118022010, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2404891639005014801, guid: 136114721b1348449bb045e6abda9084,
@@ -2028,7 +2038,7 @@ PrefabInstance:
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Button1
+      value: CallSpeech
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -2375,42 +2385,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1059873318727319001}
   m_SourcePrefab: {fileID: 100100000, guid: 136114721b1348449bb045e6abda9084, type: 3}
---- !u!114 &1059873318727318997 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
-    type: 3}
-  m_PrefabInstance: {fileID: 1059873318727318996}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1059873318727318998 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
-    type: 3}
-  m_PrefabInstance: {fileID: 1059873318727318996}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1059873318727318999 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
-    type: 3}
-  m_PrefabInstance: {fileID: 1059873318727318996}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1059873318727319000 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1007417878903346092, guid: 136114721b1348449bb045e6abda9084,
@@ -2429,11 +2403,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efba80a571827db46aa9dd4f1a27cb8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _actionButtons:
-  - {fileID: 1059873318727318999}
-  - {fileID: 1059873318727318998}
-  - {fileID: 1059873318727318997}
-  text: Hey this is Bobby!
+  speech:
+  - Hey this is Bobby!
+  - I'm a bit ticklish.
+  - Poke my belly!
+  - You're my best friend.
 --- !u!4 &1093746292780972089
 Transform:
   m_ObjectHideFlags: 0
