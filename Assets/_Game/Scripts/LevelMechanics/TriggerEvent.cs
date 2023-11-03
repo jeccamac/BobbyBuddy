@@ -10,10 +10,13 @@ public class TriggerEvent : MonoBehaviour
     [SerializeField] public GameObject objTrigger;
 
     [Header("OR Object trigger on a specific Layer")]
-    [SerializeField] private LayerMask foodType;
+    [SerializeField] private LayerMask layerType;
 
-    [Header("Event to trigger")]
+    [Header("On Trigger Enter")]
     [SerializeField] public UnityEvent invokeMethod;
+
+    [Header("On Trigger Exit")]
+    [SerializeField] public UnityEvent invokeExit;
 
     //call an event or function when trigger collision happens
     private void OnTriggerEnter(Collider other)
@@ -21,13 +24,22 @@ public class TriggerEvent : MonoBehaviour
         if (other.gameObject == objTrigger)
         {
             invokeMethod.Invoke();
-            Destroy(other.gameObject, 1f);
+            Debug.Log("obj entered trigger");
+            //Destroy(other.gameObject, 1f);
         }
 
-        if (other.gameObject.layer == foodType)
+        else if (other.gameObject.layer == layerType)
         {
             invokeMethod.Invoke();
-            Destroy(other.gameObject, 1f);
+            //Destroy(other.gameObject, 1f);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (invokeExit != null)
+        {
+            invokeExit.Invoke();
         }
     }
 

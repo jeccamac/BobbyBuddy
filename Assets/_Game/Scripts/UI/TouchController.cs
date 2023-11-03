@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+
 //using System.Numerics;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -51,6 +53,7 @@ public class TouchController : MonoBehaviour
                     v3 = new Vector3(tpos.x, tpos.y, initDist); //get new vector with touch position
                     v3 = mainCam.ScreenToWorldPoint(v3); //match to screen
                     offset = objToDrag.position - v3; //move on this offset
+                    hit.collider.attachedRigidbody.useGravity = false; //testing disable rigidbody
                     isDragging = true;
                 }
 
