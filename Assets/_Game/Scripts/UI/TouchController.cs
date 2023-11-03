@@ -54,7 +54,7 @@ public class TouchController : MonoBehaviour
                     isDragging = true;
                 }
 
-                //if hit trigger box, invoke event
+                //if touch tap hit trigger box, invoke event
                 if (hit.collider.tag == "Trigger")
                 {
                     triggerEvent.TriggerInvoke();
