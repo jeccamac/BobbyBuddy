@@ -6341,6 +6341,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: actionPanel
+      value: 
+      objectReference: {fileID: 1315974983}
     - target: {fileID: 9042966529300035999, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_SizeDelta.x
@@ -6796,6 +6801,12 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1315974983 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1746421937012764683, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 964319960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1517451618
 GameObject:
   m_ObjectHideFlags: 0

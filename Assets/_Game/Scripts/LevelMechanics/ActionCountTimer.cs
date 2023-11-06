@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.UIElements;
 
 public class ActionCountTimer : MonoBehaviour
 {
@@ -18,9 +19,10 @@ public class ActionCountTimer : MonoBehaviour
     [SerializeField] public bool counterRunning = false;
 
     [Header("Image and Text Display")]
-    private Animator animAction;
+    [SerializeField] private GameObject actionPanel;
     [SerializeField] private Slider actionSlider;
     [SerializeField] public Text countTimeText = null;
+    private Animator animAction;
 
     private float _minutes;
     private float _seconds;
@@ -28,8 +30,10 @@ public class ActionCountTimer : MonoBehaviour
 
     private void Start()
     {
+        actionPanel = this.gameObject;
+        actionPanel.SetActive(false);
+
         animAction = GetComponent<Animator>();
-        //actionSlider = GetComponent<Slider>();
 
         //stop or disable slider scaleIn animator
         animAction.enabled = false;
@@ -58,12 +62,12 @@ public class ActionCountTimer : MonoBehaviour
                 countTimeText.enabled = false;
                 _timerSeconds = 0;
                 timerRunning = false;
+
+                //end timer animation
+                animAction.Play("ScaleOut");
+                //animAction.enabled = false;
             }
-        } else
-        {
-            //end timer animation
-            animAction.Play("ScaleOut");
-            animAction.enabled = false;
+        } else { //actionPanel.SetActive(false); 
         }
         
         /*
@@ -79,6 +83,7 @@ public class ActionCountTimer : MonoBehaviour
         timerRunning = true;
         _timerSeconds = timeInSeconds;
         actionSlider.maxValue = _timerSeconds;
+        actionPanel.SetActive(true);
     }
 
     /*
