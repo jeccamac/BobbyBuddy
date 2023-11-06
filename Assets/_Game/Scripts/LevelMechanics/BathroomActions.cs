@@ -12,17 +12,17 @@ public class BathroomActions : MonoBehaviour
     [SerializeField] private ParticleSystem _bubbles = null;
     private Animator _animBrush = null;
     private Animator _animHighlight = null;
+    private TextDisplay textDisplay;
 
     [Tooltip("Series of speech text that will be randomized every time the function is called")]
     [SerializeField] public string[] speech = 
     {
-        "Brush my teeth!",
+        "Help me brush my teeth!",
         "Keep brushing inside the box for 2 minutes.",
         "Flossing is good for you.",
         "Freshen up with mouthwash."
     };
 
-    private TextDisplay textDisplay;
     private void Awake() 
     {
         textDisplay = FindObjectOfType<TextDisplay>();
@@ -60,7 +60,6 @@ public class BathroomActions : MonoBehaviour
 
             //start timer
 
-            Debug.Log("brushing");
         }
         
         if (_bubbles != null)
