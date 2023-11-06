@@ -6,6 +6,8 @@ using UnityEngine;
 public class BathroomActions : MonoBehaviour
 {
     //[SerializeField] private Button[] _actionButtons; //CURRENTLY NOT IN USE
+
+    [SerializeField] public ActionCountTimer actionTimer = null;
     
     [SerializeField] private Rigidbody _brush = null;
     [SerializeField] private SpriteRenderer _highlight = null;
@@ -25,6 +27,7 @@ public class BathroomActions : MonoBehaviour
 
     private void Awake() 
     {
+        actionTimer = FindObjectOfType<ActionCountTimer>();
         textDisplay = FindObjectOfType<TextDisplay>();
         _brush = FindObjectOfType<Rigidbody>();
         _highlight = FindObjectOfType<SpriteRenderer>();
@@ -81,5 +84,10 @@ public class BathroomActions : MonoBehaviour
         {
             _bubbles.Stop();
         }
+    }
+
+    public void ActionTime() //THIS IS A TEMP FUNCTION TO TEST TIMER/COUNTER. DELETE IN FUTURE IMPLEMENTATIONS
+    {
+        actionTimer.StartTimer(10);
     }
 }
