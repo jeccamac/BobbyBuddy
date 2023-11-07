@@ -297,6 +297,12 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &301758566 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8230356742701318002, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 964319960}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -6106,6 +6112,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1435116372517487591, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1470158574540881331, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -6345,6 +6356,56 @@ PrefabInstance:
         type: 3}
       propertyPath: actionPanel
       value: 
+      objectReference: {fileID: 301758566}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: colorFail.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: colorFail.b
+      value: 0.44006255
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: colorFail.g
+      value: 0.19339621
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: colorFail.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: celebratoryImg
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: colorSuccess.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: colorSuccess.b
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: colorSuccess.g
+      value: 0.9450981
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: colorSuccess.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: countTimePanel
+      value: 
       objectReference: {fileID: 1315974983}
     - target: {fileID: 9042966529300035999, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -6396,7 +6457,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ff22307c88e2c4daddb1307fe9abf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionTimer: {fileID: 0}
+  actionCountTimer: {fileID: 0}
   _brush: {fileID: 975499091}
   _highlight: {fileID: 289419402}
   _bubbles: {fileID: 842192308}
@@ -7377,7 +7438,7 @@ PrefabInstance:
     - target: {fileID: 5220891046304967279, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
       propertyPath: invokeExit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StopBrushing
+      value: CancelBrushing
       objectReference: {fileID: 0}
     - target: {fileID: 5220891046304967279, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}

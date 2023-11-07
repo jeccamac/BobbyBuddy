@@ -10,8 +10,11 @@ using UnityEngine.UI;
 public class ActionCountTimer : MonoBehaviour
 {
     [Header("Action Timer Settings")]
-    [SerializeField] private float _timerSeconds;
-    [SerializeField] public bool timerRunning = false;
+    [SerializeField] public float timeRemaining;
+    [SerializeField] public bool timerRunning = false; //enables visibility of action timer panel
+    public bool timerEnded = false; //tracks if timer ended, condition for outside scripts to access
+    public bool timerCanceled = false; //scripts define if timer was canceled (for trigger boxes and action cancels) then call a function here
+
 
     [Header("Action Counter Settings")]
     [SerializeField] private float _counter;
@@ -19,18 +22,19 @@ public class ActionCountTimer : MonoBehaviour
     [SerializeField] public bool counterRunning = false;
 
     [Header("Image and Text Display")]
-    [SerializeField] private GameObject actionPanel;
+    [SerializeField] private GameObject actionPanel = null;
     [SerializeField] private Slider actionSlider;
-    [SerializeField] public Text countTimeText = null;
+    [SerializeField] private Text countTimeText = null;
+    [SerializeField] public Text announceText = null;
+    [SerializeField] private Color colorFail;
+    [SerializeField] private Color colorSuccess;
     private Animator animAction;
-
     private float _minutes;
     private float _seconds;
-
-
+    
     private void Start()
     {
-        actionPanel = this.gameObject;
+       // actionPanel = GetComponentInChildren<GameObject>();
         actionPanel.SetActive(false);
 
         animAction = GetComponent<Animator>();
@@ -38,6 +42,7 @@ public class ActionCountTimer : MonoBehaviour
         //stop or disable slider scaleIn animator
         animAction.enabled = false;
         countTimeText.enabled = false;
+        announceText.enabled = false;
     }
     private void Update() {
         if (timerRunning)
@@ -46,28 +51,26 @@ public class ActionCountTimer : MonoBehaviour
             animAction.enabled = true;
             animAction.Play("ScaleIn");
 
-            if (_timerSeconds > 0)
+            if (timeRemaining > 0)
             {
-                _timerSeconds -= Time.deltaTime;
+                timeRemaining -= Time.deltaTime;
 
                 //slider scale
-                actionSlider.value = _timerSeconds;
+                actionSlider.value = timeRemaining;
 
                 //text display
                 countTimeText.enabled = true;
-                DisplayTime(_timerSeconds);
-            } else 
-            { 
-                Debug.Log("Timer has run out!");
+                DisplayTime(timeRemaining);
+            } else if (timeRemaining <= 0) //then if reaches 0
+            {
                 countTimeText.enabled = false;
-                _timerSeconds = 0;
+                timeRemaining = 0;
                 timerRunning = false;
 
-                //end timer animation
-                animAction.Play("ScaleOut");
-                //animAction.enabled = false;
+                //conditions to end end timer animation
+                timerEnded = true;
+                Announce("Great Job!", colorSuccess);
             }
-        } else { //actionPanel.SetActive(false); 
         }
         
         /*
@@ -81,9 +84,45 @@ public class ActionCountTimer : MonoBehaviour
     public void StartTimer(float timeInSeconds)
     {
         timerRunning = true;
-        _timerSeconds = timeInSeconds;
-        actionSlider.maxValue = _timerSeconds;
+        timerCanceled = false;
+        timerEnded = false;
+        timeRemaining = timeInSeconds;
+        actionSlider.maxValue = timeRemaining;
         actionPanel.SetActive(true);
+    }
+
+    public void StopTimer()
+    {
+        timerRunning = false;
+    }
+
+    public void CancelTimer()
+    {
+        timerRunning = false;
+        timerCanceled = true;
+        Announce("Failed!", colorFail);
+    }
+
+    public void Announce(string announceTxt, Color colorTxt)
+    {
+        animAction.Play("ScaleOut");
+
+        StartCoroutine(DisplayAnnouncement());
+
+        IEnumerator DisplayAnnouncement()
+        {
+            announceText.text = announceTxt;
+            announceText.color = colorTxt;
+
+            yield return new WaitForSeconds(1f);
+            actionPanel.SetActive(false);
+            announceText.enabled = true;
+            animAction.Play("PopIn");
+
+            yield return new WaitForSeconds(2f);
+            announceText.enabled = false;
+        }
+        
     }
 
     /*

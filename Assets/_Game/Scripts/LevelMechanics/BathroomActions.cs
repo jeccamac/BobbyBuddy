@@ -15,6 +15,7 @@ public class BathroomActions : MonoBehaviour
     private Animator _animBrush = null;
     private Animator _animHighlight = null;
     private TextDisplay textDisplay;
+    
 
     [Tooltip("Series of speech text that will be randomized every time the function is called")]
     [SerializeField] public string[] speech = 
@@ -42,7 +43,6 @@ public class BathroomActions : MonoBehaviour
     {
         _highlight.enabled = false;
     }
-
     public void CallSpeech(int speechLine)
     {
         string speak = speech[speechLine];
@@ -52,6 +52,7 @@ public class BathroomActions : MonoBehaviour
     public void BrushTeeth()
     {
         //_brush.useGravity = false;
+
         //animate brush to brush position
         if (_animBrush != null)
         {
@@ -62,19 +63,25 @@ public class BathroomActions : MonoBehaviour
             _animHighlight.Play("Glow");
 
             //start timer
-
+            actionTimer.StartTimer(5);
         }
         
         if (_bubbles != null)
         {
             _bubbles.Play();
         }
-        //? how to do - if drag up & down, then bubbles
+        //animation? how to do - if drag up & down, then bubbles
     }
 
-    public void StopBrushing()
+    public void CancelBrushing()
     {
         //_brush.useGravity = true;
+
+        if (actionTimer.timeRemaining > 0 && actionTimer.timerEnded == false)
+        {
+            actionTimer.CancelTimer();
+        }
+        
         if (_animBrush != null)
         {
             _animBrush.Play("Idle");
