@@ -13,7 +13,6 @@ public class ActionCountTimer : MonoBehaviour
     [SerializeField] public float timeRemaining;
     [SerializeField] public bool timerRunning = false; //enables visibility of action timer panel
     public bool timerEnded = false; //tracks if timer ended, condition for outside scripts to access
-    public bool timerCanceled = false; //scripts define if timer was canceled (for trigger boxes and action cancels) then call a function here
 
 
     [Header("Action Counter Settings")]
@@ -84,7 +83,6 @@ public class ActionCountTimer : MonoBehaviour
     public void StartTimer(float timeInSeconds)
     {
         timerRunning = true;
-        timerCanceled = false;
         timerEnded = false;
         timeRemaining = timeInSeconds;
         actionSlider.maxValue = timeRemaining;
@@ -99,7 +97,6 @@ public class ActionCountTimer : MonoBehaviour
     public void CancelTimer()
     {
         timerRunning = false;
-        timerCanceled = true;
         Announce("Failed!", colorFail);
     }
 

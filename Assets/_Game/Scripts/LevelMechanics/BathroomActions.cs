@@ -1,17 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class BathroomActions : MonoBehaviour
 {
     //[SerializeField] private Button[] _actionButtons; //CURRENTLY NOT IN USE
 
     [SerializeField] public ActionCountTimer actionTimer = null;
-    
-    [SerializeField] private Rigidbody _brush = null;
     [SerializeField] private SpriteRenderer _highlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
+    private Vector3[] startPos;
+    [SerializeField] private GameObject[] bathObjPos = {};
+    private GameObject _brush = null;
     private Animator _animBrush = null;
     private Animator _animHighlight = null;
     private TextDisplay textDisplay;
@@ -21,7 +24,7 @@ public class BathroomActions : MonoBehaviour
     [SerializeField] public string[] speech = 
     {
         "Help me brush my teeth!",
-        "Keep brushing inside the box for 2 minutes.",
+        "Keep brushing for 2 minutes.",
         "Flossing is good for you.",
         "Freshen up with mouthwash."
     };
@@ -30,7 +33,7 @@ public class BathroomActions : MonoBehaviour
     {
         actionTimer = FindObjectOfType<ActionCountTimer>();
         textDisplay = FindObjectOfType<TextDisplay>();
-        _brush = FindObjectOfType<Rigidbody>();
+        _brush = GameObject.Find("Toothbrush");
         _highlight = FindObjectOfType<SpriteRenderer>();
 
         _animBrush = _brush.gameObject.GetComponent<Animator>();
@@ -42,6 +45,14 @@ public class BathroomActions : MonoBehaviour
     private void Start() 
     {
         _highlight.enabled = false;
+        _brush.SetActive(false);
+
+        //save start position of all bathroom objects that will be moved around
+        startPos = new Vector3[bathObjPos.Length];
+        for (int i=0; i < bathObjPos.Length; i++)
+        {
+            startPos[i] = bathObjPos[i].transform.position;
+        }
     }
     public void CallSpeech(int speechLine)
     {
@@ -51,8 +62,6 @@ public class BathroomActions : MonoBehaviour
 
     public void BrushTeeth()
     {
-        //_brush.useGravity = false;
-
         //animate brush to brush position
         if (_animBrush != null)
         {
@@ -73,10 +82,8 @@ public class BathroomActions : MonoBehaviour
         //animation? how to do - if drag up & down, then bubbles
     }
 
-    public void CancelBrushing()
+    public void StopBrushing()
     {
-        //_brush.useGravity = true;
-
         if (actionTimer.timeRemaining > 0 && actionTimer.timerEnded == false)
         {
             actionTimer.CancelTimer();
@@ -93,6 +100,14 @@ public class BathroomActions : MonoBehaviour
         }
     }
 
+    public void ObjectReset()
+    {
+        for (int i=0; i<bathObjPos.Length; i++)
+        {
+            bathObjPos[i].transform.position = startPos[i];
+        }
+        Debug.Log("reset object position");
+    }
     public void ActionTime() //THIS IS A TEMP FUNCTION TO TEST TIMER/COUNTER. DELETE IN FUTURE IMPLEMENTATIONS
     {
         actionTimer.StartTimer(10);
