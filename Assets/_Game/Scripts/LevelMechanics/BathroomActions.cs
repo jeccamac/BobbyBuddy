@@ -12,7 +12,8 @@ public class BathroomActions : MonoBehaviour
     [SerializeField] public ActionCountTimer actionTimer = null;
     [SerializeField] private SpriteRenderer _highlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
-    [SerializeField] public Transform startPos = null;
+    private Vector3[] startPos;
+    [SerializeField] private GameObject[] bathObjPos = {};
     private GameObject _brush = null;
     private Animator _animBrush = null;
     private Animator _animHighlight = null;
@@ -45,6 +46,13 @@ public class BathroomActions : MonoBehaviour
     {
         _highlight.enabled = false;
         _brush.SetActive(false);
+
+        //save start position of all bathroom objects that will be moved around
+        startPos = new Vector3[bathObjPos.Length];
+        for (int i=0; i < bathObjPos.Length; i++)
+        {
+            startPos[i] = bathObjPos[i].transform.position;
+        }
     }
     public void CallSpeech(int speechLine)
     {
@@ -92,9 +100,12 @@ public class BathroomActions : MonoBehaviour
         }
     }
 
-    public void ObjectReset(Transform objPos)
+    public void ObjectReset()
     {
-        objPos.transform.position = startPos.transform.position;
+        for (int i=0; i<bathObjPos.Length; i++)
+        {
+            bathObjPos[i].transform.position = startPos[i];
+        }
         Debug.Log("reset object position");
     }
     public void ActionTime() //THIS IS A TEMP FUNCTION TO TEST TIMER/COUNTER. DELETE IN FUTURE IMPLEMENTATIONS

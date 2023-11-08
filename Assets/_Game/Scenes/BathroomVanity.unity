@@ -6155,7 +6155,7 @@ PrefabInstance:
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -6231,7 +6231,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 975499088}
+      objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -6240,7 +6240,7 @@ PrefabInstance:
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Transform, UnityEngine
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -6580,6 +6580,8 @@ MonoBehaviour:
   actionTimer: {fileID: 1315974987}
   _highlight: {fileID: 289419402}
   _bubbles: {fileID: 842192308}
+  bathObjPos:
+  - {fileID: 975499087}
   speech:
   - Help me brush my teeth!
   - Keep brushing inside the box for 2 minutes.
