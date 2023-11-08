@@ -13,15 +13,15 @@ public class BathroomActions : MonoBehaviour
     [SerializeField] private SpriteRenderer _highlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
     private Vector3[] startPos;
-    [SerializeField] private GameObject[] bathObjPos = {};
+    [SerializeField] private GameObject[] bathObjects = {};
     private GameObject _brush = null;
     private Animator _animBrush = null;
     private Animator _animHighlight = null;
     private TextDisplay textDisplay;
     
 
-    [Tooltip("Series of speech text that will be randomized every time the function is called")]
-    [SerializeField] public string[] speech = 
+    [Tooltip("Series of speech text every time the function is called")]
+    [SerializeField] private string[] speech = 
     {
         "Help me brush my teeth!",
         "Keep brushing for 2 minutes.",
@@ -48,10 +48,10 @@ public class BathroomActions : MonoBehaviour
         _brush.SetActive(false);
 
         //save start position of all bathroom objects that will be moved around
-        startPos = new Vector3[bathObjPos.Length];
-        for (int i=0; i < bathObjPos.Length; i++)
+        startPos = new Vector3[bathObjects.Length];
+        for (int i=0; i < bathObjects.Length; i++)
         {
-            startPos[i] = bathObjPos[i].transform.position;
+            startPos[i] = bathObjects[i].transform.position;
         }
     }
     public void CallSpeech(int speechLine)
@@ -102,9 +102,9 @@ public class BathroomActions : MonoBehaviour
 
     public void ObjectReset()
     {
-        for (int i=0; i<bathObjPos.Length; i++)
+        for (int i=0; i<bathObjects.Length; i++)
         {
-            bathObjPos[i].transform.position = startPos[i];
+            bathObjects[i].transform.position = startPos[i];
         }
         Debug.Log("reset object position");
     }

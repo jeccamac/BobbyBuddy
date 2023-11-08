@@ -91,7 +91,12 @@ public class ActionCountTimer : MonoBehaviour
 
     public void StopTimer()
     {
-        timerRunning = false;
+        if (timeRemaining != 0 && timerEnded == false)
+        {
+            timerRunning = false;
+            timeRemaining = 0;
+            Announce("Canceled", colorFail);
+        }
     }
 
     public void CancelTimer()
