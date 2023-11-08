@@ -20,8 +20,8 @@ public class BathroomActions : MonoBehaviour
     private TextDisplay textDisplay;
     
 
-    [Tooltip("Series of speech text that will be randomized every time the function is called")]
-    [SerializeField] public string[] speech = 
+    [Tooltip("Series of speech text every time the function is called")]
+    [SerializeField] private string[] speech = 
     {
         "Help me brush my teeth!",
         "Keep brushing for 2 minutes.",
