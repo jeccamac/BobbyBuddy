@@ -6,8 +6,6 @@ using UnityEngine.Events;
 
 public class LivingRoomActions : MonoBehaviour
 {
-    //[SerializeField] private Button[] _actionButtons; //CURRENTLY NOT IN USE
-
     //testing text display
     [Tooltip("Series of speech text that will be randomized every time the function is called")]
     [SerializeField] public string[] speech = 

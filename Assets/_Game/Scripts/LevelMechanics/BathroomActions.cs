@@ -7,8 +7,6 @@ using Vector3 = UnityEngine.Vector3;
 
 public class BathroomActions : MonoBehaviour
 {
-    //[SerializeField] private Button[] _actionButtons; //CURRENTLY NOT IN USE
-
     [SerializeField] public ActionCountTimer actionTimer = null;
     [SerializeField] private SpriteRenderer _highlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;

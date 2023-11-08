@@ -53,17 +53,21 @@ public class TouchController : MonoBehaviour
                     v3 = new Vector3(tpos.x, tpos.y, initDist); //get new vector with touch position
                     v3 = mainCam.ScreenToWorldPoint(v3); //match to screen
                     offset = objToDrag.position - v3; //move on this offset
-                    hit.collider.attachedRigidbody.useGravity = false; //testing disable rigidbody
                     isDragging = true;
-                }
 
-                //if touch tap hit trigger box, invoke event
-                if (hit.collider.tag == "Trigger")
-                {
-                    triggerEvent.TriggerInvoke();
+                    if (hit.collider.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+                    {
+                        rigidbody.useGravity = false; //testing disable rigidbody
+                    }
                 }
             }
-        }
+
+            //if touch tap hit trigger box, invoke event
+            if (hit.collider.tag == "Trigger")
+            {
+                triggerEvent.TriggerInvoke();
+            }
+        } //END if began touching screen
 
         //conditions for dragging object
         if (isDragging && touch.phase == UnityEngine.TouchPhase.Moved)
@@ -71,12 +75,12 @@ public class TouchController : MonoBehaviour
             v3 = new Vector3(Input.mousePosition.x, Input.mousePosition.y, initDist);
             v3 = Camera.main.ScreenToWorldPoint(v3);
             objToDrag.position = v3 + offset; //move obj to new position
-        }
+        } //END if conditions for dragging object
 
         if (isDragging && (touch.phase == UnityEngine.TouchPhase.Ended || touch.phase == UnityEngine.TouchPhase.Canceled))
         {
             isDragging = false;
-        }
-    }
-}
+        }//END if touch is cancelled
+    }//END update
+}//END class behavior
 
