@@ -32,22 +32,13 @@ public class BathroomActions : MonoBehaviour
 
     private void Awake() 
     {
-        //actionTimer = FindObjectOfType<ActionCountTimer>();
-        //textDisplay = FindObjectOfType<TextDisplay>();
-        //_brush = GameObject.Find("Toothbrush");
-        //_highlight = FindObjectOfType<SpriteRenderer>();
-
         _animBrush = bathObjects[0].GetComponent<Animator>();
         _animBrushHL = _brushHighlight.gameObject.GetComponent<Animator>();
-
-        //_bubbles = FindObjectOfType<ParticleSystem>();
     }
 
     private void Start() 
     {
         _brushActions.SetActive(false);
-        //_brushHighlight.enabled = false;
-        //_brush.SetActive(false);
 
         //save start position of all bathroom objects that will be moved around
         startPos = new Vector3[bathObjects.Length];
@@ -81,6 +72,7 @@ public class BathroomActions : MonoBehaviour
         {
             _bubbles.Play();
         }
+
         //animation? how to do - if drag up & down, then bubbles
     }
 
@@ -108,10 +100,5 @@ public class BathroomActions : MonoBehaviour
         {
             bathObjects[i].transform.position = startPos[i];
         }
-        Debug.Log("reset object position");
-    }
-    public void ActionTime() //THIS IS A TEMP FUNCTION TO TEST TIMER/COUNTER. DELETE IN FUTURE IMPLEMENTATIONS
-    {
-        actionTimer.StartTimer(10);
     }
 }

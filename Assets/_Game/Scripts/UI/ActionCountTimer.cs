@@ -33,7 +33,6 @@ public class ActionCountTimer : MonoBehaviour
     
     private void Start()
     {
-       // actionPanel = GetComponentInChildren<GameObject>();
         actionPanel.SetActive(false);
 
         animAction = GetComponent<Animator>();
