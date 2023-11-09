@@ -5,8 +5,8 @@ using UnityEngine.Windows.Speech;
 
 public class DiningActions : MonoBehaviour
 {
+    [SerializeField] private TextDisplay textDisplay;
     [SerializeField] private string[] speech = {};
-    private TextDisplay textDisplay;
 
     private void Awake() 
     {

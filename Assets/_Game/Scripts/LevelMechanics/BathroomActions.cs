@@ -7,19 +7,20 @@ using Vector3 = UnityEngine.Vector3;
 
 public class BathroomActions : MonoBehaviour
 {
-    //[SerializeField] private Button[] _actionButtons; //CURRENTLY NOT IN USE
+    [Header("Display Settings")]
+    [SerializeField] private ActionCountTimer actionTimer = null;
+    [SerializeField] private TextDisplay textDisplay;
 
-    [SerializeField] public ActionCountTimer actionTimer = null;
-    [SerializeField] private SpriteRenderer _highlight = null;
+    [Header("Bathroom Settings")]
+    [SerializeField] private GameObject[] bathObjects = {};
+    [SerializeField] private GameObject _brushActions = null;
+    [SerializeField] private SpriteRenderer _brushHighlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
     private Vector3[] startPos;
-    [SerializeField] private GameObject[] bathObjects = {};
-    private GameObject _brush = null;
+    //private GameObject _brush = null;
     private Animator _animBrush = null;
-    private Animator _animHighlight = null;
-    private TextDisplay textDisplay;
+    private Animator _animBrushHL = null;
     
-
     [Tooltip("Series of speech text every time the function is called")]
     [SerializeField] private string[] speech = 
     {
@@ -31,21 +32,13 @@ public class BathroomActions : MonoBehaviour
 
     private void Awake() 
     {
-        actionTimer = FindObjectOfType<ActionCountTimer>();
-        textDisplay = FindObjectOfType<TextDisplay>();
-        _brush = GameObject.Find("Toothbrush");
-        _highlight = FindObjectOfType<SpriteRenderer>();
-
-        _animBrush = _brush.gameObject.GetComponent<Animator>();
-        _animHighlight = _highlight.gameObject.GetComponent<Animator>();
-
-        _bubbles = FindObjectOfType<ParticleSystem>();
+        _animBrush = bathObjects[0].GetComponent<Animator>();
+        _animBrushHL = _brushHighlight.gameObject.GetComponent<Animator>();
     }
 
     private void Start() 
     {
-        _highlight.enabled = false;
-        _brush.SetActive(false);
+        _brushActions.SetActive(false);
 
         //save start position of all bathroom objects that will be moved around
         startPos = new Vector3[bathObjects.Length];
@@ -68,8 +61,8 @@ public class BathroomActions : MonoBehaviour
             CallSpeech(1);
             _animBrush.Play("Brush");
 
-            _highlight.enabled = true;
-            _animHighlight.Play("Glow");
+            _brushHighlight.enabled = true;
+            _animBrushHL.Play("Glow");
 
             //start timer
             actionTimer.StartTimer(5);
@@ -79,6 +72,7 @@ public class BathroomActions : MonoBehaviour
         {
             _bubbles.Play();
         }
+
         //animation? how to do - if drag up & down, then bubbles
     }
 
@@ -92,7 +86,7 @@ public class BathroomActions : MonoBehaviour
         if (_animBrush != null)
         {
             _animBrush.Play("Idle");
-            _highlight.enabled = false;
+            _brushHighlight.enabled = false;
         }
         if (_bubbles != null)
         {
@@ -106,10 +100,5 @@ public class BathroomActions : MonoBehaviour
         {
             bathObjects[i].transform.position = startPos[i];
         }
-        Debug.Log("reset object position");
-    }
-    public void ActionTime() //THIS IS A TEMP FUNCTION TO TEST TIMER/COUNTER. DELETE IN FUTURE IMPLEMENTATIONS
-    {
-        actionTimer.StartTimer(10);
     }
 }

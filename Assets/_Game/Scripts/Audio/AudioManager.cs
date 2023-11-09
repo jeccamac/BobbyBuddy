@@ -11,10 +11,11 @@ public class AudioManager : MonoBehaviour
     */
     public static AudioManager Instance;
 
+    [Header("Audio Settings")]
     [SerializeField] public Sound[] musicSounds, sfxSounds;
     [SerializeField] public AudioSource musicSource, sfxSource;
-
-    private void Awake() { 
+    private void Awake() 
+    { 
         if (Instance == null) //singleton
         {
             Instance = this;

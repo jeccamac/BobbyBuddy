@@ -2697,6 +2697,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5209619821649323258, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_Text
+      value: < Living Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 5209619821649323258, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019052980677006238, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_Text
+      value: Bathroom >
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019052980677006238, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2736,6 +2756,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: ActionCountTimer, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6555362174214193684, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1864438983}
+    - target: {fileID: 6555362174214193684, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: TransitionRoom1
       objectReference: {fileID: 0}
     - target: {fileID: 7509672916595770768, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -2802,6 +2832,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1193158682}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1193158687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6929898930476462911, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 1193158682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a763fa8beabe2b144aacee385dff53e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1193158694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2814,6 +2856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8795f4f583af8344ba0bcb343d7f90e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textDisplay: {fileID: 1193158687}
   speech:
   - Feed me food.
   - Bobby loves desserts!

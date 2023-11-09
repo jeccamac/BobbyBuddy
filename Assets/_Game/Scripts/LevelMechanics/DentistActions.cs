@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DentistActions : MonoBehaviour
 {
-    //[SerializeField] private Button[] _actionButtons; //CURRENTLY NOT IN USE
     [SerializeField] private GameObject xrayObject;
     private bool xrayEnabled = false;
 
