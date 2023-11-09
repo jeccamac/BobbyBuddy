@@ -305,18 +305,6 @@ MonoBehaviour:
   musicSounds:
   - name: Theme
     clip: {fileID: 8300000, guid: 9f9465fd87cd4034a89ee6317a415aed, type: 3}
-  sfxSounds:
-  - name: XRay On
-    clip: {fileID: 8300000, guid: f0aabbc82d9fccd44b843bc3953cf902, type: 3}
-  - name: XRay Off
-    clip: {fileID: 8300000, guid: 444330454cdd90448bf483ec79fccd5f, type: 3}
-  - name: Spray
-    clip: {fileID: 8300000, guid: d699ead5efb923b43ba8ce0f410ae36d, type: 3}
-  - name: Drill
-    clip: {fileID: 8300000, guid: d64b950e41fca6d4f82a5389c0f47c02, type: 3}
+  sfxSounds: []
   musicSource: {fileID: 8447407045377612589}
   sfxSource: {fileID: 655278740925921647}
-  musicOn: {fileID: 21300000, guid: c0d1066ce02536f44af3b3dd3241aef9, type: 3}
-  musicOff: {fileID: 21300000, guid: 2dbe605288929a947950ef8034dd6f1d, type: 3}
-  soundOn: {fileID: 21300000, guid: 751b6e96145715e45a504e326d8b64b7, type: 3}
-  soundOff: {fileID: 21300000, guid: ba5a8e7ecde89eb48bd66463474920e5, type: 3}
