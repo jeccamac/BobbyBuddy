@@ -26,8 +26,6 @@ public class SettingsController : MonoBehaviour
     {
         _musicSlider.value = AudioManager.Instance.musicSource.volume;
         _sfxSlider.value = AudioManager.Instance.sfxSource.volume;
-        musicButton = GameObject.Find("Music_Button").GetComponent<Image>();
-        sfxButton = GameObject.Find("Sound_Button").GetComponent<Image>();
 
         musicButton.sprite = musicOn;
         sfxButton.sprite = soundOn;
