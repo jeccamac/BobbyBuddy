@@ -12,8 +12,8 @@ public class DataManager : MonoBehaviour
     public string level {get; set;} // current level room
 
     [Header("Player Health Settings")]
-    [SerializeField] public float _currentHealth = 100;
-    [SerializeField] private float _maxHealth = 100;
+    [SerializeField] public float currentHealth = 360;
+    [SerializeField] public float maxHealth = 360;
 
     private void Awake() 
     {
@@ -55,13 +55,18 @@ public class DataManager : MonoBehaviour
 
     public void AddHealth(float healthAmt)
     {
-        _currentHealth += healthAmt;
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+        currentHealth += healthAmt;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
     }
 
     public void SubHealth(float healthAmt)
     {
-        _currentHealth -= healthAmt;
-        _currentHealth = Mathf.Clamp(_currentHealth, 0, _maxHealth);
+        currentHealth -= healthAmt;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+    }
+
+    public void HealthUpdate()
+    {
+        
     }
 }
