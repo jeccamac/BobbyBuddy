@@ -5,6 +5,7 @@ using Unity.Mathematics;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 //using UnityEngine.UIElements;
 
 public class ActionCountTimer : MonoBehaviour
@@ -13,7 +14,7 @@ public class ActionCountTimer : MonoBehaviour
     public float timeRemaining;
     public bool timerRunning = false; //enables visibility of action timer panel
     public bool timerEnded = false; //tracks if timer ended, condition for outside scripts to access
-
+    [SerializeField] public UnityEvent actionEvent;
 
     [Header("Action Counter Settings")]
     public float _counter;
@@ -68,6 +69,7 @@ public class ActionCountTimer : MonoBehaviour
                 //conditions to end end timer animation
                 timerEnded = true;
                 Announce("Great Job!", colorSuccess);
+                actionEvent.Invoke(); //ONLY DOES ONE ACTION TO INVOKE AT A TIME, NEED BETTER IMPLEMENTATION FOR CHECKING hasBrushed BOOLEAN TO ACCESS HERE
             }
         }
         
@@ -123,7 +125,6 @@ public class ActionCountTimer : MonoBehaviour
             yield return new WaitForSeconds(2f);
             announceText.enabled = false;
         }
-        
     }
 
     /*

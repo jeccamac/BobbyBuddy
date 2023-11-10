@@ -10,6 +10,9 @@ public class ToothHealth : MonoBehaviour
     [Header("Tooth Health Display")]
     [SerializeField] private Image toothIcon;
     [SerializeField] private Image healthBar;
+    private int _dentalState;
+    private float _currentHealth;
+    private float _maxHealth;
     
     [Header("Health Color Status")]
     [SerializeField] private Color healthy;
@@ -17,18 +20,61 @@ public class ToothHealth : MonoBehaviour
     [SerializeField] private Color rot;
 
     [Header("Tooth Icon Images")]
-    [SerializeField] private Sprite healthy1, healthy2, yellow1, yellow2, rot1, rot2 = null;
+    [SerializeField] private Sprite healthy1, healthy2, yellow1, yellow2, rot1, rot2;
+
+    private TextDisplay textDisplay;
 
     private void Start() 
     {
-        toothIcon.sprite = healthy1;
+        textDisplay = FindObjectOfType<TextDisplay>();
+        _dentalState = DataManager.Instance.dentalState;
+        _currentHealth = DataManager.Instance.currentHealth;
+        _maxHealth = DataManager.Instance.maxHealth;
+        SwapIcons();
     }
 
     private void Update()
     {
         //get health info from data manager
-        float _currentHealth = DataManager.Instance.currentHealth;
-        float _maxHealth = DataManager.Instance.maxHealth;
+        _dentalState = DataManager.Instance.dentalState;
+        _currentHealth = DataManager.Instance.currentHealth;
+        _maxHealth = DataManager.Instance.maxHealth;
         healthBar.fillAmount = _currentHealth / _maxHealth;
+
+        //update tooth health display
+        SwapIcons();
+    }
+
+    public void SwapIcons()
+    {
+        if (_dentalState == 5)
+        {
+            toothIcon.sprite = healthy1;
+            healthBar.color = healthy;
+        }
+        else if (_dentalState == 4)
+        {
+            toothIcon.sprite = healthy2;
+        }
+        else if (_dentalState == 3)
+        {
+            toothIcon.sprite = yellow1;
+            healthBar.color = yellow;
+                //SHOW TEXT SOMEWHERE, IT'S CONSTANT IN THIS FUNCTION, NEEDS TO RUN ONCE
+            //textDisplay.ShowText("I should take better care of my teeth", 3f);
+        }
+        else if (_dentalState == 2)
+        {
+            toothIcon.sprite = yellow2;
+        }
+        else if (_dentalState == 1)
+        {
+            toothIcon.sprite = rot1;
+            healthBar.color = rot;
+            //textDisplay.ShowText("I might want visit the dentist", 3f);
+        } else if (_dentalState == 0)
+        {
+            //textDisplay.ShowText("I should really get my teeth checked by the dentist", 3f);
+        }
     }
 }

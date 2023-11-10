@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
@@ -12,8 +13,9 @@ public class DataManager : MonoBehaviour
     public string level {get; set;} // current level room
 
     [Header("Player Health Settings")]
-    [SerializeField] public float currentHealth = 360;
-    [SerializeField] public float maxHealth = 360;
+    [SerializeField] public float currentHealth = 100;
+    [SerializeField] public float maxHealth = 100;
+    public int dentalState = 5;
 
     private void Awake() 
     {
@@ -32,6 +34,11 @@ public class DataManager : MonoBehaviour
         {
             _sceneLoader = GetComponentInChildren<SceneLoader>();
         }
+    }
+
+    private void Update()
+    {
+        ChangeDentalState(); 
     }
 
     public Room GetRoom()
@@ -53,20 +60,48 @@ public class DataManager : MonoBehaviour
             }
     }
 
+    public void ChangeDentalState()
+    {
+        //change dental states
+        if (dentalState == 5 && currentHealth <= 50){ dentalState = 4; }
+        else if (dentalState == 4 && currentHealth <= 0) 
+        { 
+            dentalState = 3;
+            currentHealth = 100; //reset
+        }
+        else if (dentalState == 3 && currentHealth <= 50) { dentalState = 2; }
+        else if (dentalState == 2 && currentHealth <= 0)
+        { 
+            dentalState = 1;
+            currentHealth = 100; //reset
+        }
+        else if (dentalState == 1 && currentHealth <= 50)
+        {
+            dentalState = 0;
+        } 
+    }
+
     public void AddHealth(float healthAmt)
     {
         currentHealth += healthAmt;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        Debug.Log("current health is " + currentHealth);
+        Debug.Log("dental state is "+ dentalState);
     }
 
     public void SubHealth(float healthAmt)
     {
         currentHealth -= healthAmt;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+
+        Debug.Log("current health is " + currentHealth);
+        Debug.Log("dental state is "+ dentalState);
     }
 
-    public void HealthUpdate()
+    public void UpHealth()
     {
-        
+        dentalState ++;
+        Debug.Log("dental state is "+ dentalState);
     }
 }

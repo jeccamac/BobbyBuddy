@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sceneLoader: {fileID: 8477151642070160030}
+  currentHealth: 100
+  maxHealth: 100
 --- !u!1 &8283526397101830936
 GameObject:
   m_ObjectHideFlags: 0
