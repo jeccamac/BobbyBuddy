@@ -10,15 +10,15 @@ using UnityEngine.UI;
 public class ActionCountTimer : MonoBehaviour
 {
     [Header("Action Timer Settings")]
-    [SerializeField] public float timeRemaining;
-    [SerializeField] public bool timerRunning = false; //enables visibility of action timer panel
+    public float timeRemaining;
+    public bool timerRunning = false; //enables visibility of action timer panel
     public bool timerEnded = false; //tracks if timer ended, condition for outside scripts to access
 
 
     [Header("Action Counter Settings")]
-    [SerializeField] private float _counter;
-    [SerializeField] private float _counterMax;
-    [SerializeField] public bool counterRunning = false;
+    public float _counter;
+    public float _counterMax;
+    public bool counterRunning = false;
 
     [Header("Image and Text Display")]
     [SerializeField] private GameObject actionPanel = null;

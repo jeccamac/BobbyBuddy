@@ -14,6 +14,7 @@ public class BathroomActions : MonoBehaviour
     [Header("Bathroom Settings")]
     [SerializeField] private GameObject[] bathObjects = {};
     [SerializeField] private GameObject _brushActions = null;
+    [SerializeField] private GameObject _flossActions = null;
     [SerializeField] private SpriteRenderer _brushHighlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
     private Vector3[] startPos;
@@ -39,6 +40,7 @@ public class BathroomActions : MonoBehaviour
     private void Start() 
     {
         _brushActions.SetActive(false);
+        _flossActions.SetActive(false);
 
         //save start position of all bathroom objects that will be moved around
         startPos = new Vector3[bathObjects.Length];
