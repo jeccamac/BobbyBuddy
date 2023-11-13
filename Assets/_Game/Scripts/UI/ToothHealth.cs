@@ -39,7 +39,7 @@ public class ToothHealth : MonoBehaviour
     {
         //get health info from data manager
         GetHealth();
-        
+
         //update tooth health display
         SwapIcons();
     }
@@ -54,7 +54,7 @@ public class ToothHealth : MonoBehaviour
 
     public void SwapIcons()
     {
-            //icons
+            //icons & bar color changes by _dentalState
         if (_dentalState == 5)
         {
             toothIcon.sprite = healthy1;  
@@ -86,7 +86,7 @@ public class ToothHealth : MonoBehaviour
             healthBar.color = critical;
         }
 
-        //     //bar color
+        //     //bar color changes by _currentHealth
         // if (_currentHealth >= 60)
         // {
         //     healthBar.color = healthy;
@@ -101,8 +101,34 @@ public class ToothHealth : MonoBehaviour
         // }
     }
 
-        //SHOW TEXT SOMEWHERE, IT'S CONSTANT IN THIS FUNCTION, NEEDS TO RUN ONCE
+        //SHOW TEXT SOMEWHERE, IT'S CONSTANT IN UPDATE FUNCTION, NEEDS TO RUN ONCE
     //textDisplay.ShowText("I should take better care of my teeth", 3f);
     //textDisplay.ShowText("I might want visit the dentist", 3f);
     //textDisplay.ShowText("I should really get my teeth checked by the dentist", 3f);
+
+    public void CheckTeeth()
+    {
+        Debug.Log("dental state is currently" + _dentalState);
+        _dentalState = DataManager.Instance.dentalState;
+        
+        if (_dentalState == 5)
+        {
+            textDisplay.ShowText("Bobby's teeth are in good condition!", 3f);
+        } else if ( _dentalState == 4)
+        {
+            textDisplay.ShowText("Bobby might want to brush their teeth.", 3f);
+        } else if ( _dentalState == 3)
+        {
+            textDisplay.ShowText("You should help bobby take better care of their teeth.", 3f);
+        } else if ( _dentalState == 2)
+        {
+            textDisplay.ShowText("Bobby might want to visit the dentist.", 3f);
+        } else if ( _dentalState == 1)
+        {
+            textDisplay.ShowText("Bobby should really get their teeth checked by the dentist.", 3f);
+        } else if ( _dentalState == 0)
+        {
+            textDisplay.ShowText("Bobby really needs to visit the dentist.", 3f);
+        }
+    }
 }

@@ -16,6 +16,9 @@ public class DataManager : MonoBehaviour
     [SerializeField] public float currentHealth = 100;
     [SerializeField] public float maxHealth = 100;
     public int dentalState = 5;
+    public bool isTeethBad = false;
+
+    private TextDisplay textDisplay;
 
     private void Awake() 
     {
@@ -34,8 +37,9 @@ public class DataManager : MonoBehaviour
         {
             _sceneLoader = GetComponentInChildren<SceneLoader>();
         }
-    }
 
+        textDisplay = FindObjectOfType<TextDisplay>();
+    }
     private void Update()
     {
         ChangeDentalState(); 
@@ -63,22 +67,25 @@ public class DataManager : MonoBehaviour
     public void ChangeDentalState()
     {
         //change dental states
-        if (dentalState == 5 && currentHealth <= 50){ dentalState = 4; }
-        else if (dentalState == 4 && currentHealth <= 0) 
+        if (dentalState == 5 && currentHealth >= 50){ dentalState = 5; } //healthy
+        else if (dentalState == 5 && currentHealth <= 50){ dentalState = 4; } //good
+        else if (dentalState == 4 && currentHealth >= 50){ dentalState = 5; } //back up to healthy
+        else if (dentalState == 4 && currentHealth <= 0) //down to yellow
         { 
             dentalState = 3;
             currentHealth = 100; //reset
         }
-        else if (dentalState == 3 && currentHealth <= 50) { dentalState = 2; }
-        else if (dentalState == 2 && currentHealth <= 0)
+        else if (dentalState == 3 && currentHealth >= 50) { dentalState = 3; } //yellow1 if above 50
+        else if (dentalState == 3 && currentHealth <= 50) { dentalState = 2; } //yellow2 if below 50
+        else if (dentalState == 2 && currentHealth >= 50) { dentalState = 3; } //back up to yellow 1
+        else if (dentalState == 2 && currentHealth <= 0) //down to rot
         { 
             dentalState = 1;
             currentHealth = 100; //reset
         }
-        else if (dentalState == 1 && currentHealth <= 50)
-        {
-            dentalState = 0;
-        } 
+        else if (dentalState == 1 && currentHealth >= 50) { dentalState = 1; } //rot1 above 50
+        else if (dentalState == 1 && currentHealth <= 50) { dentalState = 0; } //rot2 below 50
+        else if (dentalState == 1 && currentHealth >= 50) { dentalState = 1; } //back up to rot1
     }
 
     public void AddHealth(float healthAmt)
@@ -102,6 +109,7 @@ public class DataManager : MonoBehaviour
     public void UpHealth()
     {
         dentalState ++;
+
         Debug.Log("dental state is "+ dentalState);
     }
 }
