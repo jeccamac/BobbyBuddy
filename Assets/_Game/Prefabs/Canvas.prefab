@@ -1725,7 +1725,7 @@ MonoBehaviour:
   healthBar: {fileID: 3478555851522752055}
   healthy: {r: 0.45882356, g: 1, b: 0.8196079, a: 1}
   yellow: {r: 1, g: 0.9803922, b: 0.45882356, a: 1}
-  rot: {r: 1, g: 0.6666667, b: 0.76470596, a: 1}
+  critical: {r: 0.9960785, g: 0.6666667, b: 0.76470596, a: 1}
   healthy1: {fileID: 21300000, guid: b82d2cc95f215214a9065aaceed567e7, type: 3}
   healthy2: {fileID: 21300000, guid: 24328574320cd934ba0d6025e8591040, type: 3}
   yellow1: {fileID: 21300000, guid: 4cb6471d016adc244bd2e79102375599, type: 3}
