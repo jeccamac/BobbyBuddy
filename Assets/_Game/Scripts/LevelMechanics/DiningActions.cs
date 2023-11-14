@@ -24,4 +24,9 @@ public class DiningActions : MonoBehaviour
         string speak = speech[Random.Range(0, speech.Length)];
         textDisplay.ShowText(speak, 3f);
     }
+
+    public void EatFood(int foodDmg) //TEMP FUNCTION FOR TESTING
+    {
+        DataManager.Instance.SubHealth(foodDmg);
+    }
 }

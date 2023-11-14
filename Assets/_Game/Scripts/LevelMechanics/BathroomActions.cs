@@ -14,12 +14,14 @@ public class BathroomActions : MonoBehaviour
     [Header("Bathroom Settings")]
     [SerializeField] private GameObject[] bathObjects = {};
     [SerializeField] private GameObject _brushActions = null;
+    [SerializeField] private GameObject _flossActions = null;
     [SerializeField] private SpriteRenderer _brushHighlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
     private Vector3[] startPos;
     //private GameObject _brush = null;
     private Animator _animBrush = null;
     private Animator _animBrushHL = null;
+    private bool hasBrushed = false;
     
     [Tooltip("Series of speech text every time the function is called")]
     [SerializeField] private string[] speech = 
@@ -39,6 +41,7 @@ public class BathroomActions : MonoBehaviour
     private void Start() 
     {
         _brushActions.SetActive(false);
+        _flossActions.SetActive(false);
 
         //save start position of all bathroom objects that will be moved around
         startPos = new Vector3[bathObjects.Length];
@@ -46,6 +49,11 @@ public class BathroomActions : MonoBehaviour
         {
             startPos[i] = bathObjects[i].transform.position;
         }
+    }
+
+    private void Update()
+    {
+        UpdateDental();
     }
     public void CallSpeech(int speechLine)
     {
@@ -68,6 +76,7 @@ public class BathroomActions : MonoBehaviour
             actionTimer.StartTimer(5);
         }
         
+        //particle effects
         if (_bubbles != null)
         {
             _bubbles.Play();
@@ -81,6 +90,7 @@ public class BathroomActions : MonoBehaviour
         if (actionTimer.timeRemaining > 0 && actionTimer.timerEnded == false)
         {
             actionTimer.CancelTimer();
+            hasBrushed = false;
         }
         
         if (_animBrush != null)
@@ -91,6 +101,25 @@ public class BathroomActions : MonoBehaviour
         if (_bubbles != null)
         {
             _bubbles.Stop();
+        }
+    }
+
+    public void HasBrushed()
+    {
+        //if action was completed, then brushing complete and add tooth health
+        if (actionTimer.timeRemaining <= 00 && actionTimer.timerEnded == true)
+        {
+            hasBrushed = true;
+        }
+    }
+
+    public void UpdateDental()
+    {
+        if (hasBrushed)
+        {
+            DataManager.Instance.AddHealth(20);
+            hasBrushed = false;
+            Debug.Log("brushing added tooth health amount of 20");
         }
     }
 
