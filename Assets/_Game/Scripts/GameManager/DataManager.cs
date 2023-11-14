@@ -94,7 +94,6 @@ public class DataManager : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
 
         Debug.Log("current health is " + currentHealth);
-        Debug.Log("dental state is "+ dentalState);
     }
 
     public void SubHealth(float healthAmt)
@@ -108,7 +107,8 @@ public class DataManager : MonoBehaviour
 
     public void UpHealth()
     {
-        dentalState ++;
+        dentalState += 1;
+        dentalState = Mathf.Clamp(dentalState, 0, 5);
 
         Debug.Log("dental state is "+ dentalState);
     }
