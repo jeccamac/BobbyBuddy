@@ -18,7 +18,6 @@ public class BathroomActions : MonoBehaviour
     [SerializeField] private SpriteRenderer _brushHighlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
     private Vector3[] startPos;
-    //private GameObject _brush = null;
     private Animator _animBrush = null;
     private Animator _animBrushHL = null;
     private bool hasBrushed = false;
@@ -53,6 +52,7 @@ public class BathroomActions : MonoBehaviour
 
     private void Update()
     {
+        HasBrushed();
         UpdateDental();
     }
     public void CallSpeech(int speechLine)
@@ -107,9 +107,10 @@ public class BathroomActions : MonoBehaviour
     public void HasBrushed()
     {
         //if action was completed, then brushing complete and add tooth health
-        if (actionTimer.timeRemaining <= 00 && actionTimer.timerEnded == true)
+        if (actionTimer.timeRemaining <= 00 && actionTimer.timerEnded == true && actionTimer.timerComplete == true)
         {
             hasBrushed = true;
+            actionTimer.timerComplete = false;
         }
     }
 
@@ -121,6 +122,11 @@ public class BathroomActions : MonoBehaviour
             hasBrushed = false;
             Debug.Log("brushing added tooth health amount of 20");
         }
+    }
+
+    public void StartFlossing()
+    {
+        actionTimer.StartCounter(3);
     }
 
     public void ObjectReset()

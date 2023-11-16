@@ -14,7 +14,7 @@ public class ActionCountTimer : MonoBehaviour
     public float timeRemaining;
     public bool timerRunning = false; //enables visibility of action timer panel
     public bool timerEnded = false; //tracks if timer ended, condition for outside scripts to access
-    [SerializeField] public UnityEvent actionEvent;
+    public bool timerComplete = false;
 
     [Header("Action Counter Settings")]
     public float _counter;
@@ -31,9 +31,12 @@ public class ActionCountTimer : MonoBehaviour
     private Animator animAction;
     private float _minutes;
     private float _seconds;
+    private SwipeDetection swipeDetection;
     
     private void Start()
     {
+        swipeDetection = FindObjectOfType<SwipeDetection>();
+
         actionPanel.SetActive(false);
 
         animAction = GetComponent<Animator>();
@@ -43,7 +46,41 @@ public class ActionCountTimer : MonoBehaviour
         countTimeText.enabled = false;
         announceText.enabled = false;
     }
-    private void Update() {
+    private void Update() 
+    {
+        RunTimer();
+        
+        RunCounter();
+    }
+
+    public void StartTimer(float timeInSeconds)
+    {
+        timerRunning = true;
+        timerEnded = false;
+        timerComplete = false;
+        timeRemaining = timeInSeconds;
+        actionSlider.maxValue = timeRemaining;
+        actionPanel.SetActive(true);
+    }
+
+    public void StopTimer()
+    {
+        if (timeRemaining != 0 && timerEnded == false)
+        {
+            timerRunning = false;
+            timeRemaining = 0;
+            Announce("Canceled", colorFail);
+        }
+    }
+
+    public void CancelTimer()
+    {
+        timerRunning = false;
+        Announce("Failed!", colorFail);
+    }
+
+    private void RunTimer()
+    {
         if (timerRunning)
         {
             //start timer animation
@@ -68,47 +105,20 @@ public class ActionCountTimer : MonoBehaviour
 
                 //conditions to end end timer animation
                 timerEnded = true;
+                timerComplete = true;
                 Announce("Great Job!", colorSuccess);
-                actionEvent.Invoke(); //ONLY DOES ONE ACTION TO INVOKE AT A TIME, NEED BETTER IMPLEMENTATION FOR CHECKING hasBrushed BOOLEAN TO ACCESS HERE
             }
         }
-        
-        /*
-        if (counterRunning)
-        {
-            AddCount();
-            //separate UI for counter?
-        } */
-    }
-
-    public void StartTimer(float timeInSeconds)
-    {
-        timerRunning = true;
-        timerEnded = false;
-        timeRemaining = timeInSeconds;
-        actionSlider.maxValue = timeRemaining;
-        actionPanel.SetActive(true);
-    }
-
-    public void StopTimer()
-    {
-        if (timeRemaining != 0 && timerEnded == false)
-        {
-            timerRunning = false;
-            timeRemaining = 0;
-            Announce("Canceled", colorFail);
-        }
-    }
-
-    public void CancelTimer()
-    {
-        timerRunning = false;
-        Announce("Failed!", colorFail);
     }
 
     public void Announce(string announceTxt, Color colorTxt)
     {
-        animAction.Play("ScaleOut");
+        if (animAction != null)
+        {
+            animAction.Play("ScaleOut");
+        }
+        
+        //timerComplete = false; //run ONCE
 
         StartCoroutine(DisplayAnnouncement());
 
@@ -127,11 +137,14 @@ public class ActionCountTimer : MonoBehaviour
         }
     }
 
-    /*
     public void StartCounter(float countAmt)
     {
         counterRunning = true;
         _counterMax = countAmt;
+        swipeDetection.enableSwiping = true;
+        Announce("Start!", colorSuccess);
+        //actionPanel.SetActive(true);
+        Debug.Log("counter has started");
     }
 
     public void AddCount()
@@ -139,15 +152,29 @@ public class ActionCountTimer : MonoBehaviour
         if (_counter <= 0)
         {
             _counter++;
-            
+            countTimeText.text = _counter.ToString();
+            Debug.Log("adding count");
         } else if (_counter >= _counterMax)
         {
-            counterRunning = false;
+            //close counter animation
+            Announce("Finished!", colorSuccess);
             Debug.Log("Counter reached maximum");
+            counterRunning = false;
         }
     }
-    */
 
+    private void RunCounter()
+    {
+        if (counterRunning)
+        {
+            animAction.enabled = true;
+            animAction.Play("ScaleIn");
+
+            DisplayCount(_counter);
+            //separate UI for counter?
+        }
+    }
+    
     private void DisplayTime(float timeDisplay)
     {
         if (countTimeText.enabled == true)
@@ -156,6 +183,14 @@ public class ActionCountTimer : MonoBehaviour
             _minutes = Mathf.FloorToInt(timeDisplay / 60);
             _seconds = Mathf.FloorToInt(timeDisplay % 60);
             countTimeText.text = string.Format("{0:00}:{1:00}", _minutes, _seconds);
+        }
+    }
+
+    private void DisplayCount(float countDisplay)
+    {
+        if (countTimeText.enabled == true)
+        {
+            countTimeText.text = string.Format(countDisplay.ToString());
         }
     }
 }
