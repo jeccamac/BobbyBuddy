@@ -372,6 +372,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TouchController
       objectReference: {fileID: 0}
+    - target: {fileID: 3624419927866081929, guid: ef2987d2a2224c444bc571df7c30997f,
+        type: 3}
+      propertyPath: triggerEvent
+      value: 
+      objectReference: {fileID: 2022478947}
     - target: {fileID: 5190033043369601539, guid: ef2987d2a2224c444bc571df7c30997f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1608,6 +1613,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2022478945}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2022478947 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5220891046304967279, guid: 43c9fe6ab215feb408c022386036e05d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2022478945}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2022478946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f3bdc9c7b88f342b1e16388ea1fc0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2080313526
 GameObject:
   m_ObjectHideFlags: 0
