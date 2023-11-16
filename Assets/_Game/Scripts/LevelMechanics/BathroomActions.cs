@@ -21,6 +21,7 @@ public class BathroomActions : MonoBehaviour
     private Animator _animBrush = null;
     private Animator _animBrushHL = null;
     private bool hasBrushed = false;
+    private bool hasFlossed = false;
     
     [Tooltip("Series of speech text every time the function is called")]
     [SerializeField] private string[] speech = 
@@ -53,6 +54,7 @@ public class BathroomActions : MonoBehaviour
     private void Update()
     {
         HasBrushed();
+        HasFlossed();
         UpdateDental();
     }
     public void CallSpeech(int speechLine)
@@ -104,13 +106,36 @@ public class BathroomActions : MonoBehaviour
         }
     }
 
+    public void StopFlossing()
+    {
+        if (actionTimer.counterRunning && !actionTimer.counterComplete)
+        {
+            actionTimer.CancelCounter();
+            hasFlossed = false;
+        }
+    }
+
     public void HasBrushed()
     {
         //if action was completed, then brushing complete and add tooth health
-        if (actionTimer.timeRemaining <= 00 && actionTimer.timerEnded == true && actionTimer.timerComplete == true)
+        if ( actionTimer.timeRemaining <= 00 && actionTimer.timerEnded == true && actionTimer.timerComplete == true )
         {
             hasBrushed = true;
             actionTimer.timerComplete = false;
+        }
+    }
+
+    public void StartFlossing()
+    {
+        actionTimer.StartCounter(3);
+    }
+
+    public void HasFlossed()
+    {
+        if ( actionTimer.counterComplete == true )
+        {
+            hasFlossed = true;
+            actionTimer.counterComplete = false;
         }
     }
 
@@ -122,11 +147,13 @@ public class BathroomActions : MonoBehaviour
             hasBrushed = false;
             Debug.Log("brushing added tooth health amount of 20");
         }
-    }
 
-    public void StartFlossing()
-    {
-        actionTimer.StartCounter(3);
+        if (hasFlossed)
+        {
+            DataManager.Instance.AddHealth(20);
+            hasFlossed = false;
+            Debug.Log("flossing added 20 tooth health");
+        }
     }
 
     public void ObjectReset()

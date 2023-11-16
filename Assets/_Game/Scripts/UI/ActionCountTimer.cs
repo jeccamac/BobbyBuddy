@@ -20,6 +20,7 @@ public class ActionCountTimer : MonoBehaviour
     public float _counter;
     public float _counterMax;
     public bool counterRunning = false;
+    public bool counterComplete = false;
 
     [Header("Image and Text Display")]
     [SerializeField] private GameObject actionPanel = null;
@@ -113,12 +114,10 @@ public class ActionCountTimer : MonoBehaviour
 
     public void Announce(string announceTxt, Color colorTxt)
     {
-        if (animAction != null)
+        if (animAction != null && animAction.enabled)
         {
             animAction.Play("ScaleOut");
         }
-        
-        //timerComplete = false; //run ONCE
 
         StartCoroutine(DisplayAnnouncement());
 
@@ -137,44 +136,76 @@ public class ActionCountTimer : MonoBehaviour
         }
     }
 
-    public void StartCounter(float countAmt)
+    public void StartCounter(float countAmt) //enable swipe detection to start counting swipes
     {
-        counterRunning = true;
-        _counterMax = countAmt;
-        swipeDetection.enableSwiping = true;
-        Announce("Start!", colorSuccess);
-        //actionPanel.SetActive(true);
-        Debug.Log("counter has started");
-    }
+        if (!counterRunning && counterComplete == false) //CHECK
+        {
+            Debug.Log("started counter");
+            Announce("Start!", colorSuccess);
 
-    public void AddCount()
-    {
-        if (_counter <= 0)
-        {
-            _counter++;
-            countTimeText.text = _counter.ToString();
-            Debug.Log("adding count");
-        } else if (_counter >= _counterMax)
-        {
-            //close counter animation
-            Announce("Finished!", colorSuccess);
-            Debug.Log("Counter reached maximum");
-            counterRunning = false;
+            _counter = 0;
+            _counterMax = countAmt;
+            counterRunning = true;
+            swipeDetection.enableSwiping = true;
+            
+            RunCounter();
         }
+        
     }
 
-    private void RunCounter()
+    private void RunCounter() //animate & display counter, run in Update
     {
         if (counterRunning)
         {
+            //counter animation
+            actionPanel.SetActive(true);
+            countTimeText.enabled = true;
             animAction.enabled = true;
             animAction.Play("ScaleIn");
 
-            DisplayCount(_counter);
+            //counter display
+            actionSlider.value = _counter / _counterMax;
+            countTimeText.text = _counter.ToString();
+
             //separate UI for counter?
+        } else if (counterComplete)
+        {
+            //close counter animation
+            //countTimeText.enabled = false;
+            Announce("Finished!", colorSuccess);
+            Debug.Log("Counter reached maximum");
+            
+            //reset values
+            _counter = 0;
+            counterRunning = false;
+            counterComplete = false;
+            swipeDetection.enableSwiping = false;
         }
     }
-    
+
+    public void CancelCounter()
+    {
+        counterRunning = false;
+        Announce("Canceled!", colorFail);
+    }
+
+    public void AddCount() //do the maths
+    {
+        if (counterRunning)
+        {
+            _counter++;
+            Debug.Log("adding count " + actionSlider.value);
+            Debug.Log("counter " + _counter.ToString() + "out of count max" + _counterMax);
+        }
+        
+        if (_counter == _counterMax)
+        {
+            counterComplete = true;
+            counterRunning = false;
+            Debug.Log("counter completed");
+        }
+    }
+
     private void DisplayTime(float timeDisplay)
     {
         if (countTimeText.enabled == true)
@@ -183,14 +214,6 @@ public class ActionCountTimer : MonoBehaviour
             _minutes = Mathf.FloorToInt(timeDisplay / 60);
             _seconds = Mathf.FloorToInt(timeDisplay % 60);
             countTimeText.text = string.Format("{0:00}:{1:00}", _minutes, _seconds);
-        }
-    }
-
-    private void DisplayCount(float countDisplay)
-    {
-        if (countTimeText.enabled == true)
-        {
-            countTimeText.text = string.Format(countDisplay.ToString());
         }
     }
 }

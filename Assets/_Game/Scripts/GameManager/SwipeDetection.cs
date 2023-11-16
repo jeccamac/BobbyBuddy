@@ -16,8 +16,11 @@ public class SwipeDetection : MonoBehaviour
     private float endTime;
     //private Coroutine coroutine;
 
+    private ActionCountTimer actionCounter;
+
     private void Start() 
     {
+        actionCounter = FindObjectOfType<ActionCountTimer>();
         //swipeTrail.SetActive(false);
     }
     private void Update() 
@@ -74,12 +77,12 @@ public class SwipeDetection : MonoBehaviour
         DetectSwipe();
     }
 
-    private void DetectSwipe()
+    public void DetectSwipe()
     {
         if (Vector3.Distance(startPosition, endPosition) >= minSwipeDistance
             && (endTime - startTime) <= maxSwipeTime)
         {
-            Debug.Log("swipe detected");
+            //Debug.Log("swipe detected");
             Debug.DrawLine(startPosition, endPosition, Color.red, 5f);
             Vector3 direction = endPosition - startPosition;
             Vector2 dir = new Vector2(direction.x, direction.y).normalized;
@@ -91,8 +94,9 @@ public class SwipeDetection : MonoBehaviour
     {
         if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
+            //get action counter here? and count++
+            actionCounter.AddCount();
             Debug.Log("swipe up");
-            //get action counter here and count++
         }
         if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
