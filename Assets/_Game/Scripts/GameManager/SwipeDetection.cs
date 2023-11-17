@@ -100,14 +100,17 @@ public class SwipeDetection : MonoBehaviour
         }
         if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
+            actionCounter.AddCount();
             Debug.Log("swipe down");
         }
         if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
+            actionCounter.AddCount();
             Debug.Log("swipe left");
         }
         if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
+            actionCounter.AddCount();
             Debug.Log("swipe right");
         }
     }

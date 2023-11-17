@@ -20,6 +20,7 @@ public class ActionCountTimer : MonoBehaviour
     public float _counter;
     public float _counterMax;
     public bool counterRunning = false;
+    public bool counterEnded = false;
     public bool counterComplete = false;
 
     [Header("Image and Text Display")]
@@ -98,6 +99,7 @@ public class ActionCountTimer : MonoBehaviour
                 //text display
                 countTimeText.enabled = true;
                 DisplayTime(timeRemaining);
+
             } else if (timeRemaining <= 0) //then if reaches 0
             {
                 countTimeText.enabled = false;
@@ -126,7 +128,7 @@ public class ActionCountTimer : MonoBehaviour
             announceText.text = announceTxt;
             announceText.color = colorTxt;
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             actionPanel.SetActive(false);
             announceText.enabled = true;
             animAction.Play("PopIn");
@@ -138,13 +140,13 @@ public class ActionCountTimer : MonoBehaviour
 
     public void StartCounter(float countAmt) //enable swipe detection to start counting swipes
     {
-        if (!counterRunning && counterComplete == false) //CHECK
-        {
-            Debug.Log("started counter");
-            Announce("Start!", colorSuccess);
+        Announce("Start!", colorSuccess);
 
+        if (!counterRunning) //CHECK
+        {
             _counter = 0;
             _counterMax = countAmt;
+            counterEnded = false;
             counterRunning = true;
             swipeDetection.enableSwiping = true;
             
@@ -162,23 +164,25 @@ public class ActionCountTimer : MonoBehaviour
             countTimeText.enabled = true;
             animAction.enabled = true;
             animAction.Play("ScaleIn");
-
+            
             //counter display
             actionSlider.value = _counter / _counterMax;
             countTimeText.text = _counter.ToString();
 
-            //separate UI for counter?
-        } else if (counterComplete)
+        } 
+        
+        if (counterEnded)
         {
+            counterComplete = true;
+            countTimeText.text = _counter.ToString(); //still display the last number
+            actionSlider.value = _counter / _counterMax; //still display the correct full bar
+            
             //close counter animation
-            //countTimeText.enabled = false;
             Announce("Finished!", colorSuccess);
             Debug.Log("Counter reached maximum");
             
             //reset values
-            _counter = 0;
-            counterRunning = false;
-            counterComplete = false;
+            counterEnded = false;
             swipeDetection.enableSwiping = false;
         }
     }
@@ -186,6 +190,8 @@ public class ActionCountTimer : MonoBehaviour
     public void CancelCounter()
     {
         counterRunning = false;
+        // counterEnded = false;
+        // counterComplete = false;
         Announce("Canceled!", colorFail);
     }
 
@@ -200,7 +206,7 @@ public class ActionCountTimer : MonoBehaviour
         
         if (_counter == _counterMax)
         {
-            counterComplete = true;
+            counterEnded = true;
             counterRunning = false;
             Debug.Log("counter completed");
         }
