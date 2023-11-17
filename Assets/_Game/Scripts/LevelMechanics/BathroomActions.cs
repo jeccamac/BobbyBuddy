@@ -95,14 +95,17 @@ public class BathroomActions : MonoBehaviour
             hasBrushed = false;
         }
         
-        if (_animBrush != null)
+        if (_brushActions.activeSelf == true) //only run if brushActions is active, if not active then dont do anything
         {
-            _animBrush.Play("Idle");
-            _brushHighlight.enabled = false;
-        }
-        if (_bubbles != null)
-        {
-            _bubbles.Stop();
+            if (_animBrush != null)
+            {
+                _animBrush.Play("Idle");
+                _brushHighlight.enabled = false;
+            }
+            if (_bubbles != null)
+            {
+                _bubbles.Stop();
+            }
         }
     }
 
@@ -122,6 +125,21 @@ public class BathroomActions : MonoBehaviour
         {
             hasBrushed = true;
             actionTimer.timerComplete = false;
+
+            //stop animations
+            if (_animBrush != null)
+            {
+                _animBrush.Play("Idle");
+                _brushHighlight.enabled = false;
+            }
+
+            if (_bubbles != null)
+            {
+                _bubbles.Stop();
+            }
+
+            //reset brush
+            ObjectReset();
         }
     }
 
@@ -136,6 +154,11 @@ public class BathroomActions : MonoBehaviour
         {
             hasFlossed = true;
             actionTimer.counterComplete = false;
+
+            //stop animations
+
+            //reset floss
+            ObjectReset();
         }
     }
 
