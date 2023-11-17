@@ -96,22 +96,22 @@ public class SwipeDetection : MonoBehaviour
         {
             //get action counter here? and count++
             actionCounter.AddCount();
-            Debug.Log("swipe up");
+            //Debug.Log("swipe up");
         }
         if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
             actionCounter.AddCount();
-            Debug.Log("swipe down");
+            //Debug.Log("swipe down");
         }
         if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
             actionCounter.AddCount();
-            Debug.Log("swipe left");
+            //Debug.Log("swipe left");
         }
         if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
             actionCounter.AddCount();
-            Debug.Log("swipe right");
+            //Debug.Log("swipe right");
         }
     }
 }

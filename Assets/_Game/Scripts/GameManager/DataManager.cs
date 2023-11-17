@@ -88,17 +88,12 @@ public class DataManager : MonoBehaviour
     {
         currentHealth += healthAmt;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
-        Debug.Log("current health is " + currentHealth);
     }
 
     public void SubHealth(float healthAmt)
     {
         currentHealth -= healthAmt;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
-        Debug.Log("current health is " + currentHealth);
-        Debug.Log("dental state is "+ dentalState);
     }
 
     public void UpHealth()

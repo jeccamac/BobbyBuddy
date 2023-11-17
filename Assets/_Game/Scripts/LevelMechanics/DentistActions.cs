@@ -5,22 +5,40 @@ using UnityEngine.UI;
 
 public class DentistActions : MonoBehaviour
 {
-    [SerializeField] private GameObject xrayObject;
+    [Header("Display Settings")]
+    //[SerializeField] private ActionCountTimer actionTimer = null;
     [SerializeField] private TextDisplay textDisplay;
+
+    [Header("Dentist Settings")]
+    //[SerializeField] private GameObject xrayObject;
+    [SerializeField] private GameObject[] dentistObjects = {};
     [SerializeField] private string[] speech = {};
+    private Vector3[] startPos;
     private bool xrayEnabled = false;
+
+    private void Start() 
+    {
+        //save start positions of all dentist office objects
+        startPos = new Vector3[dentistObjects.Length];
+        for (int i=0; i<dentistObjects.Length; i++)
+        {
+            startPos[i] = dentistObjects[i].transform.position;
+        }
+    }
     public void ToggleXRay()
     {
         //gameobj.setactive
         if (xrayEnabled == false) 
         { 
-            xrayObject.SetActive(true); 
+            //xrayObject.SetActive(true); 
+            dentistObjects[0].SetActive(true);
             AudioManager.Instance.PlaySFX("XRay On");
             xrayEnabled = true;
         }
         else if (xrayEnabled == true)
         { 
-            xrayObject.SetActive(false);
+            //xrayObject.SetActive(false);
+            dentistObjects[0].SetActive(false);
             AudioManager.Instance.PlaySFX("XRay Off");
             xrayEnabled = false;
         }
@@ -30,7 +48,8 @@ public class DentistActions : MonoBehaviour
     {
         if (xrayEnabled == true)
         {
-            xrayObject.SetActive(false);
+            //xrayObject.SetActive(false);
+            dentistObjects[0].SetActive(false);
             AudioManager.Instance.PlaySFX("XRay Off");
             xrayEnabled = false;
         }
@@ -49,5 +68,13 @@ public class DentistActions : MonoBehaviour
     {
         string speak = speech[Random.Range(0, speech.Length)];
         textDisplay.ShowText(speak, 3f);
+    }
+
+    public void ObjectReset()
+    {
+        for (int i=0; i<dentistObjects.Length; i++)
+        {
+            dentistObjects[i].transform.position = startPos[i];
+        }
     }
 }

@@ -51,7 +51,6 @@ public class ActionCountTimer : MonoBehaviour
     private void Update() 
     {
         RunTimer();
-        
         RunCounter();
     }
 
@@ -176,10 +175,9 @@ public class ActionCountTimer : MonoBehaviour
             counterComplete = true;
             countTimeText.text = _counter.ToString(); //still display the last number
             actionSlider.value = _counter / _counterMax; //still display the correct full bar
-            
+
             //close counter animation
             Announce("Finished!", colorSuccess);
-            Debug.Log("Counter reached maximum");
             
             //reset values
             counterEnded = false;
@@ -200,15 +198,12 @@ public class ActionCountTimer : MonoBehaviour
         if (counterRunning)
         {
             _counter++;
-            Debug.Log("adding count " + actionSlider.value);
-            Debug.Log("counter " + _counter.ToString() + "out of count max" + _counterMax);
         }
         
         if (_counter == _counterMax)
         {
             counterEnded = true;
             counterRunning = false;
-            Debug.Log("counter completed");
         }
     }
 
