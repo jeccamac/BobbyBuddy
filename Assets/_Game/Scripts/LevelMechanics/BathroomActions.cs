@@ -89,7 +89,7 @@ public class BathroomActions : MonoBehaviour
 
     public void StopBrushing()
     {
-        if (actionTimer.timeRemaining > 0 && actionTimer.timerEnded == false)
+        if (actionTimer.timeRemaining > 0 && !actionTimer.timerEnded)
         {
             actionTimer.CancelTimer();
             hasBrushed = false;
@@ -121,7 +121,7 @@ public class BathroomActions : MonoBehaviour
     public void HasBrushed()
     {
         //if action was completed, then brushing complete and add tooth health
-        if ( actionTimer.timeRemaining <= 00 && actionTimer.timerEnded == true && actionTimer.timerComplete == true )
+        if (actionTimer.timeRemaining <= 0 && actionTimer.timerEnded && actionTimer.timerComplete)
         {
             hasBrushed = true;
             actionTimer.timerComplete = false;
@@ -162,7 +162,7 @@ public class BathroomActions : MonoBehaviour
         }
     }
 
-    public void UpdateDental()
+    private void UpdateDental()
     {
         if (hasBrushed)
         {
@@ -179,7 +179,7 @@ public class BathroomActions : MonoBehaviour
         }
     }
 
-    public void ObjectReset()
+    private void ObjectReset()
     {
         for (int i=0; i<bathObjects.Length; i++)
         {

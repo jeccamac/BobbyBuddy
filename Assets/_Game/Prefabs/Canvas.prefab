@@ -841,7 +841,7 @@ GameObject:
   - component: {fileID: 4184867815132760808}
   - component: {fileID: 9108933692716299755}
   m_Layer: 5
-  m_Name: CountTimer_Panel
+  m_Name: ActionCountTimer_Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -895,6 +895,8 @@ MonoBehaviour:
   _counter: 0
   _counterMax: 0
   counterRunning: 0
+  counterEnded: 0
+  counterComplete: 0
   actionPanel: {fileID: 8230356742701318002}
   actionSlider: {fileID: 7570952305796329988}
   countTimeText: {fileID: 7536918931031975835}
