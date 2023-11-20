@@ -6,24 +6,27 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class TouchController : MonoBehaviour
+public class DragController : MonoBehaviour
 {
-    [SerializeField] private Input touchInput;
     private Camera mainCam;
     private Transform objToDrag;
+    private Touch touch;
     private Vector3 offset;
     private float initDist;    
     private bool isDragging = false;
-    private Touch touch;
-    private TriggerEvent triggerEvent;
+    [SerializeField] private TriggerEvent triggerEvent;
 
     private void Awake() 
     {
         mainCam = Camera.main;
-        triggerEvent = FindObjectOfType<TriggerEvent>();
     }
 
     private void Update() 
+    {
+        DragObject();
+    }
+
+    private void DragObject()
     {
         if (Input.touchCount != 1) //detect touch
         {
@@ -81,6 +84,6 @@ public class TouchController : MonoBehaviour
         {
             isDragging = false;
         }//END if touch is cancelled
-    }//END update
-}//END class behavior
+    }
+}
 

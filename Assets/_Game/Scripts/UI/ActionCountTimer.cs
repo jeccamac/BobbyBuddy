@@ -14,12 +14,14 @@ public class ActionCountTimer : MonoBehaviour
     public float timeRemaining;
     public bool timerRunning = false; //enables visibility of action timer panel
     public bool timerEnded = false; //tracks if timer ended, condition for outside scripts to access
-    [SerializeField] public UnityEvent actionEvent;
+    public bool timerComplete = false;
 
     [Header("Action Counter Settings")]
     public float _counter;
     public float _counterMax;
     public bool counterRunning = false;
+    public bool counterEnded = false;
+    public bool counterComplete = false;
 
     [Header("Image and Text Display")]
     [SerializeField] private GameObject actionPanel = null;
@@ -31,9 +33,12 @@ public class ActionCountTimer : MonoBehaviour
     private Animator animAction;
     private float _minutes;
     private float _seconds;
+    private SwipeDetection swipeDetection;
     
     private void Start()
     {
+        swipeDetection = FindObjectOfType<SwipeDetection>();
+
         actionPanel.SetActive(false);
 
         animAction = GetComponent<Animator>();
@@ -43,48 +48,17 @@ public class ActionCountTimer : MonoBehaviour
         countTimeText.enabled = false;
         announceText.enabled = false;
     }
-    private void Update() {
-        if (timerRunning)
-        {
-            //start timer animation
-            animAction.enabled = true;
-            animAction.Play("ScaleIn");
-
-            if (timeRemaining > 0)
-            {
-                timeRemaining -= Time.deltaTime;
-
-                //slider scale
-                actionSlider.value = timeRemaining;
-
-                //text display
-                countTimeText.enabled = true;
-                DisplayTime(timeRemaining);
-            } else if (timeRemaining <= 0) //then if reaches 0
-            {
-                countTimeText.enabled = false;
-                timeRemaining = 0;
-                timerRunning = false;
-
-                //conditions to end end timer animation
-                timerEnded = true;
-                Announce("Great Job!", colorSuccess);
-                actionEvent.Invoke(); //ONLY DOES ONE ACTION TO INVOKE AT A TIME, NEED BETTER IMPLEMENTATION FOR CHECKING hasBrushed BOOLEAN TO ACCESS HERE
-            }
-        }
-        
-        /*
-        if (counterRunning)
-        {
-            AddCount();
-            //separate UI for counter?
-        } */
+    private void Update() 
+    {
+        RunTimer();
+        RunCounter();
     }
 
     public void StartTimer(float timeInSeconds)
     {
         timerRunning = true;
         timerEnded = false;
+        timerComplete = false;
         timeRemaining = timeInSeconds;
         actionSlider.maxValue = timeRemaining;
         actionPanel.SetActive(true);
@@ -106,9 +80,45 @@ public class ActionCountTimer : MonoBehaviour
         Announce("Failed!", colorFail);
     }
 
+    private void RunTimer()
+    {
+        if (timerRunning)
+        {
+            //start timer animation
+            animAction.enabled = true;
+            animAction.Play("ScaleIn");
+
+            if (timeRemaining > 0)
+            {
+                timeRemaining -= Time.deltaTime;
+
+                //slider scale
+                actionSlider.value = timeRemaining;
+
+                //text display
+                countTimeText.enabled = true;
+                DisplayTime(timeRemaining);
+
+            } else if (timeRemaining <= 0) //then if reaches 0
+            {
+                countTimeText.enabled = false;
+                timeRemaining = 0;
+                timerRunning = false;
+
+                //conditions to end end timer animation
+                timerEnded = true;
+                timerComplete = true;
+                Announce("Great Job!", colorSuccess);
+            }
+        }
+    }
+
     public void Announce(string announceTxt, Color colorTxt)
     {
-        animAction.Play("ScaleOut");
+        if (animAction != null && animAction.enabled)
+        {
+            animAction.Play("ScaleOut");
+        }
 
         StartCoroutine(DisplayAnnouncement());
 
@@ -117,7 +127,7 @@ public class ActionCountTimer : MonoBehaviour
             announceText.text = announceTxt;
             announceText.color = colorTxt;
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
             actionPanel.SetActive(false);
             announceText.enabled = true;
             animAction.Play("PopIn");
@@ -127,26 +137,75 @@ public class ActionCountTimer : MonoBehaviour
         }
     }
 
-    /*
-    public void StartCounter(float countAmt)
+    public void StartCounter(float countAmt) //enable swipe detection to start counting swipes
     {
-        counterRunning = true;
-        _counterMax = countAmt;
+        Announce("Start!", colorSuccess);
+
+        if (!counterRunning) //CHECK
+        {
+            _counter = 0;
+            _counterMax = countAmt;
+            counterEnded = false;
+            counterRunning = true;
+            swipeDetection.enableSwiping = true;
+            
+            RunCounter();
+        }
+        
     }
 
-    public void AddCount()
+    private void RunCounter() //animate & display counter, run in Update
     {
-        if (_counter <= 0)
+        if (counterRunning)
         {
-            _counter++;
+            //counter animation
+            actionPanel.SetActive(true);
+            countTimeText.enabled = true;
+            animAction.enabled = true;
+            animAction.Play("ScaleIn");
             
-        } else if (_counter >= _counterMax)
+            //counter display
+            actionSlider.value = _counter / _counterMax;
+            countTimeText.text = _counter.ToString();
+
+        } 
+        
+        if (counterEnded)
         {
-            counterRunning = false;
-            Debug.Log("Counter reached maximum");
+            counterComplete = true;
+            countTimeText.text = _counter.ToString(); //still display the last number
+            actionSlider.value = _counter / _counterMax; //still display the correct full bar
+
+            //close counter animation
+            Announce("Finished!", colorSuccess);
+            
+            //reset values
+            counterEnded = false;
+            swipeDetection.enableSwiping = false;
         }
     }
-    */
+
+    public void CancelCounter()
+    {
+        counterRunning = false;
+        // counterEnded = false;
+        // counterComplete = false;
+        Announce("Canceled!", colorFail);
+    }
+
+    public void AddCount() //do the maths
+    {
+        if (counterRunning)
+        {
+            _counter++;
+        }
+        
+        if (_counter == _counterMax)
+        {
+            counterEnded = true;
+            counterRunning = false;
+        }
+    }
 
     private void DisplayTime(float timeDisplay)
     {

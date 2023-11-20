@@ -18,8 +18,6 @@ public class DataManager : MonoBehaviour
     public int dentalState = 5;
     public bool isTeethBad = false;
 
-    private TextDisplay textDisplay;
-
     private void Awake() 
     {
         // Singleton pattern, should only be one of these instances on the DataManager prefab
@@ -37,8 +35,6 @@ public class DataManager : MonoBehaviour
         {
             _sceneLoader = GetComponentInChildren<SceneLoader>();
         }
-
-        textDisplay = FindObjectOfType<TextDisplay>();
     }
     private void Update()
     {
@@ -92,17 +88,12 @@ public class DataManager : MonoBehaviour
     {
         currentHealth += healthAmt;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
-        Debug.Log("current health is " + currentHealth);
     }
 
     public void SubHealth(float healthAmt)
     {
         currentHealth -= healthAmt;
         currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-
-        Debug.Log("current health is " + currentHealth);
-        Debug.Log("dental state is "+ dentalState);
     }
 
     public void UpHealth()

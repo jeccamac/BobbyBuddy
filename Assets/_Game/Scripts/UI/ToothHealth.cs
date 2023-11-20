@@ -16,7 +16,7 @@ public class ToothHealth : MonoBehaviour
     
     [Header("Health Color Status")]
     [SerializeField] private Color healthy;
-    [SerializeField] private Color yellow;
+    [SerializeField] private Color moderate;
     [SerializeField] private Color critical;
 
     [Header("Tooth Icon Images")]
@@ -68,12 +68,12 @@ public class ToothHealth : MonoBehaviour
         else if (_dentalState == 3)
         {
             toothIcon.sprite = yellow1;
-            healthBar.color = yellow;
+            healthBar.color = moderate;
         }
         else if (_dentalState == 2)
         {
             toothIcon.sprite = yellow2;
-            healthBar.color = yellow;
+            healthBar.color = moderate;
         }
         else if (_dentalState == 1)
         {
@@ -93,18 +93,13 @@ public class ToothHealth : MonoBehaviour
         // } 
         // else if (_currentHealth <= 60 && _currentHealth >= 20)
         // {
-        //     healthBar.color = yellow;
+        //     healthBar.color = moderate;
         // } 
         // else if (_currentHealth <= 20)
         // {
         //     healthBar.color = critical;
         // }
     }
-
-        //SHOW TEXT SOMEWHERE, IT'S CONSTANT IN UPDATE FUNCTION, NEEDS TO RUN ONCE
-    //textDisplay.ShowText("I should take better care of my teeth", 3f);
-    //textDisplay.ShowText("I might want visit the dentist", 3f);
-    //textDisplay.ShowText("I should really get my teeth checked by the dentist", 3f);
 
     public void CheckTeeth()
     {
