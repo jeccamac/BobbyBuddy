@@ -503,7 +503,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Game/Mesh Assets/LivingRoom
+    - Assets/_Game/Materials/Whitebox
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -511,16 +511,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 86
   m_LastFolders:
-  - Assets/_Game/Mesh Assets/LivingRoom
+  - Assets/_Game/Materials/Whitebox
   m_LastFoldersGridSize: 86
   m_LastProjectPath: C:\Users\BCFD Staff\Video Game Projects\1_Unity Projects\BobbyBuddy
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 84}
-    m_SelectedIDs: 8e750000
-    m_LastClickedID: 30094
-    m_ExpandedIDs: 00000000527300005473000056730000587300005a7300002c75000000ca9a3b
+    m_SelectedIDs: 4e750000
+    m_LastClickedID: 30030
+    m_ExpandedIDs: 0000000056730000587300005a7300005c7300005e7300002e75000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -548,7 +548,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000527300005473000056730000587300005a730000
+    m_ExpandedIDs: 0000000056730000587300005a7300005c7300005e730000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -600,7 +600,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 0}
+    m_ScrollPosition: {x: 0, y: 8}
     m_GridSize: 86
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
@@ -690,9 +690,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: ba6e0000
-      m_LastClickedID: 28346
-      m_ExpandedIDs: 26fbffff386f0000
+      m_SelectedIDs: 4e750000
+      m_LastClickedID: 0
+      m_ExpandedIDs: a6c6ffff26fbffff4c78000052780000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1060,9 +1060,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -1.1911854, y: 0.8607484, z: 0.9481336}
+    m_Target: {x: -0.27320436, y: 1.9404405, z: -0.16313696}
     speed: 2
-    m_Value: {x: -1.1911854, y: 0.8607484, z: 0.9481336}
+    m_Value: {x: -0.27320436, y: 1.9404405, z: -0.16313696}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1108,13 +1108,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.25073665, y: 0.14831613, z: -0.038823627, w: -0.9559491}
+    m_Target: {x: -0.15216483, y: -0.14825971, z: 0.023071056, w: -0.97701436}
     speed: 2
-    m_Value: {x: -0.249276, y: 0.14835848, z: -0.03859692, w: -0.9562226}
+    m_Value: {x: -0.15218219, y: -0.14677756, z: 0.02284022, w: -0.97712606}
   m_Size:
-    m_Target: 2.8795416
+    m_Target: 0.64073956
     speed: 2
-    m_Value: 2.7555423
+    m_Value: 0.6131479
   m_Ortho:
     m_Target: 0
     speed: 2
