@@ -98,7 +98,7 @@ public class DataManager : MonoBehaviour
 
     public void UpHealth()
     {
-        dentalState += 1;
+        dentalState += 2;
         dentalState = Mathf.Clamp(dentalState, 0, 5);
 
         Debug.Log("dental state is "+ dentalState);
