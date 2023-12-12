@@ -298,6 +298,7 @@ Transform:
   m_Children:
   - {fileID: 2100847004}
   - {fileID: 1773311165}
+  - {fileID: 1178554107}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
@@ -1022,6 +1023,7 @@ MonoBehaviour:
   textDisplay: {fileID: 1394866678}
   dentistObjects:
   - {fileID: 1111997670}
+  - {fileID: 1178554104}
   _cleaningAction: {fileID: 277664549}
   speech:
   - Play around with the xray
@@ -1915,7 +1917,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 277664550}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
@@ -1955,7 +1957,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
@@ -1965,7 +1967,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
@@ -1986,7 +1988,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9742685b1127a104eb66c408ad8261a9, type: 2}
+      objectReference: {fileID: 2100000, guid: 8161017b007c1a6449b39195d8b0d90c, type: 2}
     - target: {fileID: 919132149155446097, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
       propertyPath: m_Name
@@ -2001,17 +2003,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 10132043475ff8640ad86ab1e1fcf91c, type: 2}
+      objectReference: {fileID: 2100000, guid: 8161017b007c1a6449b39195d8b0d90c, type: 2}
     - target: {fileID: 4531912228224351498, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a8e72266790b36346a0356beec3127a1, type: 2}
+      objectReference: {fileID: 2100000, guid: 74153429a56669a4188398e8c52d09ee, type: 2}
     - target: {fileID: 9183478214547501983, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: b27001627b188834f9735c6b646dafe6, type: 2}
+      objectReference: {fileID: 2100000, guid: 74153429a56669a4188398e8c52d09ee, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2079,6 +2081,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.04, y: 0.3, z: 0.04}
   m_Center: {x: 0.001, y: 0.15, z: 0}
+--- !u!4 &1178554107 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 527eab4f237f0f94d93d8d06f8b31803,
+    type: 3}
+  m_PrefabInstance: {fileID: 1178554103}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1191545721
 GameObject:
   m_ObjectHideFlags: 0
@@ -4350,7 +4358,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objTrigger
       value: 
-      objectReference: {fileID: 1773311164}
+      objectReference: {fileID: 1178554104}
     - target: {fileID: 5220891046304967279, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
       propertyPath: invokeExit.m_PersistentCalls.m_Calls.Array.size
@@ -6392,4 +6400,3 @@ SceneRoots:
   - {fileID: 8894172192887602768}
   - {fileID: 694636811}
   - {fileID: 277664550}
-  - {fileID: 1178554103}
