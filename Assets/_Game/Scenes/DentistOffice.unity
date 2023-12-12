@@ -4199,11 +4199,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6809881267690291217, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44285ba3e9da775458ca18028871d27b, type: 2}
+    - target: {fileID: -3551685870033596494, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ff9ac0fc3867be4e802fb5021b27139, type: 2}
+    - target: {fileID: -2859109400176981367, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44285ba3e9da775458ca18028871d27b, type: 2}
+    - target: {fileID: -1506028713671051689, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44285ba3e9da775458ca18028871d27b, type: 2}
+    - target: {fileID: -298684955823241483, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44285ba3e9da775458ca18028871d27b, type: 2}
     - target: {fileID: 919132149155446097, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
         type: 3}
       propertyPath: m_Name
       value: DentistChair
       objectReference: {fileID: 0}
+    - target: {fileID: 3383335252289917372, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44285ba3e9da775458ca18028871d27b, type: 2}
+    - target: {fileID: 4194349389467026678, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ff9ac0fc3867be4e802fb5021b27139, type: 2}
+    - target: {fileID: 6490872389933490961, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0ff9ac0fc3867be4e802fb5021b27139, type: 2}
+    - target: {fileID: 6649004471573569190, guid: 5a65f2c6a8869ed47a158f8b9303c5e5,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 44285ba3e9da775458ca18028871d27b, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
