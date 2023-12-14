@@ -240,12 +240,12 @@ GameObject:
   m_Component:
   - component: {fileID: 148753502}
   m_Layer: 0
-  m_Name: Cabinets
+  m_Name: Proxy_Cabinets
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &148753502
 Transform:
   m_ObjectHideFlags: 0
@@ -1356,6 +1356,184 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 742541233}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &780782314
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8894172192887602768}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1855724
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9688824
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1886
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.898
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.453
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_Name
+      value: DentistCabinet (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a963b5e4efeb3e349975512faf91244d, type: 3}
+--- !u!4 &780782315 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+    type: 3}
+  m_PrefabInstance: {fileID: 780782314}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &803895038
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8894172192887602768}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1855724
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9688824
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1886
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.453
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_Name
+      value: DentistCabinet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a963b5e4efeb3e349975512faf91244d, type: 3}
+--- !u!4 &803895039 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+    type: 3}
+  m_PrefabInstance: {fileID: 803895038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1688,79 @@ Transform:
   m_Children: []
   m_Father: {fileID: 148753502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &882402673
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1131
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.092
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.9999995
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_Name
+      value: DentistCabinet
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a963b5e4efeb3e349975512faf91244d, type: 3}
 --- !u!1 &910857987
 GameObject:
   m_ObjectHideFlags: 0
@@ -2195,6 +2446,79 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1178554103}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1185441725
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1131
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.587
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.092
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.9999995
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_Name
+      value: DentistCabinet (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a963b5e4efeb3e349975512faf91244d, type: 3}
 --- !u!1 &1191545721
 GameObject:
   m_ObjectHideFlags: 0
@@ -4038,6 +4362,168 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08, y: 0.29, z: 0.05}
   m_Center: {x: -0.02, y: 0.04, z: 0}
+--- !u!1001 &1807143235
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1131
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.587
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.092
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.9999995
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_Name
+      value: DentistCabinet (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a963b5e4efeb3e349975512faf91244d, type: 3}
+--- !u!1001 &1841315997
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8894172192887602768}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1855724
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9688824
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1886
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.898
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.453
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a963b5e4efeb3e349975512faf91244d,
+        type: 3}
+      propertyPath: m_Name
+      value: DentistCabinet (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a963b5e4efeb3e349975512faf91244d, type: 3}
+--- !u!4 &1841315998 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a963b5e4efeb3e349975512faf91244d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1841315997}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1893171486
 GameObject:
   m_ObjectHideFlags: 0
@@ -6551,6 +7037,9 @@ Transform:
   - {fileID: 1214486209}
   - {fileID: 148753502}
   - {fileID: 2018074618}
+  - {fileID: 803895039}
+  - {fileID: 780782315}
+  - {fileID: 1841315998}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &8927696647143609035
@@ -6627,3 +7116,6 @@ SceneRoots:
   - {fileID: 1003233534}
   - {fileID: 8894172192887602768}
   - {fileID: 694636811}
+  - {fileID: 882402673}
+  - {fileID: 1185441725}
+  - {fileID: 1807143235}
