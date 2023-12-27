@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+//using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -34,6 +35,7 @@ public class DentistActions : MonoBehaviour
     {
         HasCleaned();
         UpdateDental();
+        ClampXray();
     }
 
     public void ToggleXRay()
@@ -56,6 +58,22 @@ public class DentistActions : MonoBehaviour
             AudioManager.Instance.PlaySFX("XRay Off");
             xrayEnabled = false;
         }
+    }
+    private void ClampXray()
+    {
+        //get transform position
+        float xpos = dentistObjects[0].transform.position.x;
+        var ypos = dentistObjects[0].transform.position.y;
+        var zpos = dentistObjects[0].transform.position.z;
+
+        //clamp xray position
+        xpos = Mathf.Clamp(xpos, -0.3f, 0.3f);
+        ypos = Mathf.Clamp(ypos, 1.72f, 2.72f);
+        zpos = Mathf.Clamp(zpos, -0.8f, -0.8f);
+
+        //apply clamp
+        var clampPos = new Vector3(xpos, ypos, zpos);
+        dentistObjects[0].transform.position = clampPos;
     }
 
     public void SelectScaler()
