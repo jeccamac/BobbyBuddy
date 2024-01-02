@@ -36,7 +36,6 @@ public class BathroomActions : MonoBehaviour
     {
         _animBrush = bathObjects[0].GetComponent<Animator>();
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
-
         _animFloss = bathObjects[1].GetComponent<Animator>();
         _animMW = bathObjects[2].GetComponent<Animator>();
     }
@@ -44,6 +43,7 @@ public class BathroomActions : MonoBehaviour
     private void Start() 
     {
         _areaHighlight.enabled = false;
+        _animFloss.enabled = false;
 
         //set all actions and trigger boxes to false on start
         for (int i=0; i < bathActions.Length; i++)
@@ -151,6 +151,12 @@ public class BathroomActions : MonoBehaviour
     public void StartFlossing()
     {
         actionTimer.StartCounter(3);
+
+        if (_animFloss != null)
+        {
+            _animFloss.enabled = true;
+            _animFloss.Play("Open");
+        }
     }
 
     public void StopFlossing()
@@ -159,6 +165,12 @@ public class BathroomActions : MonoBehaviour
         {
             actionTimer.CancelCounter();
             hasFlossed = false;
+
+            if (_animFloss != null)
+            {
+                _animFloss.Play("Close");
+            }
+
         }
     }
 
@@ -170,8 +182,11 @@ public class BathroomActions : MonoBehaviour
             actionTimer.counterComplete = false;
 
             //stop animations
+            if (_animFloss != null)
+            {
+                _animFloss.Play("Close");
+            }
 
-            //reset floss
             ObjectReset();
         }
     }
@@ -269,6 +284,8 @@ public class BathroomActions : MonoBehaviour
         StopFlossing();
         StopMouthwash();
         ObjectReset();
+
+        _animFloss.enabled = false;
 
         clickedAway = false;
     }
