@@ -13,15 +13,15 @@ public class BathroomActions : MonoBehaviour
 
     [Header("Bathroom Settings")]
     [SerializeField] private GameObject[] bathObjects = {};
-    [SerializeField] private GameObject _brushActions = null;
-    [SerializeField] private GameObject _flossActions = null;
-    [SerializeField] private SpriteRenderer _brushHighlight = null;
+    // [SerializeField] private GameObject _brushActions = null;
+    // [SerializeField] private GameObject _flossActions = null;
+    [SerializeField] private GameObject[] bathActions = {};
+    [SerializeField] private SpriteRenderer _areaHighlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
     private Vector3[] startPos;
-    private Animator _animBrush = null;
-    private Animator _animBrushHL = null;
-    private bool hasBrushed = false;
-    private bool hasFlossed = false;
+    private Animator _animBrush, _animAreaHL, _animFloss, _animMW = null;
+    private bool hasBrushed, hasFlossed, hasMouthwash = false;
+
     
     [Tooltip("Series of speech text every time the function is called")]
     [SerializeField] private string[] speech = 
@@ -35,13 +35,21 @@ public class BathroomActions : MonoBehaviour
     private void Awake() 
     {
         _animBrush = bathObjects[0].GetComponent<Animator>();
-        _animBrushHL = _brushHighlight.gameObject.GetComponent<Animator>();
+        _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
+
+        _animFloss = bathObjects[1].GetComponent<Animator>();
+        _animMW = bathObjects[2].GetComponent<Animator>();
     }
 
     private void Start() 
     {
-        _brushActions.SetActive(false);
-        _flossActions.SetActive(false);
+        _areaHighlight.enabled = false;
+
+        //set all actions and trigger boxes to false on start
+        for (int i=0; i < bathActions.Length; i++)
+        {
+            bathActions[i].SetActive(false);
+        }
 
         //save start position of all bathroom objects that will be moved around
         startPos = new Vector3[bathObjects.Length];
@@ -55,6 +63,7 @@ public class BathroomActions : MonoBehaviour
     {
         HasBrushed();
         HasFlossed();
+        HasMouthwash();
         UpdateDental();
     }
     public void CallSpeech(int speechLine)
@@ -63,6 +72,7 @@ public class BathroomActions : MonoBehaviour
         textDisplay.ShowText(speak, 3f);
     }
 
+        //BRUSH ACTIONS
     public void BrushTeeth()
     {
         //animate brush to brush position
@@ -71,8 +81,8 @@ public class BathroomActions : MonoBehaviour
             CallSpeech(1);
             _animBrush.Play("Brush");
 
-            _brushHighlight.enabled = true;
-            _animBrushHL.Play("Glow");
+            _areaHighlight.enabled = true;
+            _animAreaHL.Play("Glow");
 
             //start timer
             actionTimer.StartTimer(5);
@@ -95,26 +105,17 @@ public class BathroomActions : MonoBehaviour
             hasBrushed = false;
         }
         
-        if (_brushActions.activeSelf == true) //only run if brushActions is active, if not active then dont do anything
+        if (bathActions[0].activeSelf == true) //only run if brushActions is active, if not active then dont do anything
         {
             if (_animBrush != null)
             {
                 _animBrush.Play("Idle");
-                _brushHighlight.enabled = false;
+                _areaHighlight.enabled = false;
             }
             if (_bubbles != null)
             {
                 _bubbles.Stop();
             }
-        }
-    }
-
-    public void StopFlossing()
-    {
-        if (actionTimer.counterRunning && !actionTimer.counterComplete)
-        {
-            actionTimer.CancelCounter();
-            hasFlossed = false;
         }
     }
 
@@ -130,7 +131,7 @@ public class BathroomActions : MonoBehaviour
             if (_animBrush != null)
             {
                 _animBrush.Play("Idle");
-                _brushHighlight.enabled = false;
+                _areaHighlight.enabled = false;
             }
 
             if (_bubbles != null)
@@ -143,9 +144,20 @@ public class BathroomActions : MonoBehaviour
         }
     }
 
+
+        //FLOSS ACTIONS
     public void StartFlossing()
     {
         actionTimer.StartCounter(3);
+    }
+
+    public void StopFlossing()
+    {
+        if (actionTimer.counterRunning && !actionTimer.counterComplete)
+        {
+            actionTimer.CancelCounter();
+            hasFlossed = false;
+        }
     }
 
     public void HasFlossed()
@@ -162,23 +174,95 @@ public class BathroomActions : MonoBehaviour
         }
     }
 
+        //MOUTHWASH ACTIONS
+    public void StartMouthwash()
+    {
+        // if (_animMW != null)
+        // {
+        //     //start animation
+        //     CallSpeech(3);
+        //     _animMW.Play("Open");
+
+        //     _areaHighlight.enabled = true;
+        //     _animAreaHL.Play("Glow");
+
+        //     actionTimer.StartTimer(3);
+        // }
+
+        _areaHighlight.enabled = true;
+        _animAreaHL.Play("Glow");
+
+        actionTimer.StartTimer(3);        
+    }
+
+    public void StopMouthwash()
+    {
+        if (actionTimer.timeRemaining > 0 && !actionTimer.timerEnded)
+        {
+            actionTimer.CancelTimer();
+            hasBrushed = false;
+        }
+        
+        if (bathActions[2].activeSelf == true) //only run if brushActions is active, if not active then dont do anything
+        {
+            if (_animMW != null)
+            {
+                _animMW.Play("Close");
+                _areaHighlight.enabled = false;
+            }
+        }
+    }
+
+    public void HasMouthwash()
+    {
+        //if action was completed, then mouthwash complete
+        if (actionTimer.timeRemaining <= 0 && actionTimer.timerEnded && actionTimer.timerComplete)
+        {
+            hasMouthwash = true;
+            actionTimer.timerComplete = false;
+
+            //stop animations
+            if (_animMW != null)
+            {
+                _animMW.Play("Close");
+                _areaHighlight.enabled = false;
+            }
+
+            //reset position
+            ObjectReset();
+        }
+    }
+
     private void UpdateDental()
     {
         if (hasBrushed)
         {
-            DataManager.Instance.AddHealth(20);
+            DataManager.Instance.AddHealth(15);
             hasBrushed = false;
             Debug.Log("brushing added tooth health amount of 20");
         }
 
         if (hasFlossed)
         {
-            DataManager.Instance.AddHealth(20);
+            DataManager.Instance.AddHealth(10);
             hasFlossed = false;
-            Debug.Log("flossing added 20 tooth health");
+            Debug.Log("flossing added 15 tooth health");
+        }
+
+        if (hasMouthwash)
+        {
+            DataManager.Instance.AddHealth(5);
+            Debug.Log("mouthwash added 5 tooth health");
         }
     }
 
+    public void ActionReset()
+    {
+        StopBrushing();
+        StopFlossing();
+        StopMouthwash();
+        ObjectReset();
+    }
     private void ObjectReset()
     {
         for (int i=0; i<bathObjects.Length; i++)
