@@ -20,7 +20,7 @@ public class BathroomActions : MonoBehaviour
     [SerializeField] private ParticleSystem _bubbles = null;
     private Vector3[] startPos;
     private Animator _animBrush, _animAreaHL, _animFloss, _animMW = null;
-    private bool hasBrushed, hasFlossed, hasMouthwash = false;
+    private bool hasBrushed, hasFlossed, hasMouthwash, clickedAway = false;
 
     
     [Tooltip("Series of speech text every time the function is called")]
@@ -99,23 +99,25 @@ public class BathroomActions : MonoBehaviour
 
     public void StopBrushing()
     {
-        if (actionTimer.timeRemaining > 0 && !actionTimer.timerEnded)
+        if (clickedAway == true && actionTimer.timeRemaining != 0)
         {
             actionTimer.CancelTimer();
+            actionTimer.timeRemaining = 0; //reset
+        } 
+        else if (clickedAway == false && actionTimer.timeRemaining > 0 && !actionTimer.timerEnded)
+        {
+            actionTimer.StopTimer();
             hasBrushed = false;
         }
         
-        if (bathActions[0].activeSelf == true) //only run if brushActions is active, if not active then dont do anything
+        if (_animBrush != null)
         {
-            if (_animBrush != null)
-            {
-                _animBrush.Play("Idle");
-                _areaHighlight.enabled = false;
-            }
-            if (_bubbles != null)
-            {
-                _bubbles.Stop();
-            }
+            _animBrush.Play("Idle");
+            _areaHighlight.enabled = false;
+        }
+        if (_bubbles != null)
+        {
+            _bubbles.Stop();
         }
     }
 
@@ -197,20 +199,23 @@ public class BathroomActions : MonoBehaviour
 
     public void StopMouthwash()
     {
-        if (actionTimer.timeRemaining > 0 && !actionTimer.timerEnded)
+        if (clickedAway == true && actionTimer.timeRemaining != 0)
         {
             actionTimer.CancelTimer();
+            actionTimer.timeRemaining = 0; //reset
+        }
+        else if (clickedAway == false && actionTimer.timeRemaining > 0 && !actionTimer.timerEnded)
+        {
+            actionTimer.StopTimer();
             hasBrushed = false;
         }
         
-        if (bathActions[2].activeSelf == true) //only run if brushActions is active, if not active then dont do anything
+        if (_animMW != null)
         {
-            if (_animMW != null)
-            {
-                _animMW.Play("Close");
-                _areaHighlight.enabled = false;
-            }
+            _animMW.Play("Close");
+            //_areaHighlight.enabled = false;
         }
+        _areaHighlight.enabled = false; //delete when anim is added
     }
 
     public void HasMouthwash()
@@ -258,10 +263,14 @@ public class BathroomActions : MonoBehaviour
 
     public void ActionReset()
     {
+        clickedAway = true;
+        
         StopBrushing();
         StopFlossing();
         StopMouthwash();
         ObjectReset();
+
+        clickedAway = false;
     }
     private void ObjectReset()
     {
