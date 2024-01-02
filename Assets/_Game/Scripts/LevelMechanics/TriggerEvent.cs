@@ -24,7 +24,7 @@ public class TriggerEvent : MonoBehaviour
         if (other.gameObject == objTrigger)
         {
             invokeMethod.Invoke();
-            Debug.Log("obj entered trigger");
+            //Debug.Log("obj entered trigger");
             //Destroy(other.gameObject, 1f);
         }
 

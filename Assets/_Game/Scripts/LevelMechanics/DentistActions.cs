@@ -62,7 +62,7 @@ public class DentistActions : MonoBehaviour
     private void ClampXray()
     {
         //get transform position
-        float xpos = dentistObjects[0].transform.position.x;
+        var xpos = dentistObjects[0].transform.position.x;
         var ypos = dentistObjects[0].transform.position.y;
         var zpos = dentistObjects[0].transform.position.z;
 

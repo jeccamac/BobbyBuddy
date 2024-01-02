@@ -70,14 +70,14 @@ public class ActionCountTimer : MonoBehaviour
         {
             timerRunning = false;
             timeRemaining = 0;
-            Announce("Canceled", colorFail);
+            Announce("Failed!", colorFail);
         }
     }
 
     public void CancelTimer()
     {
         timerRunning = false;
-        Announce("Failed!", colorFail);
+        Announce("Canceled", colorFail);
     }
 
     private void RunTimer()
