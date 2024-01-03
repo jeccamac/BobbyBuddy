@@ -13,8 +13,6 @@ public class BathroomActions : MonoBehaviour
 
     [Header("Bathroom Settings")]
     [SerializeField] private GameObject[] bathObjects = {};
-    // [SerializeField] private GameObject _brushActions = null;
-    // [SerializeField] private GameObject _flossActions = null;
     [SerializeField] private GameObject[] bathActions = {};
     [SerializeField] private SpriteRenderer _areaHighlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
