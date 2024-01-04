@@ -9,6 +9,8 @@ public class DentistActions : MonoBehaviour
     [Header("Display Settings")]
     [SerializeField] private ActionCountTimer actionTimer = null;
     [SerializeField] private TextDisplay textDisplay;
+    [SerializeField] private SpriteRenderer _areaHighlight = null;
+    private Animator _animAreaHL;
 
     [Header("Dentist Settings")]
     //[SerializeField] private GameObject xrayObject;
@@ -19,6 +21,10 @@ public class DentistActions : MonoBehaviour
     private bool xrayEnabled = false;
     private bool hasCleaned = false;
 
+    private void Awake() 
+    {
+        _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
+    }
     private void Start() 
     {
         //save start positions of all dentist office objects
@@ -28,6 +34,7 @@ public class DentistActions : MonoBehaviour
             startPos[i] = dentistObjects[i].transform.position;
         }
 
+        _areaHighlight.enabled = false;
         _cleaningAction.SetActive(false);
     }
 
@@ -87,12 +94,18 @@ public class DentistActions : MonoBehaviour
         }
 
         _cleaningAction.SetActive(true);
+        
 
         CallSpeech(1);
     }
 
     public void CleanTeeth()
     {
+        _areaHighlight.enabled = true;
+        _animAreaHL.Play("Glow");
+
+        AudioManager.Instance.PlaySFX("Drill");
+
         actionTimer.StartTimer(5);
     }
 
@@ -103,6 +116,9 @@ public class DentistActions : MonoBehaviour
             actionTimer.CancelTimer();
             hasCleaned = false;
         }
+
+        _areaHighlight.enabled = false;
+        AudioManager.Instance.StopSFX("Drill");
     }
 
     private void HasCleaned()
@@ -111,7 +127,20 @@ public class DentistActions : MonoBehaviour
         {
             hasCleaned = true;
             actionTimer.timerComplete = false;
+
+            _areaHighlight.enabled = false;
+            AudioManager.Instance.StopSFX("Drill");
+
+            ObjectReset();
         }
+    }
+
+    public void PartyFanfare()
+    {
+        AudioManager.Instance.PlaySFX("Fanfare");
+        CallSpeech(2);
+
+        //particle effects here
     }
 
     private void UpdateDental()
