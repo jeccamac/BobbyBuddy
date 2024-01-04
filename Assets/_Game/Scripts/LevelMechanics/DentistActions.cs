@@ -10,6 +10,7 @@ public class DentistActions : MonoBehaviour
     [SerializeField] private ActionCountTimer actionTimer = null;
     [SerializeField] private TextDisplay textDisplay;
     [SerializeField] private SpriteRenderer _areaHighlight = null;
+    [SerializeField] private ParticleSystem _confetti, _sparks = null;
     private Animator _animAreaHL;
 
     [Header("Dentist Settings")]
@@ -141,6 +142,11 @@ public class DentistActions : MonoBehaviour
         CallSpeech(2);
 
         //particle effects here
+        if (_confetti != null && _sparks != null)
+        {
+            _confetti.Play();
+            _sparks.Play();
+        }
     }
 
     private void UpdateDental()
