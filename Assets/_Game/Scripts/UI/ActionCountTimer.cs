@@ -115,37 +115,62 @@ public class ActionCountTimer : MonoBehaviour
 
     public void Announce(string announceTxt, Color colorTxt)
     {
-        if (animAction != null && animAction.enabled)
+        if (animAction != null && animAction.enabled)       //if action panel is already up
         {
             animAction.Play("ScaleOut");
+
+                            //display announcement AFTER action panel is displayed
+            StartCoroutine(AnnounceEnd());
+
+            IEnumerator AnnounceEnd() 
+            {
+                announceText.text = announceTxt;
+                announceText.color = colorTxt;
+
+                yield return new WaitForSeconds(0.5f);
+                actionPanel.SetActive(false);
+                announceText.enabled = true;
+                animAction.Play("PopIn");
+
+                yield return new WaitForSeconds(2f);
+                announceText.enabled = false;
+            }
         }
-
-        StartCoroutine(DisplayAnnouncement());
-
-        IEnumerator DisplayAnnouncement()
+        else                                                //if action panel has not been started
         {
-            announceText.text = announceTxt;
-            announceText.color = colorTxt;
+            animAction.enabled = true;
 
-            yield return new WaitForSeconds(0.5f);
-            actionPanel.SetActive(false);
-            announceText.enabled = true;
-            animAction.Play("PopIn");
+                            // display announcement BEFORE action panel display
+            StartCoroutine(AnnounceStart());
 
-            yield return new WaitForSeconds(2f);
-            announceText.enabled = false;
+            IEnumerator AnnounceStart()
+            {
+                announceText.text = announceTxt;
+                announceText.color = colorTxt;
+
+                yield return new WaitForSeconds(0.5f);
+                announceText.enabled = true;
+                animAction.Play("PopIn");
+
+                yield return new WaitForSeconds(1.5f);
+                announceText.enabled = false;
+                actionPanel.SetActive(true);
+                countTimeText.enabled = true;
+                animAction.enabled = true;
+                animAction.Play("ScaleIn");
+            }
         }
     }
 
     public void StartCounter(float countAmt) //enable swipe detection to start counting swipes
     {
-        Announce("Start!", colorSuccess);
+        Announce("Swipe!", colorSuccess);
+        _counter = 0;
+        _counterMax = countAmt;
+        counterEnded = false;
 
         if (!counterRunning) //CHECK
         {
-            _counter = 0;
-            _counterMax = countAmt;
-            counterEnded = false;
             counterRunning = true;
             swipeDetection.enableSwiping = true;
             
@@ -159,10 +184,10 @@ public class ActionCountTimer : MonoBehaviour
         if (counterRunning)
         {
             //counter animation
-            actionPanel.SetActive(true);
-            countTimeText.enabled = true;
-            animAction.enabled = true;
-            animAction.Play("ScaleIn");
+            //actionPanel.SetActive(true);
+            // countTimeText.enabled = true;
+            // animAction.enabled = true;
+            // animAction.Play("ScaleIn");
             
             //counter display
             actionSlider.value = _counter / _counterMax;
