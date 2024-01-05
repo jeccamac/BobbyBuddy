@@ -134,9 +134,10 @@ public class ActionCountTimer : MonoBehaviour
 
                 yield return new WaitForSeconds(2f);
                 announceText.enabled = false;
+                animAction.enabled = false;
             }
         }
-        else                                                //if action panel has not been started
+        else                                     //if action panel has not been started
         {
             animAction.enabled = true;
 
@@ -147,17 +148,20 @@ public class ActionCountTimer : MonoBehaviour
             {
                 announceText.text = announceTxt;
                 announceText.color = colorTxt;
+                announceText.enabled = true;
 
                 yield return new WaitForSeconds(0.5f);
-                announceText.enabled = true;
                 animAction.Play("PopIn");
 
                 yield return new WaitForSeconds(1.5f);
                 announceText.enabled = false;
                 actionPanel.SetActive(true);
                 countTimeText.enabled = true;
+
                 animAction.enabled = true;
                 animAction.Play("ScaleIn");
+
+                Debug.Log("action panel " + actionPanel.activeSelf + " counterEnded" + counterEnded + " counter " + _counter);
             }
         }
     }
@@ -202,6 +206,7 @@ public class ActionCountTimer : MonoBehaviour
             actionSlider.value = _counter / _counterMax; //still display the correct full bar
 
             //close counter animation
+            animAction.enabled = true;
             Announce("Finished!", colorSuccess);
             
             //reset values
@@ -216,6 +221,7 @@ public class ActionCountTimer : MonoBehaviour
         // counterEnded = false;
         // counterComplete = false;
         Announce("Canceled!", colorFail);
+        animAction.enabled = false;
     }
 
     public void AddCount() //do the maths

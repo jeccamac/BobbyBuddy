@@ -138,6 +138,8 @@ public class DentistActions : MonoBehaviour
 
     public void PartyFanfare()
     {
+        _cleaningAction.SetActive(false);
+        
         AudioManager.Instance.PlaySFX("Fanfare");
         CallSpeech(2);
 
