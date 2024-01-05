@@ -108,7 +108,7 @@ public class BathroomActions : MonoBehaviour
             hasBrushed = false;
         }
         
-        if (_animBrush != null)
+        if (_animBrush != null && bathActions[0].activeSelf == true)
         {
             _animBrush.Play("Idle");
             _areaHighlight.enabled = false;
@@ -177,6 +177,7 @@ public class BathroomActions : MonoBehaviour
         if ( actionTimer.counterComplete == true )
         {
             hasFlossed = true;
+
             actionTimer.counterComplete = false;
 
             //stop animations
