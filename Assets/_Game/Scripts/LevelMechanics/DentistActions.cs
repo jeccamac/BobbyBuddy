@@ -88,7 +88,6 @@ public class DentistActions : MonoBehaviour
     {
         if (xrayEnabled == true)
         {
-            //xrayObject.SetActive(false);
             dentistObjects[0].SetActive(false);
             AudioManager.Instance.PlaySFX("XRay Off");
             xrayEnabled = false;
@@ -138,6 +137,13 @@ public class DentistActions : MonoBehaviour
 
     public void PartyFanfare()
     {
+        if (xrayEnabled == true)
+        {
+            dentistObjects[0].SetActive(false);
+            AudioManager.Instance.PlaySFX("XRay Off");
+            xrayEnabled = false;
+        }
+        
         _cleaningAction.SetActive(false);
         
         AudioManager.Instance.PlaySFX("Fanfare");
