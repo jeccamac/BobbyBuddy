@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 61
+  controlID: 69
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 62
+  controlID: 70
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -196,7 +196,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 50}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 63
+  controlID: 71
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -273,7 +273,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 120
+  controlID: 78
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -460,9 +460,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 5a790000
-      m_LastClickedID: 0
-      m_ExpandedIDs: a6f4ffff26fbffff70770000fc770000
+      m_SelectedIDs: eaf8ffff
+      m_LastClickedID: -1814
+      m_ExpandedIDs: 26fbffff546f0000e06f00003a700000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -830,9 +830,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 1.3456619, y: -2.6510274, z: 11.42947}
+    m_Target: {x: 0, y: 1.2229278, z: -0.5392}
     speed: 2
-    m_Value: {x: 1.3456619, y: -2.6510274, z: 11.42947}
+    m_Value: {x: 0, y: 1.2229278, z: -0.5392}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -878,13 +878,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.15809214, y: 0.054753505, z: -0.00892516, w: 0.98594314}
+    m_Target: {x: 0.28546575, y: -0.0144174425, z: 0.004143812, w: 0.9583524}
     speed: 2
-    m_Value: {x: 0.15660095, y: 0.0547626, z: -0.008842312, w: 0.986103}
+    m_Value: {x: 0.2840059, y: -0.014422527, z: 0.0041218554, w: 0.95870525}
   m_Size:
-    m_Target: 6.6545806
+    m_Target: 0.19510292
     speed: 2
-    m_Value: 6.6545806
+    m_Value: 0.18670136
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -955,7 +955,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Game/Materials/Textures
+    - Assets/_Game/Materials/Materials
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -963,16 +963,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 86
   m_LastFolders:
-  - Assets/_Game/Materials/Textures
+  - Assets/_Game/Materials/Materials
   m_LastFoldersGridSize: 86
   m_LastProjectPath: C:\Users\BCFD Staff\Video Game Projects\1_Unity Projects\BobbyBuddy
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 73}
-    m_SelectedIDs: 42740000
-    m_LastClickedID: 29762
-    m_ExpandedIDs: 000000003e74000040740000427400004474000046740000487400004a7400004c7400004e740000507400002876000000ca9a3b
+    m_SelectedIDs: be760000
+    m_LastClickedID: 30398
+    m_ExpandedIDs: 00000000a4740000a6740000a8740000aa740000ac740000ae740000b0740000b2740000b4740000b67400009276000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1000,7 +1000,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000003e74000040740000427400004474000046740000487400004a7400004c7400004e74000050740000
+    m_ExpandedIDs: 00000000a4740000a6740000a8740000aa740000ac740000ae740000b0740000b2740000b4740000b6740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1052,7 +1052,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 11}
+    m_ScrollPosition: {x: 0, y: 111}
     m_GridSize: 86
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 207
