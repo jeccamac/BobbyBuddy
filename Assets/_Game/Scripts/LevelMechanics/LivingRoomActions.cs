@@ -6,6 +6,11 @@ using UnityEngine.Events;
 
 public class LivingRoomActions : MonoBehaviour
 {
+    [Header("Living Room Settings")]
+    [SerializeField] private GameObject _lights = null;
+    private bool _lightsEnabled = true;
+
+    [Header("Display Settings")]
     [SerializeField] private TextDisplay textDisplay;
 
     [Tooltip("Series of speech text that will be randomized every time the function is called")]
@@ -13,9 +18,15 @@ public class LivingRoomActions : MonoBehaviour
     {
         "Hey this is Bobby!",
         "I'm a bit ticklish.",
-        "Poke my belly!",
+        "Tap my belly!",
         "You're my best friend."
     };
+
+    private void Awake() 
+    {
+        _lights = GetComponent<GameObject>();
+    }
+    
     public void CallSpeech()
     {
         if (speech != null)
@@ -23,5 +34,33 @@ public class LivingRoomActions : MonoBehaviour
             string speak = speech[Random.Range(0, speech.Length)];
             textDisplay.ShowText(speak, 3f);
         }
+    }
+
+    public void Dance()
+    {
+        //random dancing animation here
+
+    }
+
+    public void ToggleLights()
+    {
+        //turn off lights
+        if (_lights != null)
+        {
+            if (_lightsEnabled == true)
+            {
+                _lights.SetActive(false);
+                _lightsEnabled = false;
+                //sound
+            } else
+            {
+                _lights.SetActive(true);
+                _lightsEnabled = true;
+                //sound
+            }
+        }
+
+        //bobby reaction animation
+
     }
 }
