@@ -2021,9 +2021,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
+  m_Intensity: 60
   m_Range: 100
-  m_SpotAngle: 46.647663
+  m_SpotAngle: 77.7781
   m_InnerSpotAngle: 14.5606985
   m_CookieSize: 10
   m_Shadows:
@@ -3480,6 +3480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efba80a571827db46aa9dd4f1a27cb8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lights: {fileID: 0}
   textDisplay: {fileID: 1059873318727318997}
   speech:
   - Hey this is Bobby!
