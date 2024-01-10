@@ -2021,9 +2021,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 50
+  m_Intensity: 60
   m_Range: 100
-  m_SpotAngle: 46.647663
+  m_SpotAngle: 77.7781
   m_InnerSpotAngle: 14.5606985
   m_CookieSize: 10
   m_Shadows:
@@ -2071,18 +2071,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &1892651424 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8264188223378800521, guid: 136114721b1348449bb045e6abda9084,
-    type: 3}
-  m_PrefabInstance: {fileID: 1059873318727318996}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 659ba35a5f02c4847a6bbe662d1fc64f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1935023187 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9095977077147979536, guid: 43c9fe6ab215feb408c022386036e05d,
@@ -3271,22 +3259,22 @@ PrefabInstance:
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1892651424}
+      objectReference: {fileID: 1059873318727319001}
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartTimer
+      value: ToggleLights
       objectReference: {fileID: 0}
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ActionCountTimer, Assembly-CSharp
+      value: LivingRoomActions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6337553023949033070, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -3480,6 +3468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efba80a571827db46aa9dd4f1a27cb8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _lights: {fileID: 2080313526}
   textDisplay: {fileID: 1059873318727318997}
   speech:
   - Hey this is Bobby!

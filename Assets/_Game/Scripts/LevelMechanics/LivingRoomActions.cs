@@ -21,11 +21,6 @@ public class LivingRoomActions : MonoBehaviour
         "Tap my belly!",
         "You're my best friend."
     };
-
-    private void Awake() 
-    {
-        _lights = GetComponent<GameObject>();
-    }
     
     public void CallSpeech()
     {
@@ -51,12 +46,14 @@ public class LivingRoomActions : MonoBehaviour
             {
                 _lights.SetActive(false);
                 _lightsEnabled = false;
-                //sound
+                
+                AudioManager.Instance.PlaySFX("Lights On");
             } else
             {
                 _lights.SetActive(true);
                 _lightsEnabled = true;
-                //sound
+                
+                AudioManager.Instance.PlaySFX("Lights Off");
             }
         }
 
