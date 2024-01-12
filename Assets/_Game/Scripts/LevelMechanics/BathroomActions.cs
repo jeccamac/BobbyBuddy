@@ -71,6 +71,16 @@ public class BathroomActions : MonoBehaviour
     }
 
         //BRUSH ACTIONS
+
+    public void SelectBrush()
+    {
+        ActionReset();
+        AudioManager.Instance.PlaySFX("Button Click");
+        bathActions[0].SetActive(true); //turn brush actions ON
+        bathActions[1].SetActive(false); //turn floss actions OFF
+        bathActions[2].SetActive(false); //turn mouthwash actions OFF
+        CallSpeech(0);
+    }
     public void BrushTeeth()
     {
         //animate brush to brush position
@@ -146,6 +156,16 @@ public class BathroomActions : MonoBehaviour
 
 
         //FLOSS ACTIONS
+
+    public void SelectFloss()
+    {
+        ActionReset();
+        AudioManager.Instance.PlaySFX("Button Click");
+        bathActions[0].SetActive(false); //turn brush actions OFF
+        bathActions[1].SetActive(true); //turn floss actions ON
+        bathActions[2].SetActive(false); //turn mouthwash actions OFF
+        CallSpeech(2);
+    }
     public void StartFlossing()
     {
         actionTimer.StartCounter(3);
@@ -191,6 +211,15 @@ public class BathroomActions : MonoBehaviour
     }
 
         //MOUTHWASH ACTIONS
+    public void SelectMouthwash()
+    {
+        ActionReset();
+        AudioManager.Instance.PlaySFX("Button Click");
+        bathActions[0].SetActive(false); //turn brush actions OFF
+        bathActions[1].SetActive(false); //turn floss actions OFF
+        bathActions[2].SetActive(true); //turn mouthwash actions ON
+        CallSpeech(3);
+    }
     public void StartMouthwash()
     {
         // if (_animMW != null)
