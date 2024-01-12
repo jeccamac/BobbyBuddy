@@ -306,6 +306,24 @@ MonoBehaviour:
   - name: Theme
     clip: {fileID: 8300000, guid: 9f9465fd87cd4034a89ee6317a415aed, type: 3}
   sfxSounds:
+  - name: Button Click
+    clip: {fileID: 8300000, guid: 49b66a00c10269a42b37b8abbe80e342, type: 3}
+  - name: Button Select
+    clip: {fileID: 8300000, guid: 97929b0a0341e8f44a076609c0713287, type: 3}
+  - name: Button Switch
+    clip: {fileID: 8300000, guid: ccab4dd47d025564198946282b20ae06, type: 3}
+  - name: Button Cancel
+    clip: {fileID: 8300000, guid: 5dc7076467c89e64da6934b6d0393801, type: 3}
+  - name: Timer Start
+    clip: {fileID: 8300000, guid: 3eb50bea436bac54281b3d72bc276a98, type: 3}
+  - name: Timer Complete
+    clip: {fileID: 8300000, guid: 4b79b06ca4582134fbda631a47f460fe, type: 3}
+  - name: Timer Cancel
+    clip: {fileID: 8300000, guid: aaae08c2214b5484c8b3b00d8bae4e3b, type: 3}
+  - name: Lights On
+    clip: {fileID: 8300000, guid: 4c48f6816196905418675d4ff3619da5, type: 3}
+  - name: Lights Off
+    clip: {fileID: 8300000, guid: 53add05fc72ce8c418ce835a5bf01a6f, type: 3}
   - name: XRay On
     clip: {fileID: 8300000, guid: f0aabbc82d9fccd44b843bc3953cf902, type: 3}
   - name: XRay Off
@@ -316,9 +334,5 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d699ead5efb923b43ba8ce0f410ae36d, type: 3}
   - name: Fanfare
     clip: {fileID: 8300000, guid: 03413ce5733fedb4e8dd2e0620896958, type: 3}
-  - name: Lights On
-    clip: {fileID: 8300000, guid: 4c48f6816196905418675d4ff3619da5, type: 3}
-  - name: Lights Off
-    clip: {fileID: 8300000, guid: 53add05fc72ce8c418ce835a5bf01a6f, type: 3}
   musicSource: {fileID: 8447407045377612589}
   sfxSource: {fileID: 655278740925921647}

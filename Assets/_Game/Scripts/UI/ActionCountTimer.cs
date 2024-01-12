@@ -62,6 +62,7 @@ public class ActionCountTimer : MonoBehaviour
         timeRemaining = timeInSeconds;
         actionSlider.maxValue = timeRemaining;
         actionPanel.SetActive(true);
+        AudioManager.Instance.PlaySFX("Timer Start");
     }
 
     public void StopTimer()
@@ -71,6 +72,7 @@ public class ActionCountTimer : MonoBehaviour
             timerRunning = false;
             timeRemaining = 0;
             Announce("Failed!", colorFail);
+            AudioManager.Instance.PlaySFX("Timer Cancel");
         }
     }
 
@@ -78,6 +80,7 @@ public class ActionCountTimer : MonoBehaviour
     {
         timerRunning = false;
         Announce("Canceled", colorFail);
+        AudioManager.Instance.PlaySFX("Timer Cancel");
     }
 
     private void RunTimer()
@@ -109,6 +112,7 @@ public class ActionCountTimer : MonoBehaviour
                 timerEnded = true;
                 timerComplete = true;
                 Announce("Great Job!", colorSuccess);
+                AudioManager.Instance.PlaySFX("Timer Complete");
             }
         }
     }
@@ -177,6 +181,7 @@ public class ActionCountTimer : MonoBehaviour
         {
             counterRunning = true;
             swipeDetection.enableSwiping = true;
+            AudioManager.Instance.PlaySFX("Timer Start");
             
             RunCounter();
         }
@@ -208,6 +213,7 @@ public class ActionCountTimer : MonoBehaviour
             //close counter animation
             animAction.enabled = true;
             Announce("Finished!", colorSuccess);
+            AudioManager.Instance.PlaySFX("Timer Complete");
             
             //reset values
             counterEnded = false;
@@ -222,6 +228,7 @@ public class ActionCountTimer : MonoBehaviour
         // counterComplete = false;
         Announce("Canceled!", colorFail);
         animAction.enabled = false;
+        AudioManager.Instance.PlaySFX("Timer Cancel");
     }
 
     public void AddCount() //do the maths
