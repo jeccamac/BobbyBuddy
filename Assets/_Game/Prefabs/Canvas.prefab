@@ -4507,6 +4507,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1474098369935574548, guid: eee6b9cc6967c504eb50a1be4e9a7ce8,
+          type: 3}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlaySFX
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Button Cancel
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!1 &8025671606179412947
 GameObject:
   m_ObjectHideFlags: 0

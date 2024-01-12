@@ -94,7 +94,7 @@ public class DentistActions : MonoBehaviour
         }
 
         _cleaningAction.SetActive(true);
-        
+        AudioManager.Instance.PlaySFX("Button Click");
 
         CallSpeech(1);
     }

@@ -34,6 +34,7 @@ public class SettingsController : MonoBehaviour
     public void ToggleMusic()
     {
         AudioManager.Instance.ToggleMusic();
+        AudioManager.Instance.PlaySFX("Button Select");
 
         if (musicCount == 0)
         {
@@ -58,6 +59,7 @@ public class SettingsController : MonoBehaviour
         {
             sfxButton.sprite = soundOn;
             soundCount = 0;
+            AudioManager.Instance.PlaySFX("Button Select");
         }
     }
 
