@@ -39,9 +39,9 @@ MonoBehaviour:
   m_Children: []
   m_Position:
     serializedVersion: 2
-    x: 1313
+    x: 1301
     y: 0
-    width: 283
+    width: 295
     height: 639
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -145,7 +145,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 100}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 62
+  controlID: 158
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -240,7 +240,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 276
     y: 0
-    width: 1037
+    width: 1025
     height: 639
   m_MinSize: {x: 202, y: 221}
   m_MaxSize: {x: 4002, y: 4021}
@@ -846,9 +846,9 @@ MonoBehaviour:
     m_Tooltip: 
   m_Pos:
     serializedVersion: 2
-    x: 1313
+    x: 1301
     y: 73
-    width: 281
+    width: 293
     height: 618
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -886,7 +886,7 @@ MonoBehaviour:
     pluginStates:
     - '{}'
     - '{}'
-    scale: 21
+    scale: 22
     fitToScreenEnabled: 1
     rotationDegree: 0
     highlightSafeAreaEnabled: 0
@@ -931,10 +931,10 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 75}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: e2f9ffff26fbffff626e0000
+      scrollPos: {x: 0, y: 43}
+      m_SelectedIDs: 548f0000
+      m_LastClickedID: 36692
+      m_ExpandedIDs: 5eabffff4eb3ffffc2c2ffff80cffffff0dfffff26fbffff0877000030840000ee84000014850000a28c0000f08c00005e8d0000b08e0000fe8e0000508f000070900000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -981,7 +981,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 276
     y: 73
-    width: 1035
+    width: 1023
     height: 618
   m_SerializedDataModeController:
     m_DataMode: 0
@@ -1302,9 +1302,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 5.337186, y: -1.3942237, z: 12.987659}
+    m_Target: {x: -0.052973732, y: 1.8911859, z: -0.38854843}
     speed: 2
-    m_Value: {x: 5.337186, y: -1.3942237, z: 12.987659}
+    m_Value: {x: -0.052973732, y: 1.8911859, z: -0.38854843}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1350,13 +1350,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.26370516, y: 0.03286117, z: -0.009435263, w: 0.96412617}
+    m_Target: {x: 0.06895574, y: -0.015314078, z: 0.0005721769, w: 0.99765056}
     speed: 2
-    m_Value: {x: 0.2651181, y: 0.03284289, z: -0.0094833905, w: 0.96360976}
+    m_Value: {x: 0.06894459, y: -0.016808046, z: 0.0006755097, w: 0.99747866}
   m_Size:
-    m_Target: 7.2681847
+    m_Target: 0.3447546
     speed: 2
-    m_Value: 7.2681847
+    m_Value: 0.3447546
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1427,7 +1427,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Game/Materials/Textures
+    - Assets/_Game/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -1435,16 +1435,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 86
   m_LastFolders:
-  - Assets/_Game/Materials/Textures
+  - Assets/_Game/Scenes
   m_LastFoldersGridSize: 86
   m_LastProjectPath: C:\Users\BCFD Staff\Video Game Projects\1_Unity Projects\BobbyBuddy
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 137}
-    m_SelectedIDs: 50740000
-    m_LastClickedID: 29776
-    m_ExpandedIDs: 000000004c7400004e74000050740000527400005474000056740000587400005a7400005c740000287600003c760000ac7700000878000000ca9a3b
+    scrollPos: {x: 0, y: 111}
+    m_SelectedIDs: 36760000
+    m_LastClickedID: 30262
+    m_ExpandedIDs: 00000000507400005274000056740000587400005a7400005c7400005e7400006074000062740000647400006674000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1472,7 +1472,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000004c7400004e74000050740000527400005474000056740000587400005a7400005c740000
+    m_ExpandedIDs: 0000000050740000527400005474000056740000587400005a7400005c7400005e74000060740000627400006474000066740000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1598,8 +1598,7 @@ MonoBehaviour:
     m_LastAppliedPresetName: Default
     m_SaveData: []
     m_OverlaysVisible: 1
-  m_ObjectsLockedBeforeSerialization:
-  - {fileID: 2100000, guid: edd40fe67e3f90b4e942316d2c35d7c4, type: 2}
+  m_ObjectsLockedBeforeSerialization: []
   m_InstanceIDsLockedBeforeSerialization: 
   m_PreviewResizer:
     m_CachedPref: 160
@@ -1610,7 +1609,7 @@ MonoBehaviour:
   m_GlobalObjectId: 
   m_InspectorMode: 0
   m_LockTracker:
-    m_IsLocked: 1
+    m_IsLocked: 0
   m_PreviewWindow: {fileID: 0}
 --- !u!114 &22
 MonoBehaviour:
