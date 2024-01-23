@@ -21,21 +21,11 @@ public class LivingRoomActions : MonoBehaviour
         "Tap my belly!",
         "You're my best friend."
     };
-
-    public string[] speechBubble =
-    {
-        "Speech1",
-        "Speech2",
-        "Speech3"
-    };
     
     public void CallSpeech()
     {
         if (speech != null)
         {
-            string speechAudio = speechBubble[Random.Range(0, speechBubble.Length)];
-            AudioManager.Instance.PlaySFX(speechAudio);
-
             string speak = speech[Random.Range(0, speech.Length)];
             textDisplay.ShowText(speak, 3f);
         }

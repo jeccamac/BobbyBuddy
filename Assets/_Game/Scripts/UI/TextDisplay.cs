@@ -24,6 +24,7 @@ public class TextDisplay : MonoBehaviour
         _textDisplay.enabled = true;
         _objImage.enabled = true; //enable background image
         _animPanel.Play("FadeIn");
+        AudioManager.Instance.PlaySFX("Speech");
 
         StartCoroutine(TextSequence()); //start timer
 
