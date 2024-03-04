@@ -21,6 +21,8 @@ public class TransitionManager : MonoBehaviour
     
     [SerializeField] private bool _fadeIn = true;
     [SerializeField] private float _fadeInDelay = 1;
+    public Animator _playerAnimCont;
+    [SerializeField] public string _animStart;
     
     [Header("On Scene End")]
     [SerializeField] private bool _fadeOut = true;
@@ -29,6 +31,7 @@ public class TransitionManager : MonoBehaviour
     private void Start() 
     {
         DataManager.Instance.level = _currentScene;
+        _playerAnimCont = GameObject.FindWithTag("Player").GetComponent<Animator>();
 
         // Intro Sequence
         if (_raycastBlock != null) { _raycastBlock.gameObject.SetActive(true); }
@@ -83,6 +86,12 @@ public class TransitionManager : MonoBehaviour
     private IEnumerator FadeFromBlack(float time) // on scene start
     {
         _fadeToBlack.gameObject.SetActive(true);
+
+        // bobby animation on scene start
+        _playerAnimCont.Play(_animStart);
+        Debug.Log("animation start " + _animStart);
+
+        //fade from black screen
         for (float t = 0; t < time; t += Time.deltaTime)
         {
             float delta = 1 - t / time;

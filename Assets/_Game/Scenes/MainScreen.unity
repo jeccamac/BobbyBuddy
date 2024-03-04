@@ -10955,7 +10955,7 @@ GameObject:
   - component: {fileID: 8543984229535176817}
   m_Layer: 0
   m_Name: Bobby
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12784,6 +12784,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
+        type: 3}
+      propertyPath: _animStart
+      value: Waving
       objectReference: {fileID: 0}
     - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
         type: 3}

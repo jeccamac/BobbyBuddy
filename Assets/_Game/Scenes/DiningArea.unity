@@ -5255,6 +5255,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
         type: 3}
+      propertyPath: _animStart
+      value: IdleSitting
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
+        type: 3}
       propertyPath: _fadeInDelay
       value: 0.5
       objectReference: {fileID: 0}
@@ -7073,7 +7078,7 @@ GameObject:
   - component: {fileID: 8543984230266636890}
   m_Layer: 0
   m_Name: Bobby
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
