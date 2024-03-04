@@ -2132,7 +2132,7 @@ PrefabInstance:
         type: 3}
       propertyPath: invokeMethod.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3959304135856423779}
+      objectReference: {fileID: 6164686030126847129}
     - target: {fileID: 5220891046304967279, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
       propertyPath: invokeMethod.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -2151,7 +2151,7 @@ PrefabInstance:
     - target: {fileID: 5220891046304967279, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
       propertyPath: invokeMethod.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: Poke
+      value: TapBelly
       objectReference: {fileID: 0}
     - target: {fileID: 5220891046304967279, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
@@ -2161,12 +2161,12 @@ PrefabInstance:
     - target: {fileID: 9095977077147979536, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.50975
+      value: 0.634129
       objectReference: {fileID: 0}
     - target: {fileID: 9095977077147979536, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.81419
+      value: 0.77059823
       objectReference: {fileID: 0}
     - target: {fileID: 9095977077147979536, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
@@ -2181,7 +2181,7 @@ PrefabInstance:
     - target: {fileID: 9095977077147979536, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.903
+      value: 0.915
       objectReference: {fileID: 0}
     - target: {fileID: 9095977077147979536, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
@@ -3615,22 +3615,22 @@ PrefabInstance:
     - target: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3959304135856423779}
+      objectReference: {fileID: 1059873318727319001}
     - target: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Play
+      value: Dance
       objectReference: {fileID: 0}
     - target: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.Animator, UnityEngine
+      value: LivingRoomActions, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -3855,12 +3855,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lights: {fileID: 2080313526}
+  _playerAnimCont: {fileID: 6164686030126847129}
   textDisplay: {fileID: 1059873318727318997}
   speech:
   - Hey this is Bobby!
   - I'm a bit ticklish.
   - Tap my belly!
   - You're my best friend.
+  dance:
+  - DanceChicken
+  - DanceKickstep
+  - DanceSwing
+  - DanceRumba
 --- !u!1 &1152627591731074838
 GameObject:
   m_ObjectHideFlags: 0

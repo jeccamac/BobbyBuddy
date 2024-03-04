@@ -8,6 +8,7 @@ public class LivingRoomActions : MonoBehaviour
 {
     [Header("Living Room Settings")]
     [SerializeField] private GameObject _lights = null;
+    [SerializeField] public Animator _playerAnimCont = null;
     private bool _lightsEnabled = true;
 
     [Header("Display Settings")]
@@ -21,7 +22,15 @@ public class LivingRoomActions : MonoBehaviour
         "Tap my belly!",
         "You're my best friend."
     };
+
+    [Tooltip("Series of dancing animations that will be randomized every time the function is called")]
+    [SerializeField] public string[] dance = {}; //add dance animations
     
+    private void Start() 
+    {
+        _playerAnimCont = GameObject.FindWithTag("Player").GetComponent<Animator>();
+    }
+
     public void CallSpeech()
     {
         if (speech != null)
@@ -31,10 +40,13 @@ public class LivingRoomActions : MonoBehaviour
         }
     }
 
-    public void Dance()
+    public void Dance() //random dancing animations here
     {
-        //random dancing animation here
-
+        if (dance != null) 
+        {
+            string danceNo = dance[Random.Range(0, dance.Length)];
+            _playerAnimCont.Play(danceNo);
+        }
     }
 
     public void ToggleLights()
@@ -46,7 +58,7 @@ public class LivingRoomActions : MonoBehaviour
             {
                 _lights.SetActive(false);
                 _lightsEnabled = false;
-                
+
                 AudioManager.Instance.PlaySFX("Lights On");
             } else
             {
@@ -57,7 +69,12 @@ public class LivingRoomActions : MonoBehaviour
             }
         }
 
-        //bobby reaction animation
+        _playerAnimCont.Play("Spooked");
 
+    }
+
+    public void IdleAnim()
+    {
+        _playerAnimCont.Play("Idle");
     }
 }
