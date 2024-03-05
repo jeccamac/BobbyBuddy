@@ -1447,6 +1447,7 @@ MonoBehaviour:
   - {fileID: 1111997670}
   - {fileID: 1178554104}
   _cleaningAction: {fileID: 277664549}
+  _playerAnimCont: {fileID: 0}
   speech:
   - Play around with the xray
   - Clean my teeth

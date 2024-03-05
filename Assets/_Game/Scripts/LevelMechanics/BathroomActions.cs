@@ -14,6 +14,7 @@ public class BathroomActions : MonoBehaviour
     [Header("Bathroom Settings")]
     [SerializeField] private GameObject[] bathObjects = {};
     [SerializeField] private GameObject[] bathActions = {};
+    [SerializeField] public Animator _playerAnimCont = null;
     [SerializeField] private SpriteRenderer _areaHighlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
     private Vector3[] startPos;
@@ -32,6 +33,7 @@ public class BathroomActions : MonoBehaviour
 
     private void Awake() 
     {
+        _playerAnimCont = GameObject.FindWithTag("Player").GetComponent<Animator>();
         _animBrush = bathObjects[0].GetComponent<Animator>();
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
         _animFloss = bathObjects[1].GetComponent<Animator>();
@@ -75,10 +77,14 @@ public class BathroomActions : MonoBehaviour
     public void SelectBrush()
     {
         ActionReset();
+        
+        _playerAnimCont.Play("BareTeeth");
+
         AudioManager.Instance.PlaySFX("Button Click");
         bathActions[0].SetActive(true); //turn brush actions ON
         bathActions[1].SetActive(false); //turn floss actions OFF
         bathActions[2].SetActive(false); //turn mouthwash actions OFF
+        
         CallSpeech(0);
     }
     public void BrushTeeth()
@@ -117,6 +123,9 @@ public class BathroomActions : MonoBehaviour
             actionTimer.StopTimer();
             hasBrushed = false;
         }
+
+        // stop animations
+        _playerAnimCont.Play("IdleSitting");
         
         if (_animBrush != null && bathActions[0].activeSelf == true)
         {
@@ -138,6 +147,8 @@ public class BathroomActions : MonoBehaviour
             actionTimer.timerComplete = false;
 
             //stop animations
+            _playerAnimCont.Play("IdleSitting");
+
             if (_animBrush != null)
             {
                 _animBrush.Play("Idle");
@@ -168,6 +179,8 @@ public class BathroomActions : MonoBehaviour
     }
     public void StartFlossing()
     {
+        _playerAnimCont.Play("OpenMouth");
+
         actionTimer.StartCounter(3);
 
         if (_animFloss != null)
@@ -184,11 +197,12 @@ public class BathroomActions : MonoBehaviour
             actionTimer.CancelCounter();
             hasFlossed = false;
 
+            _playerAnimCont.Play("CloseMouth");
+
             if (_animFloss != null)
             {
                 _animFloss.Play("Close");
             }
-
         }
     }
 
@@ -201,6 +215,8 @@ public class BathroomActions : MonoBehaviour
             actionTimer.counterComplete = false;
 
             //stop animations
+            _playerAnimCont.Play("CloseMouth");
+
             if (_animFloss != null)
             {
                 _animFloss.Play("Close");

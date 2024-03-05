@@ -26,7 +26,7 @@ public class LivingRoomActions : MonoBehaviour
     [Tooltip("Series of dancing animations that will be randomized every time the function is called")]
     [SerializeField] public string[] dance = {}; //add dance animations
     
-    private void Start() 
+    private void Awake() 
     {
         _playerAnimCont = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
