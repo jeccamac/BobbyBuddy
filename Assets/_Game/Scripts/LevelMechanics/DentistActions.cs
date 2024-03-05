@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-//using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,6 +16,7 @@ public class DentistActions : MonoBehaviour
     //[SerializeField] private GameObject xrayObject;
     [SerializeField] private GameObject[] dentistObjects = {};
     [SerializeField] private GameObject _cleaningAction = null;
+    [SerializeField] public Animator _playerAnimCont = null;
     [SerializeField] private string[] speech = {};
     private Vector3[] startPos;
     private bool xrayEnabled = false;
@@ -25,6 +25,7 @@ public class DentistActions : MonoBehaviour
     private void Awake() 
     {
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
+        _playerAnimCont = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
     private void Start() 
     {
@@ -101,6 +102,8 @@ public class DentistActions : MonoBehaviour
 
     public void CleanTeeth()
     {
+        _playerAnimCont.Play("OpenMouth");
+
         _areaHighlight.enabled = true;
         _animAreaHL.Play("Glow");
 
@@ -116,6 +119,8 @@ public class DentistActions : MonoBehaviour
             actionTimer.CancelTimer();
             hasCleaned = false;
         }
+
+        _playerAnimCont.Play("CloseMouth");
 
         _areaHighlight.enabled = false;
         AudioManager.Instance.StopSFX("Drill");
