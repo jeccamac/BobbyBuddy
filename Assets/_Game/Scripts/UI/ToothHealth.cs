@@ -114,13 +114,13 @@ public class ToothHealth : MonoBehaviour
             textDisplay.ShowText("Bobby might want to brush their teeth.", 3f);
         } else if ( _dentalState == 3)
         {
-            textDisplay.ShowText("You should help bobby take better care of their teeth.", 3f);
+            textDisplay.ShowText("You should help Bobby take better care of their teeth.", 3f);
         } else if ( _dentalState == 2)
         {
-            textDisplay.ShowText("Bobby might want to visit the dentist.", 3f);
+            textDisplay.ShowText("Bobby should really get their teeth checked by the dentist.", 3f);
         } else if ( _dentalState == 1)
         {
-            textDisplay.ShowText("Bobby should really get their teeth checked by the dentist.", 3f);
+            textDisplay.ShowText("Bobby might want to visit the dentist.", 3f);
         } else if ( _dentalState == 0)
         {
             textDisplay.ShowText("Bobby really needs to visit the dentist.", 3f);

@@ -101,6 +101,6 @@ public class DataManager : MonoBehaviour
         dentalState += 2;
         dentalState = Mathf.Clamp(dentalState, 0, 5);
 
-        Debug.Log("dental state is "+ dentalState);
+        //Debug.Log("dental state is "+ dentalState);
     }
 }
