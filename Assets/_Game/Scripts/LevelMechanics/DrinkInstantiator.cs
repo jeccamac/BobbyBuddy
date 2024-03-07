@@ -34,5 +34,7 @@ public class DrinkInstantiator : MonoBehaviour
             cup2.enabled = false;
             hasDrink2 = true;
         }
+
+        AudioManager.Instance.PlaySFX("Pop");
     }
 }

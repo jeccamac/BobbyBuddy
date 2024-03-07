@@ -47,6 +47,8 @@ public class LivingRoomActions : MonoBehaviour
             string danceNo = dance[Random.Range(0, dance.Length)];
             _playerAnimCont.Play(danceNo);
         }
+
+        AudioManager.Instance.PlaySFX("Button Click");
     }
 
     public void ToggleLights()
@@ -58,14 +60,14 @@ public class LivingRoomActions : MonoBehaviour
             {
                 _lights.SetActive(false);
                 _lightsEnabled = false;
-
-                AudioManager.Instance.PlaySFX("Lights On");
+                
+                AudioManager.Instance.PlaySFX("Lights Off");
             } else
             {
                 _lights.SetActive(true);
                 _lightsEnabled = true;
-                
-                AudioManager.Instance.PlaySFX("Lights Off");
+                textDisplay.ShowText("Did you touch the light switch?", 3f);
+                AudioManager.Instance.PlaySFX("Lights On");
             }
         }
 

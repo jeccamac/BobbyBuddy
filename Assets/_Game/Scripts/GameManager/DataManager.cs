@@ -12,7 +12,7 @@ public class DataManager : MonoBehaviour
     public static SceneLoader SceneLoader => Instance._sceneLoader;
     public string level {get; set;} // current level room
 
-    [Header("Player Health Settings")]
+    [Header("Health Settings")]
     [SerializeField] public float currentHealth = 100;
     [SerializeField] public float maxHealth = 100;
     public int dentalState = 5;
