@@ -15,10 +15,12 @@ public class DragController : MonoBehaviour
     private float initDist;    
     private bool isDragging = false;
     [SerializeField] private TriggerEvent triggerEvent;
+    private Animator bobbyAnim;
 
     private void Awake() 
     {
         mainCam = Camera.main;
+        bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
 
     private void Update() 
@@ -58,12 +60,22 @@ public class DragController : MonoBehaviour
                     offset = objToDrag.position - v3; //move on this offset
                     isDragging = true;
 
-                    if (hit.collider.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+                        //pick up food
+                    if (hit.collider.TryGetComponent<Food>(out Food food))
                     {
-                        rigidbody.useGravity = false; //testing disable rigidbody
+                        //Debug.Log("pick up food");
+                        bobbyAnim.Play("OpenMouth");
                     }
-                }
+
+                    // if (hit.collider.TryGetComponent<Rigidbody>(out Rigidbody rigidbody))
+                    // {
+                    //     rigidbody.useGravity = false; //testing disable rigidbody
+                    // }
+                    
+                }                
             }
+
+            
 
             //if touch tap hit trigger box, invoke event
             if (hit.collider.tag == "Trigger")

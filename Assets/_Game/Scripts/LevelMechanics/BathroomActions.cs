@@ -17,8 +17,10 @@ public class BathroomActions : MonoBehaviour
     [SerializeField] public Animator _playerAnimCont = null;
     [SerializeField] private SpriteRenderer _areaHighlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
+    [SerializeField] private GameObject _mwTapbox, _triggerMW, _triggerDrink = null;
     private Vector3[] startPos;
     private Animator _animBrush, _animAreaHL, _animFloss, _animMW = null;
+    
     private bool hasBrushed, hasFlossed, hasMouthwash, clickedAway = false;
 
     
@@ -38,6 +40,7 @@ public class BathroomActions : MonoBehaviour
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
         _animFloss = bathObjects[1].GetComponent<Animator>();
         _animMW = bathObjects[2].GetComponent<Animator>();
+        //_mwTapbox = GetComponent<GameObject>();
     }
 
     private void Start() 
@@ -63,7 +66,6 @@ public class BathroomActions : MonoBehaviour
     {
         HasBrushed();
         HasFlossed();
-        HasMouthwash();
         UpdateDental();
     }
     public void CallSpeech(int speechLine)
@@ -78,7 +80,7 @@ public class BathroomActions : MonoBehaviour
     {
         ActionReset();
         
-        _playerAnimCont.Play("BareTeeth");
+        //_playerAnimCont.Play("BareTeeth");
 
         AudioManager.Instance.PlaySFX("Button Click");
         bathActions[0].SetActive(true); //turn brush actions ON
@@ -101,14 +103,14 @@ public class BathroomActions : MonoBehaviour
             //start timer
             actionTimer.StartTimer(5);
         }
+
+        _playerAnimCont.Play("BareTeeth");
         
         //particle effects
         if (_bubbles != null)
         {
             _bubbles.Play();
         }
-
-        //animation? how to do - if drag up & down, then bubbles
     }
 
     public void StopBrushing()
@@ -234,66 +236,75 @@ public class BathroomActions : MonoBehaviour
         bathActions[0].SetActive(false); //turn brush actions OFF
         bathActions[1].SetActive(false); //turn floss actions OFF
         bathActions[2].SetActive(true); //turn mouthwash actions ON
+        _animMW.enabled = false;
         CallSpeech(3);
     }
-    public void StartMouthwash()
+    public void StartMW()
     {
-        // if (_animMW != null)
-        // {
-        //     //start animation
-        //     CallSpeech(3);
-        //     _animMW.Play("Open");
-
-        //     _areaHighlight.enabled = true;
-        //     _animAreaHL.Play("Glow");
-
-        //     actionTimer.StartTimer(3);
-        // }
-
-        _areaHighlight.enabled = true;
-        _animAreaHL.Play("Glow");
-
-        actionTimer.StartTimer(3);        
-    }
-
-    public void StopMouthwash()
-    {
-        if (clickedAway == true && actionTimer.timeRemaining != 0)
-        {
-            actionTimer.CancelTimer();
-            actionTimer.timeRemaining = 0; //reset
-        }
-        else if (clickedAway == false && actionTimer.timeRemaining > 0 && !actionTimer.timerEnded)
-        {
-            actionTimer.StopTimer();
-            hasBrushed = false;
-        }
-        
         if (_animMW != null)
         {
-            _animMW.Play("Close");
-            //_areaHighlight.enabled = false;
+            StartCoroutine(StartMouthwash());
         }
-        _areaHighlight.enabled = false; //delete when anim is added
+
+        IEnumerator StartMouthwash()
+        {
+            CallSpeech(3);
+            _animMW.enabled = true;
+            _animMW.Play("Open");
+
+            yield return new WaitForSeconds(2f);
+            _mwTapbox.SetActive(true); 
+            _animMW.Play("TapBottle");
+            //_animMW.enabled = false;
+        }
     }
 
-    public void HasMouthwash()
+    public void TapMW()
     {
-        //if action was completed, then mouthwash complete
-        if (actionTimer.timeRemaining <= 0 && actionTimer.timerEnded && actionTimer.timerComplete)
+        if (_animMW != null)
         {
+            StartCoroutine(PourMouthwash());
+        }
+
+        IEnumerator PourMouthwash()
+        {
+            _animMW.enabled = true;
+            _animMW.Play("Pour");
+            _playerAnimCont.Play("OpenMouth");
+            _mwTapbox.SetActive(false);
+
+            yield return new WaitForSeconds(2f);
+            _animMW.enabled = false;
+            _areaHighlight.enabled = true;
+            _animAreaHL.Play("Glow");
+            _triggerMW.SetActive(false);
+            _triggerDrink.SetActive(true);
+        }
+    
+    }
+
+    public void DrinkMW()
+    {
+        if (_animMW != null)
+        {
+            StartCoroutine(DrinkMouthwash());
+        }
+
+        IEnumerator DrinkMouthwash()
+        {
+            _animMW.enabled = true;
+            _animMW.Play("Drink");
+            _playerAnimCont.Play("Chewing");
+            _areaHighlight.enabled = false;
+            _triggerDrink.SetActive(false);
+            
+            yield return new WaitForSeconds(1f);
+            _animMW.enabled = false;
+            _triggerMW.SetActive(true);
             hasMouthwash = true;
-            actionTimer.timerComplete = false;
-
-            //stop animations
-            if (_animMW != null)
-            {
-                _animMW.Play("Close");
-                _areaHighlight.enabled = false;
-            }
-
-            //reset position
+            CallSpeech(4);
             ObjectReset();
+            
         }
     }
 
@@ -316,6 +327,7 @@ public class BathroomActions : MonoBehaviour
         if (hasMouthwash)
         {
             DataManager.Instance.AddHealth(5);
+            hasMouthwash = false;
             Debug.Log("mouthwash added 5 tooth health");
         }
     }
@@ -326,8 +338,9 @@ public class BathroomActions : MonoBehaviour
         
         StopBrushing();
         StopFlossing();
-        StopMouthwash();
         ObjectReset();
+
+        _playerAnimCont.Play("IdleSitting");
 
         _animFloss.enabled = false;
 

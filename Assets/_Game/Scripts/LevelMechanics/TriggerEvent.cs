@@ -9,8 +9,8 @@ public class TriggerEvent : MonoBehaviour
     [Header("Object trigger as a GameObject")]
     [SerializeField] public GameObject objTrigger;
 
-    [Header("OR Object trigger on a specific Layer")]
-    [SerializeField] private LayerMask layerType;
+    [Header("OR Object trigger with a Tag")]
+    [SerializeField] private string objTag;
 
     [Header("On Trigger Enter")]
     [SerializeField] public UnityEvent invokeMethod;
@@ -24,14 +24,17 @@ public class TriggerEvent : MonoBehaviour
         if (other.gameObject == objTrigger)
         {
             invokeMethod.Invoke();
-            //Debug.Log("obj entered trigger");
-            //Destroy(other.gameObject, 1f);
         }
 
-        else if (other.gameObject.layer == layerType)
+        else if (other.gameObject.tag == objTag)
         {
             invokeMethod.Invoke();
-            //Destroy(other.gameObject, 1f);
+        }
+
+        Food objFood = other.gameObject.GetComponent<Food>();
+        if (objFood != null)
+        {
+            objFood.GetFoodType();
         }
     }
 

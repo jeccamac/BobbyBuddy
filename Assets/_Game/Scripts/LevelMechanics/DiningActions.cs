@@ -8,6 +8,16 @@ public class DiningActions : MonoBehaviour
     [SerializeField] private TextDisplay textDisplay;
     [SerializeField] private string[] speech = {};
 
+    [Tooltip("Text after eating specific foods")]
+    [SerializeField] private string[] speechFood = 
+    {
+        "Protein",
+        "VegFruits",
+        "Sweets",
+        "Soda",
+        "Water"
+    };
+
     private void Awake() 
     {
         textDisplay = FindObjectOfType<TextDisplay>();
@@ -25,8 +35,9 @@ public class DiningActions : MonoBehaviour
         textDisplay.ShowText(speak, 3f);
     }
 
-    public void EatFood(int foodDmg) //TEMP FUNCTION FOR TESTING
+    public void EatFood(int foodLine) //TEMP FUNCTION FOR TESTING
     {
-        DataManager.Instance.SubHealth(foodDmg);
+        string speak = speechFood[foodLine];
+        textDisplay.ShowText(speak, 3f);
     }
 }

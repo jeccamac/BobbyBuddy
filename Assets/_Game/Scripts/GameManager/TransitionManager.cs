@@ -89,7 +89,7 @@ public class TransitionManager : MonoBehaviour
 
         // bobby animation on scene start
         _playerAnimCont.Play(_animStart);
-        Debug.Log("animation start " + _animStart);
+        //Debug.Log("animation start " + _animStart);
 
         //fade from black screen
         for (float t = 0; t < time; t += Time.deltaTime)
