@@ -175,6 +175,8 @@ MonoBehaviour:
   - {fileID: 4248656965856329395, guid: 6012fccf4ebae9e4cb47349aa82f193d, type: 3}
   slot1: {fileID: 0}
   slot2: {fileID: 0}
+  cup1: {fileID: 0}
+  cup2: {fileID: 0}
   hasDrink1: 0
   hasDrink2: 0
 --- !u!1 &58959146
@@ -1570,7 +1572,7 @@ PrefabInstance:
     - target: {fileID: 8447407045377612589, guid: eee6b9cc6967c504eb50a1be4e9a7ce8,
         type: 3}
       propertyPath: Mute
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3465,7 +3467,7 @@ PrefabInstance:
     - target: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6020045412805847883, guid: 136114721b1348449bb045e6abda9084,
         type: 3}

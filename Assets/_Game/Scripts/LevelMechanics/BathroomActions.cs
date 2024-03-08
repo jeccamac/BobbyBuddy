@@ -14,7 +14,7 @@ public class BathroomActions : MonoBehaviour
     [Header("Bathroom Settings")]
     [SerializeField] private GameObject[] bathObjects = {};
     [SerializeField] private GameObject[] bathActions = {};
-    [SerializeField] public Animator _playerAnimCont = null;
+    [SerializeField] public Animator _bobbyAnim = null;
     [SerializeField] private SpriteRenderer _areaHighlight = null;
     [SerializeField] private ParticleSystem _bubbles = null;
     [SerializeField] private GameObject _mwTapbox, _triggerMW, _triggerDrink = null;
@@ -35,12 +35,12 @@ public class BathroomActions : MonoBehaviour
 
     private void Awake() 
     {
-        _playerAnimCont = GameObject.FindWithTag("Player").GetComponent<Animator>();
+        _bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         _animBrush = bathObjects[0].GetComponent<Animator>();
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
         _animFloss = bathObjects[1].GetComponent<Animator>();
         _animMW = bathObjects[2].GetComponent<Animator>();
-        //_mwTapbox = GetComponent<GameObject>();
+        _mwTapbox = GetComponent<GameObject>();
     }
 
     private void Start() 
@@ -104,7 +104,7 @@ public class BathroomActions : MonoBehaviour
             actionTimer.StartTimer(5);
         }
 
-        _playerAnimCont.Play("BareTeeth");
+        _bobbyAnim.Play("BareTeeth");
         
         //particle effects
         if (_bubbles != null)
@@ -127,7 +127,7 @@ public class BathroomActions : MonoBehaviour
         }
 
         // stop animations
-        _playerAnimCont.Play("IdleSitting");
+        _bobbyAnim.Play("IdleSitting");
         
         if (_animBrush != null && bathActions[0].activeSelf == true)
         {
@@ -149,7 +149,7 @@ public class BathroomActions : MonoBehaviour
             actionTimer.timerComplete = false;
 
             //stop animations
-            _playerAnimCont.Play("IdleSitting");
+            _bobbyAnim.Play("IdleSitting");
 
             if (_animBrush != null)
             {
@@ -181,7 +181,7 @@ public class BathroomActions : MonoBehaviour
     }
     public void StartFlossing()
     {
-        _playerAnimCont.Play("OpenMouth");
+        _bobbyAnim.Play("OpenMouth");
 
         actionTimer.StartCounter(3);
 
@@ -199,7 +199,7 @@ public class BathroomActions : MonoBehaviour
             actionTimer.CancelCounter();
             hasFlossed = false;
 
-            _playerAnimCont.Play("CloseMouth");
+            _bobbyAnim.Play("CloseMouth");
 
             if (_animFloss != null)
             {
@@ -217,7 +217,7 @@ public class BathroomActions : MonoBehaviour
             actionTimer.counterComplete = false;
 
             //stop animations
-            _playerAnimCont.Play("CloseMouth");
+            _bobbyAnim.Play("CloseMouth");
 
             if (_animFloss != null)
             {
@@ -270,7 +270,7 @@ public class BathroomActions : MonoBehaviour
         {
             _animMW.enabled = true;
             _animMW.Play("Pour");
-            _playerAnimCont.Play("OpenMouth");
+            _bobbyAnim.Play("OpenMouth");
             _mwTapbox.SetActive(false);
 
             yield return new WaitForSeconds(2f);
@@ -294,7 +294,7 @@ public class BathroomActions : MonoBehaviour
         {
             _animMW.enabled = true;
             _animMW.Play("Drink");
-            _playerAnimCont.Play("Chewing");
+            _bobbyAnim.Play("Chewing");
             _areaHighlight.enabled = false;
             _triggerDrink.SetActive(false);
             
@@ -340,7 +340,7 @@ public class BathroomActions : MonoBehaviour
         StopFlossing();
         ObjectReset();
 
-        _playerAnimCont.Play("IdleSitting");
+        _bobbyAnim.Play("IdleSitting");
 
         _animFloss.enabled = false;
 

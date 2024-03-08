@@ -16,16 +16,15 @@ public class DentistActions : MonoBehaviour
     //[SerializeField] private GameObject xrayObject;
     [SerializeField] private GameObject[] dentistObjects = {};
     [SerializeField] private GameObject _cleaningAction = null;
-    [SerializeField] public Animator _playerAnimCont = null;
+    [SerializeField] public Animator _bobbyAnim = null;
     [SerializeField] private string[] speech = {};
     private Vector3[] startPos;
-    private bool xrayEnabled = false;
-    private bool hasCleaned = false;
+    private bool xrayEnabled, hasCleaned, canParty = false;
 
     private void Awake() 
     {
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
-        _playerAnimCont = GameObject.FindWithTag("Player").GetComponent<Animator>();
+        _bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
     private void Start() 
     {
@@ -102,7 +101,7 @@ public class DentistActions : MonoBehaviour
 
     public void CleanTeeth()
     {
-        _playerAnimCont.Play("OpenMouth");
+        _bobbyAnim.Play("OpenMouth");
 
         _areaHighlight.enabled = true;
         _animAreaHL.Play("Glow");
@@ -120,7 +119,7 @@ public class DentistActions : MonoBehaviour
             hasCleaned = false;
         }
 
-        _playerAnimCont.Play("CloseMouth");
+        _bobbyAnim.Play("CloseMouth");
 
         _areaHighlight.enabled = false;
         AudioManager.Instance.StopSFX("Drill");
@@ -131,6 +130,7 @@ public class DentistActions : MonoBehaviour
         if (actionTimer.timeRemaining <= 0 && actionTimer.timerEnded && actionTimer.timerComplete)
         {
             hasCleaned = true;
+            canParty = true;
             actionTimer.timerComplete = false;
 
             _areaHighlight.enabled = false;
@@ -148,18 +148,25 @@ public class DentistActions : MonoBehaviour
             AudioManager.Instance.PlaySFX("XRay Off");
             xrayEnabled = false;
         }
-        
-        _cleaningAction.SetActive(false);
-        
-        AudioManager.Instance.PlaySFX("Fanfare");
-        CallSpeech(2);
 
-        //particle effects here
-        if (_confetti != null && _sparks != null)
+        if (canParty)
         {
-            _confetti.Play();
-            _sparks.Play();
-        }
+            _cleaningAction.SetActive(false);
+            
+            AudioManager.Instance.PlaySFX("Fanfare");
+            CallSpeech(2);
+
+            //particle effects here
+            if (_confetti != null && _sparks != null)
+            {
+                _confetti.Play();
+                _sparks.Play();
+            }
+
+            canParty = false;
+
+        } else { textDisplay.ShowText("Bobby hasn't cleaned his teeth yet.", 3f); }
+        
     }
 
     private void UpdateDental()

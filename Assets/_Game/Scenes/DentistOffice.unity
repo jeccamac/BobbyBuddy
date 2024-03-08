@@ -1447,7 +1447,7 @@ MonoBehaviour:
   - {fileID: 1111997670}
   - {fileID: 1178554104}
   _cleaningAction: {fileID: 277664549}
-  _playerAnimCont: {fileID: 0}
+  _bobbyAnim: {fileID: 0}
   speech:
   - Play around with the xray
   - Clean my teeth
@@ -2597,6 +2597,7 @@ Transform:
   - {fileID: 1316958470}
   - {fileID: 2101134954}
   - {fileID: 218406830}
+  - {fileID: 1805500152}
   m_Father: {fileID: 694636811}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &979221326
@@ -3649,7 +3650,7 @@ PrefabInstance:
     - target: {fileID: 8488717301912529960, guid: af21ce349cb90ae47a804ec6b43da483,
         type: 3}
       propertyPath: m_Name
-      value: Bobby
+      value: Proxy_Bobby
       objectReference: {fileID: 0}
     - target: {fileID: 8488717301912529960, guid: af21ce349cb90ae47a804ec6b43da483,
         type: 3}
@@ -3945,6 +3946,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674357038406376686, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1563267737}
+    - target: {fileID: 3674357038406376686, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlaySFX
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -5368,6 +5379,100 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.08, y: 0.29, z: 0.05}
   m_Center: {x: -0.02, y: 0.04, z: 0}
+--- !u!1001 &1805500151
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 974672136}
+    m_Modifications:
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.47731638
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6641201
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.66412
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.069
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.3923036
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.89259404
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.09940576
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.19872665
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296646555204626939, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_Name
+      value: Salmon skeleton
+      objectReference: {fileID: 0}
+    - target: {fileID: 5296646555204626939, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 685c0fc5fa8b9c04ca226db350611cc7, type: 3}
+--- !u!4 &1805500152 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4812843140638896961, guid: 685c0fc5fa8b9c04ca226db350611cc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1805500151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1807143235
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9096,7 +9201,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 26a9d26b9f7908a4b907f1d3632f193d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9755,8 +9860,8 @@ SceneRoots:
   - {fileID: 1925312030}
   - {fileID: 1341799641}
   - {fileID: 1563267736}
+  - {fileID: 2983811048460067310}
+  - {fileID: 6325054979242848604}
   - {fileID: 1003233534}
   - {fileID: 8894172192887602768}
   - {fileID: 694636811}
-  - {fileID: 2983811048460067310}
-  - {fileID: 6325054979242848604}

@@ -25,6 +25,7 @@ public class Food : MonoBehaviour
         {
             case FoodType.Protein:
                 DataManager.Instance.SubHealth(15);
+                DataManager.Instance.AddHunger(30);
                 diningAct.EatFood(0);
                 foodInst.hasProtein = false;
                 gameObject.SetActive(false);
@@ -32,6 +33,7 @@ public class Food : MonoBehaviour
 
             case FoodType.VegFruits:
                 DataManager.Instance.SubHealth(10);
+                DataManager.Instance.AddHunger(10);
                 diningAct.EatFood(1);
                 foodInst.hasVegFruits = false;
                 gameObject.SetActive(false);
@@ -39,6 +41,7 @@ public class Food : MonoBehaviour
 
             case FoodType.Sweets:
                 DataManager.Instance.SubHealth(20);
+                DataManager.Instance.AddHunger(15);
                 diningAct.EatFood(2);
                 foodInst.hasSweets = false;
                 gameObject.SetActive(false);
@@ -46,6 +49,7 @@ public class Food : MonoBehaviour
 
             case FoodType.Soda:
                 DataManager.Instance.SubHealth(30);
+                DataManager.Instance.AddHunger(10);
                 diningAct.EatFood(3);
                 drinkInst.hasDrink1 = false;
                 drinkInst.cup1.enabled = true;
@@ -54,6 +58,7 @@ public class Food : MonoBehaviour
 
             case FoodType.Water:
                 DataManager.Instance.SubHealth(1);
+                DataManager.Instance.AddHunger(5);
                 diningAct.EatFood(4);
                 drinkInst.hasDrink2 = false;
                 drinkInst.cup2.enabled = true;

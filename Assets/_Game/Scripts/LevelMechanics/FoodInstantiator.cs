@@ -49,5 +49,7 @@ public class FoodInstantiator : MonoBehaviour
             Instantiate(foodS, plateS.transform);
             hasSweets = true;
         }
+
+        AudioManager.Instance.PlaySFX("Pop");
     }
 }
