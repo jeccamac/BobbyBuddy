@@ -42,12 +42,19 @@ public class LivingRoomActions : MonoBehaviour
 
     public void Dance() //random dancing animations here
     {
-        if (dance != null) 
+        if (DataManager.Instance.hungerState != 0)
         {
-            string danceNo = dance[Random.Range(0, dance.Length)];
-            _bobbyAnim.Play(danceNo);
+            if (dance != null) 
+            {
+                string danceNo = dance[Random.Range(0, dance.Length)];
+                _bobbyAnim.Play(danceNo);
+            }
+        } else 
+        { 
+            textDisplay.ShowText("Bobby is too hungry to dance right now.", 3f); 
+            _bobbyAnim.Play("Idle");
         }
-
+    
         AudioManager.Instance.PlaySFX("Button Click");
     }
 

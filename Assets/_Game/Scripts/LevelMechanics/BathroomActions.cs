@@ -40,7 +40,7 @@ public class BathroomActions : MonoBehaviour
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
         _animFloss = bathObjects[1].GetComponent<Animator>();
         _animMW = bathObjects[2].GetComponent<Animator>();
-        _mwTapbox = GetComponent<GameObject>();
+        //_mwTapbox = GetComponent<GameObject>();
     }
 
     private void Start() 
