@@ -9,7 +9,6 @@ public class Food : MonoBehaviour
     private FoodInstantiator foodInst;
     private DrinkInstantiator drinkInst;
     private DiningActions diningAct;
-    private TextDisplay textDisplay;
 
     private void Awake() 
     {
@@ -17,11 +16,10 @@ public class Food : MonoBehaviour
         foodInst = FindObjectOfType<FoodInstantiator>();
         drinkInst = FindObjectOfType<DrinkInstantiator>();
         diningAct = FindObjectOfType<DiningActions>();
-        textDisplay = FindObjectOfType<TextDisplay>();
     }
     public void GetFoodType()
     {
-        if (DataManager.Instance.hungerState != 0)
+        if (DataManager.Instance.hungerState != 2)
         {
              bobbyAnim.Play("Chewing");
 
@@ -72,7 +70,7 @@ public class Food : MonoBehaviour
 
             Debug.Log("food type is " + foodType);
 
-        } else { textDisplay.ShowText("Bobby is full right now", 3f); }
+        } else { TextDisplay.Instance.ShowText("Bobby is full right now", 3f); }
        
     }
 }

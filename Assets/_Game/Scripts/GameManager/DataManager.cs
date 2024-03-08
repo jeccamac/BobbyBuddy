@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance = null; // Singleton instance
-    [SerializeField] private TextDisplay _textDisplay;
 
     [Header("Scene Settings")]
     [SerializeField] private SceneLoader _sceneLoader = null;
@@ -110,7 +109,7 @@ public class DataManager : MonoBehaviour
         {
             currentHunger = currentHunger - hungerRate;
             currentHunger = Mathf.Clamp(currentHunger, 0, maxHunger);
-            if (hungerState == 0) { _textDisplay.ShowText("Bobby is hungry, let's get some food!", 3f); }
+            if (hungerState == 0) { TextDisplay.Instance.ShowText("Bobby is hungry, let's get some food!", 3f); }
             Debug.Log("current hunger is " + currentHunger);
             hungerTimer = hungerTimeStart; //reset
         }

@@ -7,7 +7,6 @@ public class DentistActions : MonoBehaviour
 {
     [Header("Display Settings")]
     [SerializeField] private ActionCountTimer actionTimer = null;
-    [SerializeField] private TextDisplay textDisplay;
     [SerializeField] private SpriteRenderer _areaHighlight = null;
     [SerializeField] private ParticleSystem _confetti, _sparks = null;
     private Animator _animAreaHL;
@@ -165,7 +164,7 @@ public class DentistActions : MonoBehaviour
 
             canParty = false;
 
-        } else { textDisplay.ShowText("Bobby hasn't cleaned his teeth yet.", 3f); }
+        } else { TextDisplay.Instance.ShowText("Bobby hasn't cleaned his teeth yet.", 3f); }
         
     }
 
@@ -182,13 +181,13 @@ public class DentistActions : MonoBehaviour
     public void CallSpeech(int speechLine)
     {
         string speak = speech[speechLine];
-        textDisplay.ShowText(speak, 3f);
+        TextDisplay.Instance.ShowText(speak, 3f);
     }
 
     public void CallRandomSpeech()
     {
         string speak = speech[Random.Range(0, speech.Length)];
-        textDisplay.ShowText(speak, 3f);
+        TextDisplay.Instance.ShowText(speak, 3f);
     }
 
     public void ObjectReset()

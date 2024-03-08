@@ -8,7 +8,6 @@ public class TransitionManager : MonoBehaviour
 {
     [SerializeField] private Image _fadeToBlack = null;
     [SerializeField] private GameObject _raycastBlock = null;
-    [SerializeField] private TextDisplay _textDisplay = null;
     
     [Header("Scenes")]
     [SerializeField] private string _currentScene;
@@ -81,7 +80,7 @@ public class TransitionManager : MonoBehaviour
                 _fadeToBlack.gameObject.SetActive(true);
                 StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
             } else { NextScene(_optionalRoom3); }
-        } else { _textDisplay.ShowText("Bobby is too hungry to go out.", 3f); }
+        } else { TextDisplay.Instance.ShowText("Bobby is too hungry to go out.", 3f); }
         
     }
 

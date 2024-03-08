@@ -9,7 +9,6 @@ public class BathroomActions : MonoBehaviour
 {
     [Header("Display Settings")]
     [SerializeField] private ActionCountTimer actionTimer = null;
-    [SerializeField] private TextDisplay textDisplay;
 
     [Header("Bathroom Settings")]
     [SerializeField] private GameObject[] bathObjects = {};
@@ -71,7 +70,7 @@ public class BathroomActions : MonoBehaviour
     public void CallSpeech(int speechLine)
     {
         string speak = speech[speechLine];
-        textDisplay.ShowText(speak, 3f);
+        TextDisplay.Instance.ShowText(speak, 3f);
     }
 
         //BRUSH ACTIONS
