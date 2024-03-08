@@ -1447,7 +1447,7 @@ MonoBehaviour:
   - {fileID: 1111997670}
   - {fileID: 1178554104}
   _cleaningAction: {fileID: 277664549}
-  _playerAnimCont: {fileID: 0}
+  _bobbyAnim: {fileID: 0}
   speech:
   - Play around with the xray
   - Clean my teeth
@@ -3946,6 +3946,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3674357038406376686, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1563267737}
+    - target: {fileID: 3674357038406376686, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: PlaySFX
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}

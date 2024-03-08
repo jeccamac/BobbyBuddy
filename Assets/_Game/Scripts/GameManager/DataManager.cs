@@ -13,20 +13,21 @@ public class DataManager : MonoBehaviour
     public static SceneLoader SceneLoader => Instance._sceneLoader;
     public string level {get; set;} // current level room
 
-    [Header("Health Settings")]
+    [Header("Tooth Health Settings")]
     [SerializeField] public float currentHealth = 100;
     [SerializeField] public float maxHealth = 100;
     public int dentalState = 5;
-    public bool isTeethBad = false;
 
     [Header("Hunger Settings")]
     [SerializeField] public float currentHunger = 100;
     [SerializeField] private float maxHunger = 100;
-    //[SerializeField] public float 
+    public int hungerState = 2;
+    
     [Tooltip("Hunger rate is subtracted from currentHunger over hungerTimeStart")]
     [SerializeField] public float hungerRate = 1;
+
     [Tooltip("Timer start countdown in seconds")]
-    [SerializeField] private float hungerTimeStart = 3f;
+    [SerializeField] private float hungerTimeStart = 1f; //constant
     private float hungerTimer;
 
     private void Awake() 
@@ -108,6 +109,10 @@ public class DataManager : MonoBehaviour
             Debug.Log("HUNGER: " + currentHunger);
             hungerTimer = hungerTimeStart; //reset
         }
+
+        if (currentHunger >= 80) { hungerState = 2; } //full
+        else if (currentHunger >= 40) { hungerState = 1; } //hungry
+        else if (currentHunger <= 10) { hungerState = 0; } //starving, disable certain mechanics if hungry
     }
 
     public void AddHunger(float hungerAmt)

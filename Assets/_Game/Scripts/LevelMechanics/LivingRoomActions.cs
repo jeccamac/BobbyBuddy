@@ -8,7 +8,7 @@ public class LivingRoomActions : MonoBehaviour
 {
     [Header("Living Room Settings")]
     [SerializeField] private GameObject _lights = null;
-    [SerializeField] public Animator _playerAnimCont = null;
+    [SerializeField] public Animator _bobbyAnim = null;
     private bool _lightsEnabled = true;
 
     [Header("Display Settings")]
@@ -28,7 +28,7 @@ public class LivingRoomActions : MonoBehaviour
     
     private void Awake() 
     {
-        _playerAnimCont = GameObject.FindWithTag("Player").GetComponent<Animator>();
+        _bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
 
     public void CallSpeech()
@@ -45,7 +45,7 @@ public class LivingRoomActions : MonoBehaviour
         if (dance != null) 
         {
             string danceNo = dance[Random.Range(0, dance.Length)];
-            _playerAnimCont.Play(danceNo);
+            _bobbyAnim.Play(danceNo);
         }
 
         AudioManager.Instance.PlaySFX("Button Click");
@@ -71,12 +71,12 @@ public class LivingRoomActions : MonoBehaviour
             }
         }
 
-        _playerAnimCont.Play("Spooked");
+        _bobbyAnim.Play("Spooked");
 
     }
 
     public void IdleAnim()
     {
-        _playerAnimCont.Play("Idle");
+        _bobbyAnim.Play("Idle");
     }
 }
