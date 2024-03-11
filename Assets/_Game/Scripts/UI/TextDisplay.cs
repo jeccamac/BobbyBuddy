@@ -5,12 +5,24 @@ using UnityEngine.UI;
 
 public class TextDisplay : MonoBehaviour
 {
+    public static TextDisplay Instance = null; //Singleton 
     [Header("Text Display Settings")]
     [Tooltip("Text display to inform player")]
     [SerializeField] private Text _textDisplay = null;
     [SerializeField] private Image _objImage = null;
     private Animator _animPanel;
 
+    private void Awake() 
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
+    }
     private void Start() 
     {
         _animPanel = GetComponent<Animator>();

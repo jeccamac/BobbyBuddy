@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class DataManager : MonoBehaviour
 {
     public static DataManager Instance = null; // Singleton instance
+
     [Header("Scene Settings")]
     [SerializeField] private SceneLoader _sceneLoader = null;
     public static SceneLoader SceneLoader => Instance._sceneLoader;
@@ -27,7 +28,7 @@ public class DataManager : MonoBehaviour
     [SerializeField] public float hungerRate = 1;
 
     [Tooltip("Timer start countdown in seconds")]
-    [SerializeField] private float hungerTimeStart = 1f; //constant
+    [SerializeField] private float hungerTimeStart = 3f; //constant
     private float hungerTimer;
 
     private void Awake() 
@@ -49,6 +50,8 @@ public class DataManager : MonoBehaviour
         }
 
         hungerTimer = hungerTimeStart;
+
+        //_textDisplay = GetComponent<TextDisplay>();
     }
     private void Update()
     {
@@ -106,13 +109,13 @@ public class DataManager : MonoBehaviour
         {
             currentHunger = currentHunger - hungerRate;
             currentHunger = Mathf.Clamp(currentHunger, 0, maxHunger);
-            Debug.Log("HUNGER: " + currentHunger);
+            if (hungerState == 0) { TextDisplay.Instance.ShowText("Bobby is hungry, let's get some food!", 3f); }
             hungerTimer = hungerTimeStart; //reset
         }
 
         if (currentHunger >= 80) { hungerState = 2; } //full
         else if (currentHunger >= 40) { hungerState = 1; } //hungry
-        else if (currentHunger <= 10) { hungerState = 0; } //starving, disable certain mechanics if hungry
+        else if (currentHunger <= 10) { hungerState = 0; }//starving, disable certain mechanics if hungry
     }
 
     public void AddHunger(float hungerAmt)
@@ -137,7 +140,5 @@ public class DataManager : MonoBehaviour
     {
         dentalState += 2;
         dentalState = Mathf.Clamp(dentalState, 0, 5);
-
-        //Debug.Log("dental state is "+ dentalState);
     }
 }

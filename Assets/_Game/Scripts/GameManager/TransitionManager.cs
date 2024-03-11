@@ -17,11 +17,14 @@ public class TransitionManager : MonoBehaviour
     [Tooltip("Extra Room Option")]
     [SerializeField] private string _optionalRoom3;
 
+    [Tooltip("Condition to transition to optional room 3")]
+    [SerializeField] public bool _canTravel;
+
     [Header("On Scene Load")]
     
     [SerializeField] private bool _fadeIn = true;
     [SerializeField] private float _fadeInDelay = 1;
-    public Animator _playerAnimCont;
+    public Animator _bobbyAnim;
     [SerializeField] public string _animStart;
     
     [Header("On Scene End")]
@@ -31,7 +34,8 @@ public class TransitionManager : MonoBehaviour
     private void Start() 
     {
         DataManager.Instance.level = _currentScene;
-        _playerAnimCont = GameObject.FindWithTag("Player").GetComponent<Animator>();
+        //_textDisplay = GetComponent<TextDisplay>();
+        _bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
 
         // Intro Sequence
         if (_raycastBlock != null) { _raycastBlock.gameObject.SetActive(true); }
@@ -39,6 +43,14 @@ public class TransitionManager : MonoBehaviour
         {
             FadeFromBlack();
         }
+    }
+
+    private void Update() 
+    {
+        if (DataManager.Instance.hungerState != 0)
+        {
+            _canTravel = true;
+        } else { _canTravel = false; }
     }
 
     public void TransitionRoom1()
@@ -61,11 +73,15 @@ public class TransitionManager : MonoBehaviour
 
     public void TransitionRoom3()
     {
-        if (_fadeOut && _fadeToBlack != null)
+        if (_canTravel)
         {
-            _fadeToBlack.gameObject.SetActive(true);
-            StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
-        } else { NextScene(_optionalRoom3); }
+            if (_fadeOut && _fadeToBlack != null)
+            {
+                _fadeToBlack.gameObject.SetActive(true);
+                StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
+            } else { NextScene(_optionalRoom3); }
+        } else { TextDisplay.Instance.ShowText("Bobby is too hungry to go out.", 3f); }
+        
     }
 
     public void QuitToMenu()
@@ -88,7 +104,7 @@ public class TransitionManager : MonoBehaviour
         _fadeToBlack.gameObject.SetActive(true);
 
         // bobby animation on scene start
-        _playerAnimCont.Play(_animStart);
+        _bobbyAnim.Play(_animStart);
         //Debug.Log("animation start " + _animStart);
 
         //fade from black screen

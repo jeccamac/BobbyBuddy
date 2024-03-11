@@ -12,7 +12,6 @@ public class LivingRoomActions : MonoBehaviour
     private bool _lightsEnabled = true;
 
     [Header("Display Settings")]
-    [SerializeField] private TextDisplay textDisplay;
 
     [Tooltip("Series of speech text that will be randomized every time the function is called")]
     [SerializeField] public string[] speech = 
@@ -36,18 +35,25 @@ public class LivingRoomActions : MonoBehaviour
         if (speech != null)
         {
             string speak = speech[Random.Range(0, speech.Length)];
-            textDisplay.ShowText(speak, 3f);
+            TextDisplay.Instance.ShowText(speak, 3f);
         }
     }
 
     public void Dance() //random dancing animations here
     {
-        if (dance != null) 
+        if (DataManager.Instance.hungerState != 0)
         {
-            string danceNo = dance[Random.Range(0, dance.Length)];
-            _bobbyAnim.Play(danceNo);
+            if (dance != null) 
+            {
+                string danceNo = dance[Random.Range(0, dance.Length)];
+                _bobbyAnim.Play(danceNo);
+            }
+        } else 
+        { 
+            TextDisplay.Instance.ShowText("Bobby is too hungry to dance right now.", 3f); 
+            _bobbyAnim.Play("Idle");
         }
-
+    
         AudioManager.Instance.PlaySFX("Button Click");
     }
 
@@ -66,7 +72,7 @@ public class LivingRoomActions : MonoBehaviour
             {
                 _lights.SetActive(true);
                 _lightsEnabled = true;
-                textDisplay.ShowText("Did you touch the light switch?", 3f);
+                TextDisplay.Instance.ShowText("Did you touch the light switch?", 3f);
                 AudioManager.Instance.PlaySFX("Lights On");
             }
         }
