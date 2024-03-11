@@ -110,7 +110,6 @@ public class DataManager : MonoBehaviour
             currentHunger = currentHunger - hungerRate;
             currentHunger = Mathf.Clamp(currentHunger, 0, maxHunger);
             if (hungerState == 0) { TextDisplay.Instance.ShowText("Bobby is hungry, let's get some food!", 3f); }
-            Debug.Log("current hunger is " + currentHunger);
             hungerTimer = hungerTimeStart; //reset
         }
 
@@ -141,7 +140,5 @@ public class DataManager : MonoBehaviour
     {
         dentalState += 2;
         dentalState = Mathf.Clamp(dentalState, 0, 5);
-
-        //Debug.Log("dental state is "+ dentalState);
     }
 }
