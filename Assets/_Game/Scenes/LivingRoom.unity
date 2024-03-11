@@ -3106,6 +3106,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -50
       objectReference: {fileID: 0}
+    - target: {fileID: 429742768018389358, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f82e7f42be539f44aa794bfc8c42a51f,
+        type: 3}
     - target: {fileID: 897078213472700707, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3753,7 +3759,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3629ce294ae2640b6a8137de2adde913,
+      objectReference: {fileID: 21300000, guid: ef2baf7f09017bb4b8f65d537edf39e1,
         type: 3}
     - target: {fileID: 7379689931898463591, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -3825,6 +3831,12 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8512104285518616725, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 83a1be0a893cb464bbcc31fb755f7a44,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -3876,7 +3888,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lights: {fileID: 2080313526}
   _bobbyAnim: {fileID: 0}
-  textDisplay: {fileID: 1059873318727318997}
   speech:
   - Hello, my name is Bobby!
   - I'm a little ticklish.
