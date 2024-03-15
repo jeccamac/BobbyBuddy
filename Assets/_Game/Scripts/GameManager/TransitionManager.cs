@@ -17,9 +17,6 @@ public class TransitionManager : MonoBehaviour
     [Tooltip("Extra Room Option")]
     [SerializeField] private string _optionalRoom3;
 
-    [Tooltip("Condition to transition to optional room 3")]
-    [SerializeField] public bool _canTravel;
-
     [Header("On Scene Load")]
     
     [SerializeField] private bool _fadeIn = true;
@@ -45,14 +42,6 @@ public class TransitionManager : MonoBehaviour
         }
     }
 
-    private void Update() 
-    {
-        if (DataManager.Instance.hungerState != 0)
-        {
-            _canTravel = true;
-        } else { _canTravel = false; }
-    }
-
     public void TransitionRoom1()
     {
         if (_fadeOut && _fadeToBlack != null)
@@ -73,15 +62,11 @@ public class TransitionManager : MonoBehaviour
 
     public void TransitionRoom3()
     {
-        if (_canTravel)
+        if (_fadeOut && _fadeToBlack != null)
         {
-            if (_fadeOut && _fadeToBlack != null)
-            {
-                _fadeToBlack.gameObject.SetActive(true);
-                StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
-            } else { NextScene(_optionalRoom3); }
-        } else { TextDisplay.Instance.ShowText("Bobby is too hungry to go out.", 3f); }
-        
+            _fadeToBlack.gameObject.SetActive(true);
+            StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
+        } else { NextScene(_optionalRoom3); }        
     }
 
     public void QuitToMenu()

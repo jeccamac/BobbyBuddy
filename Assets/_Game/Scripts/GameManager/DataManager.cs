@@ -30,6 +30,7 @@ public class DataManager : MonoBehaviour
     [Tooltip("Timer start countdown in seconds")]
     [SerializeField] private float hungerTimeStart = 3f; //constant
     private float hungerTimer;
+    public bool hungerOn = false;
 
     private void Awake() 
     {
@@ -104,24 +105,27 @@ public class DataManager : MonoBehaviour
 
     private void HungerStatus()
     {
-        hungerTimer -= Time.deltaTime; //countdown
-        if (hungerTimer <= 0)
+        if (hungerOn)
         {
-            currentHunger = currentHunger - hungerRate;
-            currentHunger = Mathf.Clamp(currentHunger, 0, maxHunger);
-            if (hungerState == 0) { TextDisplay.Instance.ShowText("Bobby is hungry, let's get some food!", 3f); }
-            hungerTimer = hungerTimeStart; //reset
-        }
+            hungerTimer -= Time.deltaTime; //countdown
+            if (hungerTimer <= 0)
+            {
+                currentHunger = currentHunger - hungerRate;
+                currentHunger = Mathf.Clamp(currentHunger, 0, maxHunger);
+                if (hungerState == 0) { TextDisplay.Instance.ShowText("Bobby is hungry, let's get some food!", 3f); }
+                hungerTimer = hungerTimeStart; //reset
+            }
 
-        if (currentHunger >= 80) { hungerState = 2; } //full
-        else if (currentHunger >= 40) { hungerState = 1; } //hungry
-        else if (currentHunger <= 10) { hungerState = 0; }//starving, disable certain mechanics if hungry
+            if (currentHunger >= 90) { hungerState = 2; } //full
+            else if (currentHunger <= 40) { hungerState = 1; } //hungry
+            else if (currentHunger <= 10) { hungerState = 0; }//starving, disable certain mechanics if hungry
+        }
     }
 
     public void AddHunger(float hungerAmt)
     {
-        currentHunger += hungerAmt;
-        currentHunger = Mathf.Clamp(currentHunger, 0, maxHunger);
+            currentHunger += hungerAmt;
+            currentHunger = Mathf.Clamp(currentHunger, 0, maxHunger);
     }
 
     public void AddHealth(float healthAmt)
