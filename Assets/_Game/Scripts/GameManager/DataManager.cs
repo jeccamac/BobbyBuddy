@@ -142,7 +142,16 @@ public class DataManager : MonoBehaviour
 
     public void UpHealth()
     {
-        dentalState += 2;
-        dentalState = Mathf.Clamp(dentalState, 0, 5);
+        var curHealth = currentHealth;
+        if (currentHealth <= 50)
+        {
+            currentHealth += 50; //increase 1 dental state
+        } else if (currentHealth >= 50)
+        {
+            dentalState += 1; //increase to next dental state
+            currentHealth = Mathf.Abs(50 - curHealth); //subtract the next dental state health from previous health stat
+        }
+        // dentalState += 2;
+        // dentalState = Mathf.Clamp(dentalState, 0, 5);
     }
 }
