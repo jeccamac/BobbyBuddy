@@ -19,9 +19,10 @@ public class Food : MonoBehaviour
     }
     public void GetFoodType()
     {
-        if (DataManager.Instance.hungerState != 2)
+        if (DataManager.Instance.hungerOn == true && DataManager.Instance.hungerState == 2) { TextDisplay.Instance.ShowText("Bobby is full right now.", 3f); } 
+        else 
         {
-             bobbyAnim.Play("Chewing");
+            bobbyAnim.Play("Chewing");
 
             switch (foodType)
             {
@@ -67,10 +68,8 @@ public class Food : MonoBehaviour
                     gameObject.SetActive(false);
                 break;
             }
+        }
 
-            Debug.Log("food type is " + foodType);
-
-        } else { TextDisplay.Instance.ShowText("Bobby is full right now", 3f); }
-       
+        Debug.Log("food type is " + foodType);
     }
 }

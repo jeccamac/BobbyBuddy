@@ -4815,6 +4815,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8087249230201943921, guid: 9ce948ec41b9bc445b4ff2df7541eb95,
         type: 3}
+      propertyPath: hungerOn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8087249230201943921, guid: 9ce948ec41b9bc445b4ff2df7541eb95,
+        type: 3}
       propertyPath: _textDisplay
       value: 
       objectReference: {fileID: 1193158687}
