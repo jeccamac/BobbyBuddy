@@ -3895,7 +3895,6 @@ MonoBehaviour:
   - You're my best friend.
   - Want to dance with me?
   dance:
-  - DanceChicken
   - DanceKickstep
   - DanceSwing
   - DanceRumba
