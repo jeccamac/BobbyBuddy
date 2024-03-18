@@ -40,7 +40,7 @@ public class ToothHealth : MonoBehaviour
         //get health info from data manager
         GetHealth();
 
-        //update tooth health display
+        //update tooth health status display
         SwapIcons();
     }
 
@@ -85,20 +85,6 @@ public class ToothHealth : MonoBehaviour
             toothIcon.sprite = rot2;
             healthBar.color = critical;
         }
-
-        //     //bar color changes by _currentHealth
-        // if (_currentHealth >= 60)
-        // {
-        //     healthBar.color = healthy;
-        // } 
-        // else if (_currentHealth <= 60 && _currentHealth >= 20)
-        // {
-        //     healthBar.color = moderate;
-        // } 
-        // else if (_currentHealth <= 20)
-        // {
-        //     healthBar.color = critical;
-        // }
     }
 
     public void CheckTeeth()
