@@ -27,8 +27,14 @@ public class SettingsController : MonoBehaviour
         _musicSlider.value = AudioManager.Instance.musicSource.volume;
         _sfxSlider.value = AudioManager.Instance.sfxSource.volume;
 
-        musicButton.sprite = musicOn;
-        sfxButton.sprite = soundOn;
+        UpdateSettings();
+        // musicButton.sprite = musicOn;
+        // sfxButton.sprite = soundOn;
+    }
+
+    private void Update() 
+    {
+        UpdateSettings();
     }
 
     public void ToggleMusic()
@@ -38,12 +44,12 @@ public class SettingsController : MonoBehaviour
 
         if (musicCount == 0)
         {
-            musicButton.sprite = musicOff;
-            musicCount++;
+            //musicButton.sprite = musicOff;
+            musicCount++; // soundCount = 1,  turn off
         } else
         { 
-            musicButton.sprite = musicOn;
-            musicCount = 0;
+            //musicButton.sprite = musicOn;
+            musicCount = 0; // soundCount = 0,  turn on
         }
     }
 
@@ -53,14 +59,24 @@ public class SettingsController : MonoBehaviour
 
         if (soundCount == 0)
         {
-            sfxButton.sprite = soundOff;
-            soundCount++;
+            //sfxButton.sprite = soundOff;
+            soundCount++; // soundCount = 1,  turn off
         } else
         {
-            sfxButton.sprite = soundOn;
-            soundCount = 0;
+            //sfxButton.sprite = soundOn;
+            soundCount = 0; // soundCount = 0,  turn on
             AudioManager.Instance.PlaySFX("Button Select");
         }
+    }
+
+    private void UpdateSettings()
+    {
+        // in new scene, update sprite status
+        if (AudioManager.Instance.musicSource.mute == true ) { musicButton.sprite = musicOff; }
+        else { musicButton.sprite = musicOn; }
+
+        if (AudioManager.Instance.sfxSource.mute == true ) { sfxButton.sprite = soundOff; } 
+        else { sfxButton.sprite = soundOn; }
     }
 
     public void MusicVolume()
