@@ -31,7 +31,6 @@ public class TransitionManager : MonoBehaviour
     private void Start() 
     {
         DataManager.Instance.level = _currentScene;
-        //_textDisplay = GetComponent<TextDisplay>();
         _bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
 
         // Intro Sequence
@@ -49,6 +48,8 @@ public class TransitionManager : MonoBehaviour
             _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, _room1));
         } else { NextScene(_room1); }
+
+        AudioManager.Instance.PlaySFX("Button Switch");
     }
 
     public void TransitionRoom2()
@@ -58,6 +59,8 @@ public class TransitionManager : MonoBehaviour
             _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, _room2));
         } else { NextScene(_room2); }
+
+        AudioManager.Instance.PlaySFX("Button Switch");
     }
 
     public void TransitionRoom3()
@@ -66,7 +69,9 @@ public class TransitionManager : MonoBehaviour
         {
             _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, _optionalRoom3));
-        } else { NextScene(_optionalRoom3); }        
+        } else { NextScene(_optionalRoom3); }
+
+        AudioManager.Instance.PlaySFX("Button Switch");
     }
 
     public void QuitToMenu()
@@ -77,6 +82,8 @@ public class TransitionManager : MonoBehaviour
             _fadeToBlack.gameObject.SetActive(true);
             StartCoroutine(FadeToBlack(_fadeOutDelay, "MainScreen"));
         } else { NextScene("MainScreen"); }
+
+        AudioManager.Instance.PlaySFX("Button Cancel");
     }
 
     private void FadeFromBlack()
