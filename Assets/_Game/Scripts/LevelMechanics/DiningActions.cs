@@ -5,6 +5,7 @@ using UnityEngine.Windows.Speech;
 
 public class DiningActions : MonoBehaviour
 {
+    [Header("Nutrition Facts")]
     [SerializeField] private string[] speech = {};
 
     [Tooltip("Text after eating specific foods")]
@@ -20,18 +21,18 @@ public class DiningActions : MonoBehaviour
     public void CallSpeech(int speechLine)
     {
         string speak = speech[speechLine];
-        TextDisplay.Instance.ShowText(speak, 3f);
+        TextDisplay.Instance.ShowText(speak, 5f);
     }
 
-    public void CallRandomSpeech()
+    public void NutritionFacts()
     {
         string speak = speech[Random.Range(0, speech.Length)];
-        TextDisplay.Instance.ShowText(speak, 3f);
+        TextDisplay.Instance.ShowText(speak, 5f);
     }
 
     public void EatFood(int foodLine) //TEMP FUNCTION FOR TESTING
     {
         string speak = speechFood[foodLine];
-        TextDisplay.Instance.ShowText(speak, 3f);
+        TextDisplay.Instance.ShowText(speak, 5f);
     }
 }

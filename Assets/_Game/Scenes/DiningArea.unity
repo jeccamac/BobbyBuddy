@@ -3557,7 +3557,7 @@ PrefabInstance:
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CallRandomSpeech
+      value: NutritionFacts
       objectReference: {fileID: 0}
     - target: {fileID: 3995922574183413009, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -4014,14 +4014,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speech:
-  - Did you know that bears love fish?
-  - Veggies are good for you.
-  - Bobby loves sweets.
-  - Too much sugar is bad for your teeth.
-  - Soda can rot your teeth, don't forget to brush after!
+  - Fish has Omega 3 that is good for your heart and brain health!
+  - Protein can be found in meat, fish, eggs, beans, and nuts.
+  - Protein is good for building and repairing tissues in our body.
+  - Bananas are a good source of fiber and Potassium.
+  - Potassium can help your muscles, bones, and heart.
+  - Carrots contain a lot of Vitamin A that makes it orange in color.
+  - Vitamin A is good for vision, immune function, and cell growth.
+  - Soda can rot your teeth, so don't forget to brush after!
+  - Sweets have a lot of sugar and needs to be eaten in moderation.
+  - Too much sugar is bad for your teeth and can cause unbalanced bodily functions.
+  - Pizza and burgers can have a lot of carbs, so its good in small portions.
+  - Fruits and veggies provide energy and antioxidants to boost your immune system.
+  - Make sure to drink plenty of water to keep your body functioning well!
   speechFood:
   - Tasty!
-  - This is good I guess.
+  - This is good.
   - Yummy!
   - Ooh bubbly!
   - Staying hydrated!
