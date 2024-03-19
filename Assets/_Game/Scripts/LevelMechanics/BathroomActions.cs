@@ -202,7 +202,15 @@ public class BathroomActions : MonoBehaviour
 
             if (_animFloss != null)
             {
+                StartCoroutine(StopFloss());
+            }
+
+            IEnumerator StopFloss()
+            {
                 _animFloss.Play("Close");
+
+                yield return new WaitForSeconds(2f);
+                _animFloss.enabled = false;
             }
         }
     }
@@ -220,7 +228,15 @@ public class BathroomActions : MonoBehaviour
 
             if (_animFloss != null)
             {
+                StartCoroutine(StopFloss());
+            }
+
+            IEnumerator StopFloss()
+            {
                 _animFloss.Play("Close");
+
+                yield return new WaitForSeconds(2f);
+                _animFloss.enabled = false;
             }
 
             ObjectReset();
