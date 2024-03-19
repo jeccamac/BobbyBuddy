@@ -8303,8 +8303,8 @@ MonoBehaviour:
   _triggerMW: {fileID: 128983669}
   _triggerDrink: {fileID: 1202211977}
   speech:
+  - Remember to brush for 2 minutes.
   - Help me brush my teeth!
-  - Keep brushing for 2 minutes.
   - Remember to floss often!
   - Keep plaque away with mouthwash!
   - Minty fresh!
