@@ -236,6 +236,7 @@ public class ActionCountTimer : MonoBehaviour
         if (counterRunning)
         {
             _counter++;
+            AudioManager.Instance.PlaySFX("Count");
         }
         
         if (_counter == _counterMax)

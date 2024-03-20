@@ -8288,6 +8288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionTimer: {fileID: 1315974987}
+  brushTime: 10
+  flossCount: 6
   bathObjects:
   - {fileID: 941410881}
   - {fileID: 919132147677733857}
