@@ -165,7 +165,7 @@ public class ActionCountTimer : MonoBehaviour
                 animAction.enabled = true;
                 animAction.Play("ScaleIn");
 
-                Debug.Log("action panel " + actionPanel.activeSelf + " counterEnded" + counterEnded + " counter " + _counter);
+                //Debug.Log("action panel " + actionPanel.activeSelf + " counterEnded" + counterEnded + " counter " + _counter);
             }
         }
     }
@@ -236,6 +236,7 @@ public class ActionCountTimer : MonoBehaviour
         if (counterRunning)
         {
             _counter++;
+            AudioManager.Instance.PlaySFX("Count");
         }
         
         if (_counter == _counterMax)

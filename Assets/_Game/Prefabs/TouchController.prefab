@@ -59,10 +59,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b43e5ede029a3245b8353f6a4fee8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swipeTrail: {fileID: 8963654812948961783}
   minSwipeDistance: 0.2
   maxSwipeTime: 1
   directionThreshold: 0.9
-  swipeTrail: {fileID: 8963654812948961783}
   enableSwiping: 0
 --- !u!1 &8963654812948961783
 GameObject:
@@ -117,7 +117,7 @@ TrailRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: dcc2448ad07367a4da606a55f93d7b90, type: 2}
+  - {fileID: 2100000, guid: d1028adf90c9ff24c8f843850d13c70d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,8 +147,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0077209473
-        value: 0.29999924
+        time: 0
+        value: 0.035
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -198,7 +198,7 @@ TrailRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 3
-    numCapVertices: 0
+    numCapVertices: 4
     alignment: 0
     textureMode: 0
     textureScale: {x: 1, y: 1}

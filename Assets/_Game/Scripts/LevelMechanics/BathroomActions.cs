@@ -9,6 +9,9 @@ public class BathroomActions : MonoBehaviour
 {
     [Header("Display Settings")]
     [SerializeField] private ActionCountTimer actionTimer = null;
+    [Tooltip("Time counted in Seconds, Counter is total number of counts")]
+    [SerializeField] private float brushTime = 5;
+    [SerializeField] private float flossCount = 6;
 
     [Header("Bathroom Settings")]
     [SerializeField] private GameObject[] bathObjects = {};
@@ -19,9 +22,7 @@ public class BathroomActions : MonoBehaviour
     [SerializeField] private GameObject _mwTapbox, _triggerMW, _triggerDrink = null;
     private Vector3[] startPos;
     private Animator _animBrush, _animAreaHL, _animFloss, _animMW = null;
-    
     private bool hasBrushed, hasFlossed, hasMouthwash, clickedAway = false;
-
     
     [Tooltip("Series of speech text every time the function is called")]
     [SerializeField] private string[] speech = 
@@ -100,7 +101,7 @@ public class BathroomActions : MonoBehaviour
             _animAreaHL.Play("Glow");
 
             //start timer
-            actionTimer.StartTimer(5);
+            actionTimer.StartTimer(brushTime);
         }
 
         _bobbyAnim.Play("BareTeeth");
@@ -182,7 +183,7 @@ public class BathroomActions : MonoBehaviour
     {
         _bobbyAnim.Play("OpenMouth");
 
-        actionTimer.StartCounter(3);
+        actionTimer.StartCounter(flossCount);
 
         if (_animFloss != null)
         {
@@ -270,7 +271,6 @@ public class BathroomActions : MonoBehaviour
             yield return new WaitForSeconds(2f);
             _mwTapbox.SetActive(true); 
             _animMW.Play("TapBottle");
-            //_animMW.enabled = false;
         }
     }
 

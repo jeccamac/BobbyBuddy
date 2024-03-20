@@ -930,7 +930,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.12030929, y: -0, z: -0, w: 0.9927365}
-  m_LocalPosition: {x: 0, y: 1.839, z: -1.768}
+  m_LocalPosition: {x: 0, y: 1.839, z: -1.268}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8288,6 +8288,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionTimer: {fileID: 1315974987}
+  brushTime: 10
+  flossCount: 6
   bathObjects:
   - {fileID: 941410881}
   - {fileID: 919132147677733857}
@@ -9614,7 +9616,7 @@ Transform:
   m_GameObject: {fileID: 1539229899}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10100,7 +10102,7 @@ PrefabInstance:
     - target: {fileID: 1716715036317814947, guid: af21ce349cb90ae47a804ec6b43da483,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1716715036317814947, guid: af21ce349cb90ae47a804ec6b43da483,
         type: 3}
@@ -11245,36 +11247,6 @@ PrefabInstance:
       propertyPath: triggerEvent
       value: 
       objectReference: {fileID: 1770131492}
-    - target: {fileID: 4073106220344620925, guid: ef2987d2a2224c444bc571df7c30997f,
-        type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073106220344620925, guid: ef2987d2a2224c444bc571df7c30997f,
-        type: 3}
-      propertyPath: m_PreviewTimeScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073106220344620925, guid: ef2987d2a2224c444bc571df7c30997f,
-        type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073106220344620925, guid: ef2987d2a2224c444bc571df7c30997f,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: dcc2448ad07367a4da606a55f93d7b90, type: 2}
-    - target: {fileID: 4073106220344620925, guid: ef2987d2a2224c444bc571df7c30997f,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4073106220344620925, guid: ef2987d2a2224c444bc571df7c30997f,
-        type: 3}
-      propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.4637947
-      objectReference: {fileID: 0}
     - target: {fileID: 5190033043369601539, guid: ef2987d2a2224c444bc571df7c30997f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11460,7 +11432,7 @@ Transform:
   m_GameObject: {fileID: 2086055509}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12430,7 +12402,7 @@ Transform:
   m_GameObject: {fileID: 6333268519334103768}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12804,7 +12776,7 @@ Transform:
   m_GameObject: {fileID: 4213278086489187190}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.996086, z: -0.088389814, w: 0}
-  m_LocalPosition: {x: 0, y: 0.072, z: 0.04}
+  m_LocalPosition: {x: 0, y: 0.072, z: 0.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -13922,7 +13894,7 @@ Transform:
   m_GameObject: {fileID: 2031044208117321332}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.996086, z: -0.088389814, w: 0}
-  m_LocalPosition: {x: 0, y: 1.449, z: -1.07265}
+  m_LocalPosition: {x: 0, y: 1.449, z: -0.57264996}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
