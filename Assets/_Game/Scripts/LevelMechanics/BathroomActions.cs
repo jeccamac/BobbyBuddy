@@ -270,7 +270,6 @@ public class BathroomActions : MonoBehaviour
             yield return new WaitForSeconds(2f);
             _mwTapbox.SetActive(true); 
             _animMW.Play("TapBottle");
-            //_animMW.enabled = false;
         }
     }
 

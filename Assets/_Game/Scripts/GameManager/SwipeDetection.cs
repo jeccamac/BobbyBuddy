@@ -5,31 +5,32 @@ using UnityEngine.InputSystem.XInput;
 public class SwipeDetection : MonoBehaviour
 {
     [Header("Swipe Settings")]
+    [SerializeField] private GameObject swipeTrail;
     [SerializeField] private float minSwipeDistance = 0.2f;
     [SerializeField] private float maxSwipeTime = 1f;
     [SerializeField, Range(0f, 10f)] private float directionThreshold = 0.9f;
-    //[SerializeField] private GameObject swipeTrail;
     public bool enableSwiping = false;
     private Vector2 startPosition;
     private Vector2 endPosition;
     private float startTime;
     private float endTime;
-    //private Coroutine coroutine;
-
     private ActionCountTimer actionCounter;
 
     private void Start() 
     {
         actionCounter = FindObjectOfType<ActionCountTimer>();
-        //swipeTrail.SetActive(false);
+        
+        swipeTrail.SetActive(false);
     }
     private void Update() 
     {
         if (enableSwiping)
-        {              
+        {    
             if (Input.touches.Length > 0)
             {
                 Touch touch = Input.GetTouch(0);
+                Vector3 v3 = new Vector3(touch.position.x, touch.position.y, 1);
+                Vector2 touchSwipe = Camera.main.ScreenToWorldPoint(v3);
 
                 if (touch.phase == TouchPhase.Began)
                 {
@@ -40,6 +41,8 @@ public class SwipeDetection : MonoBehaviour
                 {
                     SwipeEnd(touch.position, Time.time);
                 }
+
+                swipeTrail.transform.position = touchSwipe;
             }
         }   
     }
@@ -53,28 +56,19 @@ public class SwipeDetection : MonoBehaviour
     {
         startPosition = position;
         startTime = time;
-        //swipeTrail.SetActive(true);
-        //swipeTrail.transform.position = position;
-        //coroutine = StartCoroutine(Trail(position));
-        Debug.Log("swiping started");
+        
+        // trail renderer
+        swipeTrail.SetActive(true);
+        swipeTrail.transform.position = position;
     }
-
-    // private IEnumerator Trail(Vector2 position)
-    // {
-    //     while(true)
-    //     {
-    //         swipeTrail.transform.position = position;
-    //         yield return null;
-    //     }
-    // }
 
     private void SwipeEnd(Vector2 position, float time)
     {
-        //swipeTrail.SetActive(false);
-        //StopCoroutine(coroutine);
         endPosition = position;
         endTime = time;
         DetectSwipe();
+
+        swipeTrail.SetActive(false);
     }
 
     public void DetectSwipe()
@@ -82,8 +76,6 @@ public class SwipeDetection : MonoBehaviour
         if (Vector3.Distance(startPosition, endPosition) >= minSwipeDistance
             && (endTime - startTime) <= maxSwipeTime)
         {
-            //Debug.Log("swipe detected");
-            Debug.DrawLine(startPosition, endPosition, Color.red, 5f);
             Vector3 direction = endPosition - startPosition;
             Vector2 dir = new Vector2(direction.x, direction.y).normalized;
             SwipeDirection(dir);
