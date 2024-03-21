@@ -7138,7 +7138,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.28, y: 0.03, z: 0.035}
+  m_Size: {x: 0.35, y: 0.12, z: 0.15}
   m_Center: {x: 0.01, y: 0.015, z: 0}
 --- !u!95 &941410884
 Animator:
@@ -10428,7 +10428,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.09, y: 0.095, z: 0.03}
+  m_Size: {x: 0.12, y: 0.15, z: 0.06}
   m_Center: {x: 0, y: 0.045, z: 0}
 --- !u!54 &1878269620
 Rigidbody:
