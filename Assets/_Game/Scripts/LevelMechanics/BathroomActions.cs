@@ -8,7 +8,12 @@ using Vector3 = UnityEngine.Vector3;
 public class BathroomActions : MonoBehaviour
 {
     [Header("Display Settings")]
+    [SerializeField] public Animator _bobbyAnim = null;
     [SerializeField] private ActionCountTimer actionTimer = null;
+    [SerializeField] private SpriteRenderer _areaHighlight = null;
+    [SerializeField] private SpriteRenderer _pointerHelp = null;
+    [SerializeField] private ParticleSystem _bubbles = null;
+
     [Tooltip("Time counted in Seconds, Counter is total number of counts")]
     [SerializeField] private float brushTime = 5;
     [SerializeField] private float flossCount = 6;
@@ -16,12 +21,10 @@ public class BathroomActions : MonoBehaviour
     [Header("Bathroom Settings")]
     [SerializeField] private GameObject[] bathObjects = {};
     [SerializeField] private GameObject[] bathActions = {};
-    [SerializeField] public Animator _bobbyAnim = null;
-    [SerializeField] private SpriteRenderer _areaHighlight = null;
-    [SerializeField] private ParticleSystem _bubbles = null;
+    
     [SerializeField] private GameObject _mwTapbox, _triggerMW, _triggerDrink = null;
     private Vector3[] startPos;
-    private Animator _animBrush, _animAreaHL, _animFloss, _animMW = null;
+    private Animator _animAreaHL, _animPointer, _animBrush, _animFloss, _animMW = null;
     private bool hasBrushed, hasFlossed, hasMouthwash, clickedAway = false;
     
     [Tooltip("Series of speech text every time the function is called")]
@@ -38,6 +41,7 @@ public class BathroomActions : MonoBehaviour
         _bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
         _animBrush = bathObjects[0].GetComponent<Animator>();
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
+        _animPointer = _pointerHelp.gameObject.GetComponent<Animator>(); 
         _animFloss = bathObjects[1].GetComponent<Animator>();
         _animMW = bathObjects[2].GetComponent<Animator>();
         //_mwTapbox = GetComponent<GameObject>();
@@ -47,6 +51,8 @@ public class BathroomActions : MonoBehaviour
     {
         _areaHighlight.enabled = false;
         _animFloss.enabled = false;
+
+        _pointerHelp.enabled = false;
 
         //set all actions and trigger boxes to false on start
         for (int i=0; i < bathActions.Length; i++)
@@ -88,9 +94,16 @@ public class BathroomActions : MonoBehaviour
         bathActions[2].SetActive(false); //turn mouthwash actions OFF
         
         CallSpeech(0);
+
+        _pointerHelp.enabled = true;
+        _animPointer.enabled = true;
+        if (_pointerHelp != null) { _animPointer.Play("SwipeUp"); }
     }
     public void BrushTeeth()
     {
+        _animPointer.enabled = false; //stop animation
+        _pointerHelp.enabled = false; //disable renderer
+
         //animate brush to brush position
         if (_animBrush != null)
         {
@@ -178,9 +191,16 @@ public class BathroomActions : MonoBehaviour
         bathActions[1].SetActive(true); //turn floss actions ON
         bathActions[2].SetActive(false); //turn mouthwash actions OFF
         CallSpeech(2);
+
+        _pointerHelp.enabled = true;
+        _animPointer.enabled = true;
+        if (_pointerHelp != null) { _animPointer.Play("SwipeUp"); }
     }
     public void StartFlossing()
     {
+        _animPointer.enabled = false;
+        _pointerHelp.enabled = false;
+
         _bobbyAnim.Play("OpenMouth");
 
         actionTimer.StartCounter(flossCount);
@@ -254,9 +274,16 @@ public class BathroomActions : MonoBehaviour
         bathActions[2].SetActive(true); //turn mouthwash actions ON
         _animMW.enabled = false;
         CallSpeech(3);
+
+        _pointerHelp.enabled = true;
+        _animPointer.enabled = true;
+        if (_pointerHelp != null) { _animPointer.Play("SwipeUp"); }
     }
     public void StartMW()
     {
+        _animPointer.enabled = false;
+        _pointerHelp.enabled = false;
+
         if (_animMW != null)
         {
             StartCoroutine(StartMouthwash());
@@ -289,6 +316,9 @@ public class BathroomActions : MonoBehaviour
             _mwTapbox.SetActive(false);
 
             yield return new WaitForSeconds(2f);
+            _pointerHelp.enabled = true;
+            _animPointer.enabled = true;
+            if (_pointerHelp != null) { _animPointer.Play("SwipeUp"); }
             _animMW.enabled = false;
             _areaHighlight.enabled = true;
             _animAreaHL.Play("Glow");
@@ -300,6 +330,9 @@ public class BathroomActions : MonoBehaviour
 
     public void DrinkMW()
     {
+        _animPointer.enabled = false;
+        _pointerHelp.enabled = false;
+
         if (_animMW != null)
         {
             StartCoroutine(DrinkMouthwash());
