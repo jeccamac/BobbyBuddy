@@ -1439,6 +1439,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionTimer: {fileID: 359654881}
+  cleanTimer: 10
   _areaHighlight: {fileID: 1619972438}
   _confetti: {fileID: 1700044386}
   _sparks: {fileID: 1079107105}
@@ -3211,7 +3212,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.04, y: 0.3, z: 0.04}
+  m_Size: {x: 0.1, y: 0.33, z: 0.1}
   m_Center: {x: 0.001, y: 0.15, z: 0}
 --- !u!4 &1178554107 stripped
 Transform:

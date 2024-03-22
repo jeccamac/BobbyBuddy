@@ -7,12 +7,12 @@ public class DentistActions : MonoBehaviour
 {
     [Header("Display Settings")]
     [SerializeField] private ActionCountTimer actionTimer = null;
+    [SerializeField] private float cleanTimer = 5f;
     [SerializeField] private SpriteRenderer _areaHighlight = null;
     [SerializeField] private ParticleSystem _confetti, _sparks = null;
     private Animator _animAreaHL;
 
     [Header("Dentist Settings")]
-    //[SerializeField] private GameObject xrayObject;
     [SerializeField] private GameObject[] dentistObjects = {};
     [SerializeField] private GameObject _cleaningAction = null;
     [SerializeField] public Animator _bobbyAnim = null;
@@ -107,7 +107,7 @@ public class DentistActions : MonoBehaviour
 
         AudioManager.Instance.PlaySFX("Drill");
 
-        actionTimer.StartTimer(5);
+        actionTimer.StartTimer(cleanTimer);
     }
 
     public void CancelClean()
