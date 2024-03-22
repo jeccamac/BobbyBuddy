@@ -1438,6 +1438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 876f4772207c1f9498be2623577c16d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bobbyAnim: {fileID: 0}
   actionTimer: {fileID: 359654881}
   cleanTimer: 10
   _areaHighlight: {fileID: 1619972438}
@@ -1447,7 +1448,6 @@ MonoBehaviour:
   - {fileID: 1111997670}
   - {fileID: 1178554104}
   _cleaningAction: {fileID: 277664549}
-  _bobbyAnim: {fileID: 0}
   speech:
   - Play around with the xray
   - Clean my teeth
@@ -3075,7 +3075,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.4838
+      value: 1.293
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 527eab4f237f0f94d93d8d06f8b31803,
         type: 3}
@@ -3159,6 +3159,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1178554105}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 527eab4f237f0f94d93d8d06f8b31803,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1178554108}
   m_SourcePrefab: {fileID: 100100000, guid: 527eab4f237f0f94d93d8d06f8b31803, type: 3}
 --- !u!1 &1178554104 stripped
 GameObject:
@@ -3220,6 +3224,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1178554103}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1178554108
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1178554104}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 48a23812117f8af48846adec5c223d66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &1185441725
 PrefabInstance:
   m_ObjectHideFlags: 0

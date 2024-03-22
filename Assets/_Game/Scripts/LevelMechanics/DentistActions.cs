@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DentistActions : MonoBehaviour
 {
     [Header("Display Settings")]
+    [SerializeField] public Animator _bobbyAnim = null;
     [SerializeField] private ActionCountTimer actionTimer = null;
     [SerializeField] private float cleanTimer = 5f;
     [SerializeField] private SpriteRenderer _areaHighlight = null;
@@ -14,8 +15,8 @@ public class DentistActions : MonoBehaviour
 
     [Header("Dentist Settings")]
     [SerializeField] private GameObject[] dentistObjects = {};
+    private Animator _animClean;
     [SerializeField] private GameObject _cleaningAction = null;
-    [SerializeField] public Animator _bobbyAnim = null;
     [SerializeField] private string[] speech = {};
     private Vector3[] startPos;
     private bool xrayEnabled, hasCleaned, canParty = false;
@@ -23,6 +24,7 @@ public class DentistActions : MonoBehaviour
     private void Awake() 
     {
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
+        _animClean = dentistObjects[1].gameObject.GetComponent<Animator>();
         _bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
     private void Start() 
@@ -35,6 +37,7 @@ public class DentistActions : MonoBehaviour
         }
 
         _areaHighlight.enabled = false;
+        _animClean.enabled = false;
         _cleaningAction.SetActive(false);
     }
 
@@ -91,8 +94,10 @@ public class DentistActions : MonoBehaviour
             AudioManager.Instance.PlaySFX("XRay Off");
             xrayEnabled = false;
         }
-
+        
         _cleaningAction.SetActive(true);
+        _animClean.enabled  = true;
+        _animClean.Play("Select");
         AudioManager.Instance.PlaySFX("Button Click");
 
         CallSpeech(1);
@@ -100,6 +105,7 @@ public class DentistActions : MonoBehaviour
 
     public void CleanTeeth()
     {
+        _animClean.enabled = false;
         _bobbyAnim.Play("OpenMouth");
 
         _areaHighlight.enabled = true;
