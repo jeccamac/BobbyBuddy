@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FoodInstantiator : MonoBehaviour
 {
+    [Header("Food Type Instantiator")]
     [SerializeField] private GameObject[] protein, vegfruits, sweets = {};
     [SerializeField] private GameObject plateP, plateV, plateS;
     [SerializeField] private float rotateSpeed;

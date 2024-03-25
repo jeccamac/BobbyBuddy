@@ -101,8 +101,7 @@ public class BathroomActions : MonoBehaviour
     }
     public void BrushTeeth()
     {
-        _animPointer.enabled = false; //stop animation
-        _pointerHelp.enabled = false; //disable renderer
+        _animPointer.Play("Idle");
 
         //animate brush to brush position
         if (_animBrush != null)
@@ -198,8 +197,7 @@ public class BathroomActions : MonoBehaviour
     }
     public void StartFlossing()
     {
-        _animPointer.enabled = false;
-        _pointerHelp.enabled = false;
+        _animPointer.Play("Idle");
 
         _bobbyAnim.Play("OpenMouth");
 
@@ -281,8 +279,7 @@ public class BathroomActions : MonoBehaviour
     }
     public void StartMW()
     {
-        _animPointer.enabled = false;
-        _pointerHelp.enabled = false;
+        _animPointer.Play("Idle");
 
         if (_animMW != null)
         {
@@ -316,9 +313,11 @@ public class BathroomActions : MonoBehaviour
             _mwTapbox.SetActive(false);
 
             yield return new WaitForSeconds(2f);
+                // pointer help
             _pointerHelp.enabled = true;
             _animPointer.enabled = true;
             if (_pointerHelp != null) { _animPointer.Play("SwipeUp"); }
+
             _animMW.enabled = false;
             _areaHighlight.enabled = true;
             _animAreaHL.Play("Glow");
@@ -330,8 +329,7 @@ public class BathroomActions : MonoBehaviour
 
     public void DrinkMW()
     {
-        _animPointer.enabled = false;
-        _pointerHelp.enabled = false;
+        _animPointer.Play("Idle");
 
         if (_animMW != null)
         {
