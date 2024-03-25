@@ -6,16 +6,16 @@ using UnityEngine.UI;
 public class DentistActions : MonoBehaviour
 {
     [Header("Display Settings")]
+    [SerializeField] public Animator _bobbyAnim, _pointerHelp = null;
     [SerializeField] private ActionCountTimer actionTimer = null;
     [SerializeField] private float cleanTimer = 5f;
     [SerializeField] private SpriteRenderer _areaHighlight = null;
     [SerializeField] private ParticleSystem _confetti, _sparks = null;
-    private Animator _animAreaHL;
+    private Animator _animAreaHL, _animPointer;
 
     [Header("Dentist Settings")]
     [SerializeField] private GameObject[] dentistObjects = {};
     [SerializeField] private GameObject _cleaningAction = null;
-    [SerializeField] public Animator _bobbyAnim = null;
     [SerializeField] private string[] speech = {};
     private Vector3[] startPos;
     private bool xrayEnabled, hasCleaned, canParty = false;
@@ -23,6 +23,7 @@ public class DentistActions : MonoBehaviour
     private void Awake() 
     {
         _animAreaHL = _areaHighlight.gameObject.GetComponent<Animator>();
+        _animPointer = _pointerHelp.gameObject.GetComponent<Animator>();
         _bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
     }
     private void Start() 
@@ -35,6 +36,7 @@ public class DentistActions : MonoBehaviour
         }
 
         _areaHighlight.enabled = false;
+        _pointerHelp.enabled = false;
         _cleaningAction.SetActive(false);
     }
 
@@ -91,15 +93,23 @@ public class DentistActions : MonoBehaviour
             AudioManager.Instance.PlaySFX("XRay Off");
             xrayEnabled = false;
         }
-
+        
+        dentistObjects[1].SetActive(true);
         _cleaningAction.SetActive(true);
         AudioManager.Instance.PlaySFX("Button Click");
+
+        // pointer help
+        _pointerHelp.enabled = true;
+        _animPointer.enabled = true;
+        if (_pointerHelp != null) { _animPointer.Play("SwipeDentist"); }
 
         CallSpeech(1);
     }
 
     public void CleanTeeth()
     {
+        _animPointer.Play("Idle");
+
         _bobbyAnim.Play("OpenMouth");
 
         _areaHighlight.enabled = true;
@@ -141,6 +151,9 @@ public class DentistActions : MonoBehaviour
 
     public void PartyFanfare()
     {
+        dentistObjects[1].SetActive(false);
+        _animPointer.Play("Idle");
+
         if (xrayEnabled == true)
         {
             dentistObjects[0].SetActive(false);

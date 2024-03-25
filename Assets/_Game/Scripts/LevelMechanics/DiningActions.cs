@@ -8,6 +8,7 @@ public class DiningActions : MonoBehaviour
     [Header("Nutrition Facts")]
     [SerializeField] private string[] speech = {};
 
+    [Header("Speech after eating")]
     [Tooltip("Text after eating specific foods")]
     [SerializeField] private string[] speechFood = 
     {
