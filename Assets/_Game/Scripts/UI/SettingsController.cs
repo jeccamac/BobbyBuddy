@@ -27,6 +27,8 @@ public class SettingsController : MonoBehaviour
 
     private void Start() 
     {
+        _credits.SetActive(false);
+        
         _musicSlider.value = AudioManager.Instance.musicSource.volume;
         _sfxSlider.value = AudioManager.Instance.sfxSource.volume;
 
