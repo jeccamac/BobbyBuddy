@@ -78,6 +78,7 @@ public class SwipeDetection : MonoBehaviour
         {
             Vector3 direction = endPosition - startPosition;
             Vector2 dir = new Vector2(direction.x, direction.y).normalized;
+            actionCounter.AddCount(); //since it's any direction, add here
             SwipeDirection(dir);
             AudioManager.Instance.PlaySFX("Swipe");
         }
@@ -87,23 +88,19 @@ public class SwipeDetection : MonoBehaviour
     {
         if (Vector2.Dot(Vector2.up, direction) > directionThreshold)
         {
-            //get action counter here? and count++ any direction
-            actionCounter.AddCount();
+            //if needed a specific direction to function, add here
             //Debug.Log("swipe up");
         }
         if (Vector2.Dot(Vector2.down, direction) > directionThreshold)
         {
-            actionCounter.AddCount();
             //Debug.Log("swipe down");
         }
         if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
         {
-            actionCounter.AddCount();
             //Debug.Log("swipe left");
         }
         if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
         {
-            actionCounter.AddCount();
             //Debug.Log("swipe right");
         }
     }

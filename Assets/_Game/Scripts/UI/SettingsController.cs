@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class SettingsController : MonoBehaviour
 {
+    [Header("Enable Objects")]
+    [SerializeField] private GameObject _credits = null;
+
     [Header("Sliders")]
     [SerializeField] public Slider _musicSlider;
     [SerializeField] public Slider _sfxSlider;
 
-    [Header("Buttons")]
+    [Header("Button Images")]
     [SerializeField] private Image musicButton;
     [SerializeField] private Image sfxButton;
 
@@ -24,6 +27,8 @@ public class SettingsController : MonoBehaviour
 
     private void Start() 
     {
+        _credits.SetActive(false);
+        
         _musicSlider.value = AudioManager.Instance.musicSource.volume;
         _sfxSlider.value = AudioManager.Instance.sfxSource.volume;
 
@@ -87,5 +92,26 @@ public class SettingsController : MonoBehaviour
     public void SFXVolume()
     {
         AudioManager.Instance.SFXVolume(_sfxSlider.value);
+    }
+
+
+    public void ToggleCredits()
+    {
+        if (!_credits.activeSelf)
+        {
+            _credits.SetActive(true);
+
+            StartCoroutine(PlayCredits());
+        } else
+        {
+            StopCoroutine(PlayCredits());
+            _credits.SetActive(false);
+        }
+
+        IEnumerator PlayCredits()
+        {
+            yield return new WaitForSeconds(50f);
+            _credits.SetActive(false);
+        }
     }
 }
