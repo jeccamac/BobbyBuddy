@@ -6,14 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Game/Scenes/LivingRoom.unity
-    guid: 9f27a581f4802e14cb7833610e1f646c
-  - enabled: 0
-    path: Assets/_Game/Scenes/Sandbox.unity
-    guid: ceae5866e95799c41a2aac882ff20570
-  - enabled: 1
     path: Assets/_Game/Scenes/MainScreen.unity
     guid: f1836fa4a4df44649bf0fc93a04ab71a
+  - enabled: 1
+    path: Assets/_Game/Scenes/LivingRoom.unity
+    guid: 9f27a581f4802e14cb7833610e1f646c
   - enabled: 1
     path: Assets/_Game/Scenes/DiningArea.unity
     guid: 03ed8d0f27edb074d88ee08edce05657

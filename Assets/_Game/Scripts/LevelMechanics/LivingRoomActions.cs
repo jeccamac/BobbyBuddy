@@ -89,7 +89,7 @@ public class LivingRoomActions : MonoBehaviour
         }
 
         _bobbyAnim.Play("Spooked");
-
+        Debug.Log("light settings " + _lights.activeSelf);
     }
 
     public void IdleAnim()
