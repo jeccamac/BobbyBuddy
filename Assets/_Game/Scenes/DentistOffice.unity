@@ -97,8 +97,10 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 48b8c60f1c24cf044a106e7c09d20f73,
+    type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 8f50132a367695648bf34ea8fe0c344b,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -639,7 +641,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1439,7 +1441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bobbyAnim: {fileID: 0}
-  _pointerHelp: {fileID: 1441744506}
+  _pointerHelp: {fileID: 1698828587}
   actionTimer: {fileID: 359654881}
   cleanTimer: 10
   _areaHighlight: {fileID: 1619972438}
@@ -5038,12 +5040,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2097962759}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &1441744506 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 5917030968660481377, guid: d6e99a996b1f68243b741bce6020700b,
-    type: 3}
-  m_PrefabInstance: {fileID: 2097962759}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1452025937
 GameObject:
   m_ObjectHideFlags: 0
@@ -5631,6 +5627,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 148753502}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1698828587 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4170434241212630698, guid: d6e99a996b1f68243b741bce6020700b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2097962759}
+  m_PrefabAsset: {fileID: 0}
 --- !u!198 &1700044386 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 7221202241056946585, guid: a3af86ec9d3f6594ea34053a73c6dcae,

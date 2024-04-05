@@ -99,7 +99,8 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 0b7b4d589b2505d4b86bf756b02a14b8,
     type: 2}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 8f50132a367695648bf34ea8fe0c344b,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -4292,7 +4293,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a4d3cf327ac32244cb557ae17b732a94, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 815977665d312aa4e8f6834e8f777669, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

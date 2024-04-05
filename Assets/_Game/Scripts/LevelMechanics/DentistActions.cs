@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class DentistActions : MonoBehaviour
 {
     [Header("Display Settings")]
-    [SerializeField] public Animator _bobbyAnim, _pointerHelp = null;
+    [SerializeField] public Animator _bobbyAnim;
+    [SerializeField] public GameObject _pointerHelp = null;
     [SerializeField] private ActionCountTimer actionTimer = null;
     [SerializeField] private float cleanTimer = 5f;
     [SerializeField] private SpriteRenderer _areaHighlight = null;
@@ -36,7 +37,7 @@ public class DentistActions : MonoBehaviour
         }
 
         _areaHighlight.enabled = false;
-        _pointerHelp.enabled = false;
+        _pointerHelp.SetActive(false);
         _cleaningAction.SetActive(false);
     }
 
@@ -99,7 +100,7 @@ public class DentistActions : MonoBehaviour
         AudioManager.Instance.PlaySFX("Button Click");
 
         // pointer help
-        _pointerHelp.enabled = true;
+        _pointerHelp.SetActive(true);
         _animPointer.enabled = true;
         if (_pointerHelp != null) { _animPointer.Play("SwipeDentist"); }
 
