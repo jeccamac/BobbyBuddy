@@ -24,13 +24,13 @@ Shader "XRayStencilShader"
             {
                 Ref [_StencilID] //get stencil id
 
-                /*add stencil test, compares ref value with whatever stencil value is already set on this pixel
-                 *we always want to override the stencil value */
+                ///*add stencil test, compares ref value with whatever stencil value is already set on this pixel
+                //*we always want to override the stencil value */
                 Comp Always //stencil test always passes/runs
                 
-                /*tell unity what to do when stencil test passes or fails
-                 *if pass - replace stencil value with new one we defined on this shader
-                 *if fail - keep whatever value was already in the stencil buffer for this pixel */
+                ///*tell unity what to do when stencil test passes or fails
+                 //*if pass - replace stencil value with new one we defined on this shader
+                 //*if fail - keep whatever value was already in the stencil buffer for this pixel */
                  Pass Replace
                  Fail Keep
             }
