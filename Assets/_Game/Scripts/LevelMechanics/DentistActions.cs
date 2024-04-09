@@ -78,7 +78,7 @@ public class DentistActions : MonoBehaviour
 
         //clamp xray position
         xpos = Mathf.Clamp(xpos, -0.3f, 0.3f);
-        ypos = Mathf.Clamp(ypos, 1.72f, 2.72f);
+        ypos = Mathf.Clamp(ypos, 1.2f, 2.4f);
         zpos = Mathf.Clamp(zpos, -0.8f, -0.8f);
 
         //apply clamp
