@@ -146,12 +146,15 @@ public class DataManager : MonoBehaviour
         if (currentHealth <= 50)
         {
             currentHealth += 50; //increase 1 dental state
-        } else if (currentHealth >= 50)
+        } else if (currentHealth >= 50 && dentalState != 5)
         {
             dentalState += 1; //increase to next dental state
+            dentalState = Mathf.Clamp(dentalState, 0, 5);
             currentHealth = Mathf.Abs(50 - curHealth); //subtract the next dental state health from previous health stat
         }
+
+        Debug.Log("Dental state is currently" + dentalState);
+        Debug.Log("Tooth health is currently" + currentHealth);
         // dentalState += 2;
-        // dentalState = Mathf.Clamp(dentalState, 0, 5);
     }
 }

@@ -88,8 +88,8 @@ public class ToothHealth : MonoBehaviour
 
     public void CheckTeeth()
     {
-        Debug.Log("dental state is currently" + _dentalState);
-        _dentalState = DataManager.Instance.dentalState;
+        //_dentalState = DataManager.Instance.dentalState;
+        GetHealth();
         
         if (_dentalState == 5)
         {
@@ -110,5 +110,8 @@ public class ToothHealth : MonoBehaviour
         {
             textDisplay.ShowText("Bobby really needs to visit the dentist.", 3f);
         }
+
+        Debug.Log("dental state is currently " + _dentalState);
+        Debug.Log("tooth health is currently " + _currentHealth);
     }
 }
