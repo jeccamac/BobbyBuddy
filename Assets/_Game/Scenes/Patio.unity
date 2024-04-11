@@ -2018,7 +2018,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &330585544
 AudioListener:
   m_ObjectHideFlags: 0
@@ -9636,7 +9636,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1863441365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10369,6 +10369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: Living Room
+      objectReference: {fileID: 0}
+    - target: {fileID: 6019052980677006238, guid: 136114721b1348449bb045e6abda9084,
+        type: 3}
+      propertyPath: m_Text
+      value: Dining Area
       objectReference: {fileID: 0}
     - target: {fileID: 6555362174214193684, guid: 136114721b1348449bb045e6abda9084,
         type: 3}
@@ -11491,8 +11496,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
         type: 3}
+      propertyPath: _room2
+      value: DiningArea
+      objectReference: {fileID: 0}
+    - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
+        type: 3}
       propertyPath: _animStart
-      value: Waving
+      value: HappyIdle
       objectReference: {fileID: 0}
     - target: {fileID: 7582965983135901913, guid: e6095d31049fcdb4a99e21004601fb0e,
         type: 3}
