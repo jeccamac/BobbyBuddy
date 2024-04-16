@@ -13,13 +13,16 @@ public class PatioActions : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
 
     [Header("Bobby Settings")]
-    [SerializeField] public Animator _bobbyAnim = null;
+    [SerializeField] public GameObject bobby = null;
+    [SerializeField] public Animator bobbyAnim = null;
     [SerializeField] public Transform[] bobbyPos = {}; //bobbyOrigin, bobbyR, bobbyRSit, bobbyL
+    [SerializeField] public GameObject eyeLook = null;
+    [SerializeField] public Transform[] eyeLookPos = {}; //origin, R, L, RSit
     
     private void Start()
     {
         camMain = Camera.main;
-        _bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
+        bobbyAnim = GameObject.FindWithTag("Player").GetComponent<Animator>();
 
         camMain.transform.position = camPos[0].position;
     }
@@ -34,8 +37,8 @@ public class PatioActions : MonoBehaviour
         { 
             moveRight++;
             moveLeft -= 1;
-            Debug.Log("move left " + moveLeft.ToString());
-            Debug.Log("move right " + moveRight.ToString());
+            // Debug.Log("move left " + moveLeft.ToString());
+            // Debug.Log("move right " + moveRight.ToString());
         }
         
     }
@@ -46,8 +49,8 @@ public class PatioActions : MonoBehaviour
         {
             moveLeft++;
             moveRight -= 1;
-            Debug.Log("move left " + moveLeft.ToString());
-            Debug.Log("move right " + moveRight.ToString());
+            // Debug.Log("move left " + moveLeft.ToString());
+            // Debug.Log("move right " + moveRight.ToString());
         }
     }
 
@@ -56,16 +59,28 @@ public class PatioActions : MonoBehaviour
         if (moveRight == 1)
         {
             camMain.transform.position = Vector3.SmoothDamp(camMain.transform.position, camPos[1].position, ref velocity, panSpeed * Time.deltaTime);
+            bobby.transform.position = bobbyPos[3].position;
+            bobby.transform.rotation = bobbyPos[3].rotation;
+            bobbyAnim.Play("IdleSitting");
+            eyeLook.transform.position = eyeLookPos[3].position;
         }
 
         if (moveRight == 0 && moveLeft == 0)
         {
             camMain.transform.position = Vector3.SmoothDamp(camMain.transform.position, camPos[0].position, ref velocity, panSpeed * Time.deltaTime);
+            bobby.transform.position = bobbyPos[0].position;
+            bobby.transform.rotation = bobbyPos[0].rotation;
+            bobbyAnim.Play("Idle");
+            eyeLook.transform.position = eyeLookPos[0].position;
         }
 
         if (moveLeft == 1)
         {
             camMain.transform.position = Vector3.SmoothDamp(camMain.transform.position, camPos[2].position, ref velocity, panSpeed * Time.deltaTime);
+            bobby.transform.position = bobbyPos[2].position;
+            bobby.transform.rotation = bobbyPos[2].rotation;
+            bobbyAnim.Play("HappyIdle");
+            eyeLook.transform.position = eyeLookPos[2].position;
         }
     }
 }

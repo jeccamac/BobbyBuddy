@@ -26,7 +26,7 @@ public class QuirkySeriesDemo : MonoBehaviour {
 												"Walk"
 											};
 	private List<string> shapekeyList = new List<string>
-											{	"Eyes_Annoyed",
+											{	//"Eyes_Annoyed",
 												"Eyes_Blink",
 												"Eyes_Cry",
 												"Eyes_Dead",
