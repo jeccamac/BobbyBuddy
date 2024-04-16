@@ -31,6 +31,7 @@ public class GardenButtons : MonoBehaviour
         else 
         { 
             isPanelActive = false;
+            gardenUI.Play("IdleOut");
             togglePanel.SetActive(false); 
         }
     }
