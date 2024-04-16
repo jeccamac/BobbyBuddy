@@ -6,5 +6,6 @@ public enum Room
     DiningArea,
     BathroomVanity,
     DentistOffice,
+    Patio,
     End
 }

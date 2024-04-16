@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using System.Numerics;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -146,6 +147,7 @@ public class BathroomActions : MonoBehaviour
             _animBrush.Play("Idle");
             _areaHighlight.enabled = false;
         }
+        
         if (_bubbles != null)
         {
             _bubbles.Stop();
@@ -270,8 +272,11 @@ public class BathroomActions : MonoBehaviour
         bathActions[0].SetActive(false); //turn brush actions OFF
         bathActions[1].SetActive(false); //turn floss actions OFF
         bathActions[2].SetActive(true); //turn mouthwash actions ON
-        _animMW.enabled = false;
         CallSpeech(3);
+
+        _animMW.enabled = false;
+        // _animMW.enabled = true;
+        // _animMW.Play("Idle");
 
         _pointerHelp.enabled = true;
         _animPointer.enabled = true;
@@ -300,57 +305,75 @@ public class BathroomActions : MonoBehaviour
 
     public void TapMW()
     {
-        if (_animMW != null)
+        if (!clickedAway)
         {
-            StartCoroutine(PourMouthwash());
-        }
+            if (_animMW != null)
+            {
+                StartCoroutine(PourMouthwash());
+            }
 
-        IEnumerator PourMouthwash()
-        {
-            _animMW.enabled = true;
-            _animMW.Play("Pour");
-            _bobbyAnim.Play("OpenMouth");
-            _mwTapbox.SetActive(false);
+            IEnumerator PourMouthwash()
+            {
+                _animMW.enabled = true;
+                _animMW.Play("Pour");
+                _bobbyAnim.Play("OpenMouth");
+                _mwTapbox.SetActive(false);
 
-            yield return new WaitForSeconds(2f);
-                // pointer help
-            _pointerHelp.enabled = true;
-            _animPointer.enabled = true;
-            if (_pointerHelp != null) { _animPointer.Play("SwipeUp"); }
+                yield return new WaitForSeconds(2f);
+                    // pointer help
+                _pointerHelp.enabled = true;
+                _animPointer.enabled = true;
+                if (_pointerHelp != null) { _animPointer.Play("SwipeUp"); }
 
-            _animMW.enabled = false;
-            _areaHighlight.enabled = true;
-            _animAreaHL.Play("Glow");
-            _triggerMW.SetActive(false);
-            _triggerDrink.SetActive(true);
-        }
-    
+                _animMW.enabled = false;
+                _areaHighlight.enabled = true;
+                _animAreaHL.Play("Glow");
+                _triggerMW.SetActive(false);
+                _triggerDrink.SetActive(true);
+            }
+        } else { StopMW(); }
     }
 
     public void DrinkMW()
     {
-        _animPointer.Play("Idle");
-
-        if (_animMW != null)
+        if (!clickedAway)
         {
-            StartCoroutine(DrinkMouthwash());
+            _animPointer.Play("Idle");
+
+            if (_animMW != null)
+            {
+                StartCoroutine(DrinkMouthwash());
+            }
+
+            IEnumerator DrinkMouthwash()
+            {
+                _animMW.enabled = true;
+                _animMW.Play("Drink");
+                _bobbyAnim.Play("Chewing");
+                _areaHighlight.enabled = false;
+                _triggerDrink.SetActive(false);
+                
+                yield return new WaitForSeconds(1f);
+                _animMW.enabled = false;
+                _triggerMW.SetActive(true);
+                hasMouthwash = true;
+                CallSpeech(4);
+                ObjectReset();
+            }
         }
+    }
 
-        IEnumerator DrinkMouthwash()
+    private void StopMW()
+    {
+        if (_animMW != null && bathActions[2].activeSelf == true)
         {
-            _animMW.enabled = true;
-            _animMW.Play("Drink");
-            _bobbyAnim.Play("Chewing");
+            _animPointer.Play("Idle");
+            _animMW.Play("Idle");
+            _bobbyAnim.Play("CloseMouth");
             _areaHighlight.enabled = false;
             _triggerDrink.SetActive(false);
-            
-            yield return new WaitForSeconds(1f);
-            _animMW.enabled = false;
             _triggerMW.SetActive(true);
-            hasMouthwash = true;
-            CallSpeech(4);
-            ObjectReset();
-            
+            hasMouthwash = false;
         }
     }
 
@@ -384,6 +407,7 @@ public class BathroomActions : MonoBehaviour
         
         StopBrushing();
         StopFlossing();
+        StopMW();
         ObjectReset();
 
         _bobbyAnim.Play("IdleSitting");

@@ -736,7 +736,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.12, y: 0.22, z: 0.05}
+  m_Size: {x: 0.16, y: 0.22, z: 0.08}
   m_Center: {x: 0, y: 0.15, z: 0}
 --- !u!95 &194736689
 Animator:
@@ -751,7 +751,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 05bf2b7d95a50f34eb9f83c4b2b5c8c5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -10141,7 +10141,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.15, y: 0.28, z: 0.06}
+  m_Size: {x: 0.18, y: 0.3, z: 0.1}
   m_Center: {x: 0, y: 0.14, z: 0}
 --- !u!1001 &1770720565
 PrefabInstance:
