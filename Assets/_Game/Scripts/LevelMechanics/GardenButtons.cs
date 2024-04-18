@@ -37,12 +37,14 @@ public class GardenButtons : MonoBehaviour
     }
     public void TogglePanel()
     {
+        gardenUI.StopPlayback();
         if (!isPanelActive)
         { 
             gardenUI.enabled = true;
             gardenUI.Play("SlideIn");
             isPanelActive = true;
             Debug.Log("panel is active ");
+            
         } else 
         { 
             gardenUI.Play("SlideOut"); 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,9 +22,15 @@ public class SettingsController : MonoBehaviour
     [SerializeField] private Sprite musicOff;
     [SerializeField] private Sprite soundOn;
     [SerializeField] private Sprite  soundOff;
-
     private int musicCount = 0;
     private int soundCount = 0;
+
+    [Header("Credits Settings")]
+    [Tooltip("Timer start countdown in seconds")]
+    [SerializeField] public Animator creditsPanel =  null;
+    [SerializeField] private float creditsTimeStart = 21f;
+    private float creditsTimer;
+    private bool creditsOn = false;
 
     private void Start() 
     {
@@ -94,24 +101,35 @@ public class SettingsController : MonoBehaviour
         AudioManager.Instance.SFXVolume(_sfxSlider.value);
     }
 
-
-    public void ToggleCredits()
+    private void RollCredits()
     {
-        if (!_credits.activeSelf)
+        if (creditsOn)
         {
             _credits.SetActive(true);
-
-            StartCoroutine(PlayCredits());
+            creditsTimer = creditsTimeStart;
+            creditsTimer -= Time.deltaTime; //countdown
+            if (creditsTimer <= 0) // conditions if countdown is over
+            {
+                _credits.SetActive(false);
+                creditsOn = false;
+                RollCredits();
+            }
+        } else 
+        { 
+            _credits.SetActive(false);
+            creditsOn = false;
+        }
+    }
+    public void ToggleCredits()
+    {
+        if (!creditsOn)
+        { 
+            creditsOn = true;
+            RollCredits();
         } else
         {
-            StopCoroutine(PlayCredits());
-            _credits.SetActive(false);
-        }
-
-        IEnumerator PlayCredits()
-        {
-            yield return new WaitForSeconds(50f);
-            _credits.SetActive(false);
+            creditsOn = false;
+            RollCredits();
         }
     }
 }
