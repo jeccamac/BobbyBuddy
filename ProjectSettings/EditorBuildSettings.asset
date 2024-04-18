@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/Scenes/DentistOffice.unity
     guid: 63b3776fc1947dd498705203bc6e7620
+  - enabled: 1
+    path: Assets/_Game/Scenes/Patio.unity
+    guid: e17d1047ff632c845ad649e7854a281c
   m_configObjects: {}

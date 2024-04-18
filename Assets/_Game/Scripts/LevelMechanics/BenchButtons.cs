@@ -30,6 +30,7 @@ public class BenchButtons : MonoBehaviour
         else 
         { 
             isPanelActive = false;
+            benchUI.Play("IdleOut");
             togglePanel.SetActive(false); 
         }
     }
