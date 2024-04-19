@@ -14,7 +14,7 @@ public class DragController : MonoBehaviour
     private Vector3 offset;
     private float initDist;    
     private bool isDragging = false;
-    [SerializeField] private TriggerEvent triggerEvent;
+    [SerializeField] private TriggerEvent[] triggerEvent = {};
     private Animator bobbyAnim;
 
     private void Awake() 
@@ -80,7 +80,10 @@ public class DragController : MonoBehaviour
             //if touch tap hit trigger box, invoke event
             if (hit.collider.tag == "Trigger")
             {
-                triggerEvent.TriggerInvoke();
+                for(int i = 0; i<triggerEvent.Length; i++)
+                {
+                    triggerEvent[i].TriggerInvoke();
+                }
             }
         } //END if began touching screen
 
