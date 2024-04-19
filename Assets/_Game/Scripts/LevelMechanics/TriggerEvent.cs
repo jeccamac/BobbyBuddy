@@ -50,6 +50,7 @@ public class TriggerEvent : MonoBehaviour
     public void TriggerInvoke()
     {
         invokeMethod.Invoke(); //invoke event that is defined in objTrigger
+        Debug.Log("trigger with touch");
     }
 
 }
