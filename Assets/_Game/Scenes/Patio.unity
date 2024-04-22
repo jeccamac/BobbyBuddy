@@ -1920,7 +1920,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 958100600}
         m_TargetAssemblyTypeName: GardenButtons, Assembly-CSharp
-        m_MethodName: TogglePanel
+        m_MethodName: ToggleGardenMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 19faa6b97d67d7a42b3aa57909d2fdbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4fe131023b1966544b7048e4ff71de19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8421,6 +8421,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8aeb3ea98a8b47647a9be8fe2da2e4d8, type: 3}
+--- !u!1 &939626704 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1042845285218595176, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 1983353592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &947333505
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8852,8 +8858,8 @@ MonoBehaviour:
   - {fileID: 314818085}
   - {fileID: 841002183}
   - {fileID: 1137042653}
-  - {fileID: 1627519730}
-  - {fileID: 714465941}
+  - {fileID: 2106575406}
+  - {fileID: 939626704}
 --- !u!95 &958100601
 Animator:
   serializedVersion: 5
@@ -15795,8 +15801,8 @@ MonoBehaviour:
   - {fileID: 314818085}
   - {fileID: 841002183}
   - {fileID: 1137042653}
-  - {fileID: 1627519730}
-  - {fileID: 714465941}
+  - {fileID: 2106575406}
+  - {fileID: 939626704}
 --- !u!1001 &1751605424
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16865,7 +16871,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1739330388}
         m_TargetAssemblyTypeName: BenchButtons, Assembly-CSharp
-        m_MethodName: TogglePanel
+        m_MethodName: ToggleBenchMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16895,7 +16901,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 19faa6b97d67d7a42b3aa57909d2fdbd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4fe131023b1966544b7048e4ff71de19, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19419,6 +19425,12 @@ Transform:
   - {fileID: 1391556229}
   m_Father: {fileID: 200438276}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2106575406 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4931179401628554185, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 1983353592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2111482526
 PrefabInstance:
   m_ObjectHideFlags: 0

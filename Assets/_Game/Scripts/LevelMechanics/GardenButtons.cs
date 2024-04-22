@@ -35,21 +35,26 @@ public class GardenButtons : MonoBehaviour
             togglePanel.SetActive(false); 
         }
     }
-    public void TogglePanel()
+
+    private void PanelActive()
+    {
+        if (isPanelActive)
+        {
+            gardenUI.enabled = true;
+            gardenUI.Play("SlideIn");
+        } else { gardenUI.Play("SlideOut"); }
+    }
+    public void ToggleGardenMenu()
     {
         gardenUI.StopPlayback();
         if (!isPanelActive)
         { 
-            gardenUI.enabled = true;
-            gardenUI.Play("SlideIn");
             isPanelActive = true;
-            Debug.Log("panel is active ");
-            
+            PanelActive();
         } else 
         { 
-            gardenUI.Play("SlideOut"); 
             isPanelActive = false;
-            Debug.Log("panel is not active");
+            PanelActive();
         }
     }
     public void GardenGreen()
