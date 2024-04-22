@@ -34,19 +34,25 @@ public class BenchButtons : MonoBehaviour
             togglePanel.SetActive(false); 
         }
     }
-    public void TogglePanel()
+
+    private void PanelActive()
+    {
+        if (isPanelActive)
+        {
+            benchUI.enabled = true;
+            benchUI.Play("SlideIn");
+        } else { benchUI.Play("SlideOut");  }
+    }
+    public void ToggleBenchMenu()
     {
         if (!isPanelActive)
         { 
-            benchUI.enabled = true;
-            benchUI.Play("SlideIn");
             isPanelActive = true;
-            Debug.Log("panel is active ");
+            PanelActive();
         } else 
         { 
-            benchUI.Play("SlideOut"); 
             isPanelActive = false;
-            Debug.Log("panel is not active");
+            PanelActive();
         }
     }
     public void PetGecko()
