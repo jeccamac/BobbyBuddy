@@ -73,18 +73,20 @@ public class DragController : MonoBehaviour
                     // }
                     
                 }                
-            }
 
-            
-
-            //if touch tap hit trigger box, invoke event
-            if (hit.collider.tag == "Trigger")
-            {
-                for(int i = 0; i<triggerEvent.Length; i++)
+                //if touch tap hit trigger box, invoke event
+                else if (hit.collider.tag == "Trigger")
                 {
-                    triggerEvent[i].TriggerInvoke();
+                    if (triggerEvent != null)
+                    {
+                        for (int i=0; i<triggerEvent.Length; i++)
+                        {
+                            triggerEvent[i].TriggerInvoke();
+                        }
+                    }
                 }
             }
+            
         } //END if began touching screen
 
         //conditions for dragging object
