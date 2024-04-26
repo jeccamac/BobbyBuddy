@@ -357,6 +357,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TriggerEvent_MW
       objectReference: {fileID: 0}
+    - target: {fileID: 4178234130292213297, guid: 43c9fe6ab215feb408c022386036e05d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 5220891046304967279, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
       propertyPath: objTrigger
@@ -738,27 +743,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.16, y: 0.22, z: 0.08}
   m_Center: {x: 0, y: 0.15, z: 0}
---- !u!95 &194736689
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132149348978557}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 05bf2b7d95a50f34eb9f83c4b2b5c8c5, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 1
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &208978261
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9006,7 +8990,7 @@ PrefabInstance:
     - target: {fileID: 9095977077147979536, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.525
+      value: 1.554
       objectReference: {fileID: 0}
     - target: {fileID: 9095977077147979536, guid: 43c9fe6ab215feb408c022386036e05d,
         type: 3}
@@ -11314,6 +11298,11 @@ PrefabInstance:
       propertyPath: triggerEvent
       value: 
       objectReference: {fileID: 1770131492}
+    - target: {fileID: 3624419927866081929, guid: ef2987d2a2224c444bc571df7c30997f,
+        type: 3}
+      propertyPath: triggerEvent.Array.data[0]
+      value: 
+      objectReference: {fileID: 1770131492}
     - target: {fileID: 5190033043369601539, guid: ef2987d2a2224c444bc571df7c30997f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12185,7 +12174,7 @@ GameObject:
   - component: {fileID: 543450653539046855}
   - component: {fileID: 194736688}
   - component: {fileID: 194736687}
-  - component: {fileID: 194736689}
+  - component: {fileID: 919132149348978558}
   m_Layer: 0
   m_Name: Mouthwash
   m_TagString: Draggable
@@ -12193,6 +12182,27 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!95 &919132149348978558
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149348978557}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05bf2b7d95a50f34eb9f83c4b2b5c8c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1018729674166497158
 GameObject:
   m_ObjectHideFlags: 0

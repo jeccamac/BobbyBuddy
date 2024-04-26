@@ -298,24 +298,29 @@ public class BathroomActions : MonoBehaviour
             _animMW.Play("Open");
 
             yield return new WaitForSeconds(2f);
+            _triggerMW.SetActive(false);
             _mwTapbox.SetActive(true); 
             _animMW.Play("TapBottle");
+            Debug.Log("start mw, start tapping bottle");
         }
     }
 
     public void TapMW()
     {
+        Debug.Log("CLICKED TO POUR");
         if (!clickedAway)
         {
             if (_animMW != null)
             {
                 StartCoroutine(PourMouthwash());
+                Debug.Log("START POURING");
             }
 
             IEnumerator PourMouthwash()
             {
                 _animMW.enabled = true;
                 _animMW.Play("Pour");
+                Debug.Log("POUR");
                 _bobbyAnim.Play("OpenMouth");
                 _mwTapbox.SetActive(false);
 
