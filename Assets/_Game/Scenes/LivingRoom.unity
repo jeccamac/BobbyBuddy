@@ -491,6 +491,11 @@ PrefabInstance:
       propertyPath: triggerEvent
       value: 
       objectReference: {fileID: 2022478947}
+    - target: {fileID: 3624419927866081929, guid: ef2987d2a2224c444bc571df7c30997f,
+        type: 3}
+      propertyPath: triggerEvent.Array.data[0]
+      value: 
+      objectReference: {fileID: 2022478947}
     - target: {fileID: 5190033043369601539, guid: ef2987d2a2224c444bc571df7c30997f,
         type: 3}
       propertyPath: m_LocalPosition.x
