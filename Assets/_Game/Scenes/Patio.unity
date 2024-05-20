@@ -8727,8 +8727,8 @@ MonoBehaviour:
   - {fileID: 314818085}
   - {fileID: 841002183}
   - {fileID: 1137042653}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1298754697}
+  - {fileID: 1389312818}
 --- !u!95 &958100601
 Animator:
   serializedVersion: 5
@@ -11843,6 +11843,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 665072892}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1298754697 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4931179401628554185, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 1983353592}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1313978508
 GameObject:
   m_ObjectHideFlags: 0
@@ -12539,6 +12545,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4002705895766640, guid: 3842725ff6b24b44b91f9141f55e89cb,
     type: 3}
   m_PrefabInstance: {fileID: 1386837730}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1389312818 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1042845285218595176, guid: 136114721b1348449bb045e6abda9084,
+    type: 3}
+  m_PrefabInstance: {fileID: 1983353592}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1391556229 stripped
 Transform:
@@ -15680,8 +15692,8 @@ MonoBehaviour:
   - {fileID: 314818085}
   - {fileID: 841002183}
   - {fileID: 1137042653}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1298754697}
+  - {fileID: 1389312818}
 --- !u!1001 &1751605424
 PrefabInstance:
   m_ObjectHideFlags: 0
