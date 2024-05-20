@@ -100,7 +100,7 @@ public class DataManager : MonoBehaviour
         }
         else if (dentalState == 1 && currentHealth >= 50) { dentalState = 1; } //rot1 above 50
         else if (dentalState == 1 && currentHealth <= 50) { dentalState = 0; } //rot2 below 50
-        else if (dentalState == 1 && currentHealth >= 50) { dentalState = 1; } //back up to rot1
+        else if (dentalState == 0 && currentHealth >= 50) { dentalState = 1; } //back up to rot1
     }
 
     private void HungerStatus()
