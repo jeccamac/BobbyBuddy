@@ -31,7 +31,7 @@ public class ToothHealth : MonoBehaviour
         _currentHealth = DataManager.Instance.currentHealth;
         _maxHealth = DataManager.Instance.maxHealth;
 
-        SwapIcons();
+        SwapIcons(); //update display for current health
     }
 
     private void Update()

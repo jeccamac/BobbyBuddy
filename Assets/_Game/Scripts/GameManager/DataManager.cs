@@ -57,7 +57,7 @@ public class DataManager : MonoBehaviour
     private void Update()
     {
         ChangeDentalState();
-        HungerStatus();
+        //HungerStatus();
     }
 
     public Room GetRoom()
@@ -142,7 +142,7 @@ public class DataManager : MonoBehaviour
 
     public void UpHealth()
     {
-        var curHealth = currentHealth;
+        var curHealth = currentHealth; //save health stat to be compared later to new health stat
         if (currentHealth <= 50)
         {
             currentHealth += 50; //increase 1 dental state
@@ -151,8 +151,11 @@ public class DataManager : MonoBehaviour
             dentalState += 1; //increase to next dental state
             dentalState = Mathf.Clamp(dentalState, 0, 5);
             currentHealth = Mathf.Abs(50 - curHealth); //subtract the next dental state health from previous health stat
+        } else if (currentHealth >= 50 && dentalState == 1)
+        {
+            dentalState += 1;
+            currentHealth = Mathf.Abs(50 - curHealth);
         }
-
         Debug.Log("Dental state is currently" + dentalState);
         Debug.Log("Tooth health is currently" + currentHealth);
         // dentalState += 2;
